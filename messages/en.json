@@ -1,0 +1,44 @@
+{
+  "Sections": {
+    "HeroSection": {
+      "title": "AI for coops from coops!",
+      "subtitle": "Exploring how AI can empower cooperativism. Using technology to address real-world cooperative challenges while embracing the movement principles.",
+      "firstAnimationText": "Innovation",
+      "secondAnimationText": "development",
+      "thirdAnimationText": "other worlds are possible together",
+      "navbarTitle": "AI for Coops"
+    },
+    "Projects": {
+      "title": "Case of studies",
+      "subtitle": "Case studies on how AI is transforming the cooperative world",
+      "navbarTitle": "Case Studies"
+    },
+    "About": {
+      "title": "What we are doing",
+      "subtitle": "Learn about our initiatives and how we're using AI to solve real-world problems",
+      "navbarTitle": "What we are doing",
+      "keyPoint1Title": "klslksnfasf",
+      "keyPoint2Title": "klslksnfasf",
+      "keyPoint3Title": "klslksnfasf",
+      "keyPoint1Description": "klslksnfasf",
+      "keyPoint2Description": "klslksnfasf",
+      "keyPoint3Description": "klslksnfasf",
+      "main_text": "klsdnfksdnfksdnfkjdsfndsjf"
+    },
+    "TheProcess": {
+      "title": "From scratch to the solution",
+      "subtitle": "Learn about our initiatives and how we're using AI to solve real-world problems",
+      "navbarTitle": "How"
+    },
+    "WhoWeAre": {
+      "title": "Who we are",
+      "subtitle": "A team of visionaries committed to cooperativism and technology",
+      "navbarTitle": "Who We Are"
+    },
+    "Contact": {
+      "title": "Contact us",
+      "subtitle": "Get in touch with us and find out how we can collaborate",
+      "navbarTitle": "Contact us"
+    }
+  }
+}

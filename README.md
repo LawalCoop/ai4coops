@@ -1,46 +1,54 @@
-# Ronit.io
+# AI4Coops
 
-Welcome to my personal website!
+AI4Coops is an innovative project created in collaboration between some technology cooperatives from Argentina. Our goal is to leverage the power of artificial intelligence (AI) to develop solutions for real challenges faced by cooperatives, enhancing their work, reach, and impact. We are committed to fostering technological innovation with a strong social consciousness, grounded in cooperative values.
 
-## About
+We believe in the transformative potential of AI when used responsibly, with a focus on fairness, equity, and mutual support.
 
-**Ronit.io** is my personal website where I share my projects, blog posts, and more. It's built using [Next.js](https://nextjs.org) and styled with [Tailwind CSS](https://tailwindcss.com).
+By joining forces, we aim to create tools and resources that promote collaboration, sustainability, and community-based growth.
+
+### Our Mission
+
+- Develop AI solutions tailored to the needs of cooperatives.
+- Promote cooperative values such as solidarity, democracy, and equity in the tech space.
+- Foster innovation with social responsibility by creating tools that address real-world challenges faced by cooperatives.
+- Enhance collaboration between technology cooperatives to build a stronger, more resilient ecosystem.
+
+### About this project
+
+This is the landing page we develop to show the communities our mission.
 
 ## Getting Started
 
 To run the website locally, follow these steps:
 
 1. Clone the repository:
-    ```bash
-    git clone https://github.com/ronitjadhav/ronit.io.git
-    cd ronit.io
-    ```
+
+   ```bash
+   git clone git@github.com:LawalCoop/ai4coops.git
+   cd ai4coops
+   ```
 
 2. Install dependencies:
-    ```bash
-    npm install
-    # or
-    yarn install
-    # or
-    pnpm install
-    ```
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
 
 3. Run the development server:
-    ```bash
-    npm run dev
-    # or
-    yarn dev
-    # or
-    pnpm dev
-    ```
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the website.
-
-## Features
-
-- **Projects**: A showcase of my projects with descriptions and links.
-- **Blog**: Articles and tutorials on various topics.
-- **Contact**: A form to get in touch with me.
 
 ## Technologies Used
 
@@ -48,16 +56,9 @@ To run the website locally, follow these steps:
 - **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
 - **TypeScript**: A strongly typed programming language that builds on JavaScript.
 
-## Contributing
-
-Contributions are welcome! If you have any suggestions or find any issues, please open an issue or submit a pull request.
-
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
-## Contact
-
-You can reach me at [ronit@example.com](mailto:ronit@example.com) or follow me on [Twitter](https://twitter.com/ronitjadhav).
-
-Thank you for visiting my website!
+This website was built over the code base of a template from the Open Source project:
+[Neo Brutalism](https://www.neobrutalism.dev) | [GitHub Repository](https://github.com/ekmas/neobrutalism-components)

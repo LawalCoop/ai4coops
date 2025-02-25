@@ -1,12 +1,14 @@
 {
-  "name": "ronit.io",
+  "name": "ai4coops",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -22,6 +24,7 @@
     "framer-motion": "^11.15.0",
     "lucide-react": "^0.468.0",
     "next": "15.1.0",
+    "next-intl": "^3.26.5",
     "next-themes": "^0.4.4",
     "ol": "^10.3.1",
     "ol-mapbox-style": "^12.4.0",
@@ -40,9 +43,17 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
+    "@typescript-eslint/eslint-plugin": "^8.25.0",
+    "@typescript-eslint/parser": "^8.25.0",
+    "eslint": "^9.21.0",
     "eslint-config-next": "15.1.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.1.0",
     "postcss": "^8",
+    "prettier": "^3.5.2",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

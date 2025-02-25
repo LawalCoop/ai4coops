@@ -1,0 +1,44 @@
+{
+  "Sections": {
+    "HeroSection": {
+      "title": "¡IA para cooperativas, por cooperativas!",
+      "subtitle": "Explorando cómo la IA puede empoderar al cooperativismo. Usando la tecnología para abordar los desafíos reales de las cooperativas, mientras abrazamos los principios del movimiento.",
+      "firstAnimationText": "Innovación",
+      "secondAnimationText": "desarrollo",
+      "thirdAnimationText": "otros mundos son posibles juntos",
+      "navbarTitle": "IA para Cooperativas"
+    },
+    "Projects": {
+      "title": "Casos de estudio",
+      "subtitle": "Estudios de caso sobre cómo la IA está transformando el mundo cooperativo",
+      "navbarTitle": "Estudios de Caso"
+    },
+    "About": {
+      "title": "Lo que estamos haciendo",
+      "subtitle": "Conoce nuestras iniciativas y cómo estamos usando la IA para resolver problemas reales",
+      "navbarTitle": "Lo que estamos haciendo",
+      "keyPoint1Title": "Título del punto clave 1",
+      "keyPoint2Title": "Título del punto clave 2",
+      "keyPoint3Title": "Título del punto clave 3",
+      "keyPoint1Description": "Descripción del punto clave 1",
+      "keyPoint2Description": "Descripción del punto clave 2",
+      "keyPoint3Description": "Descripción del punto clave 3",
+      "main_text": "Texto principal aquí"
+    },
+    "TheProcess": {
+      "title": "De cero a la solución",
+      "subtitle": "Conoce nuestras iniciativas y cómo estamos usando la IA para resolver problemas reales",
+      "navbarTitle": "Cómo"
+    },
+    "WhoWeAre": {
+      "title": "Quiénes somos",
+      "subtitle": "Un equipo de visionarios comprometidos con el cooperativismo y la tecnología",
+      "navbarTitle": "Quiénes Somos"
+    },
+    "Contact": {
+      "title": "Contáctanos",
+      "subtitle": "Ponte en contacto con nosotros y descubre cómo podemos colaborar",
+      "navbarTitle": "Contáctanos"
+    }
+  }
+}

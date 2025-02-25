@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 
-import {cn} from '../../lib/utils'
+import { cn } from '../../lib/utils'
 
 const H1 = forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElement>>(
   (props, ref) => {
@@ -10,12 +10,13 @@ const H1 = forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElemen
         ref={ref}
         className={cn(
           'scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl',
-          props.className,
-        )}>
+          props.className
+        )}
+      >
         {props.children}
       </h1>
     )
-  },
+  }
 )
 
 H1.displayName = 'H1'
@@ -29,12 +30,13 @@ const H2 = forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElemen
         ref={ref}
         className={cn(
           'scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0',
-          props.className,
-        )}>
+          props.className
+        )}
+      >
         {props.children}
       </h2>
     )
-  },
+  }
 )
 
 H2.displayName = 'H2'
@@ -46,11 +48,12 @@ const H3 = forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElemen
       <h3
         {...props}
         ref={ref}
-        className={cn('scroll-m-20 text-2xl font-semibold tracking-tight', props.className)}>
+        className={cn('scroll-m-20 text-2xl font-semibold tracking-tight', props.className)}
+      >
         {props.children}
       </h3>
     )
-  },
+  }
 )
 
 H3.displayName = 'H3'
@@ -62,11 +65,12 @@ const H4 = forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElemen
       <h4
         {...props}
         ref={ref}
-        className={cn('scroll-m-20 text-xl font-semibold tracking-tight', props.className)}>
+        className={cn('scroll-m-20 text-xl font-semibold tracking-tight', props.className)}
+      >
         {props.children}
       </h4>
     )
-  },
+  }
 )
 
 H4.displayName = 'H4'
@@ -79,7 +83,7 @@ const Lead = forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraph
         {props.children}
       </p>
     )
-  },
+  }
 )
 
 Lead.displayName = 'Lead'
@@ -91,11 +95,12 @@ const P = forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphEle
       <p
         {...props}
         ref={ref}
-        className={cn('leading-7 [&:not(:first-child)]:mt-6', props.className)}>
+        className={cn('leading-7 [&:not(:first-child)]:mt-6', props.className)}
+      >
         {props.children}
       </p>
     )
-  },
+  }
 )
 
 P.displayName = 'P'
@@ -119,7 +124,7 @@ const Small = forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagrap
         {props.children}
       </p>
     )
-  },
+  }
 )
 
 Small.displayName = 'Small'
@@ -144,12 +149,13 @@ const InlineCode = forwardRef<HTMLSpanElement, React.HTMLAttributes<HTMLSpanElem
         ref={ref}
         className={cn(
           'relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold',
-          props.className,
-        )}>
+          props.className
+        )}
+      >
         {props.children}
       </code>
     )
-  },
+  }
 )
 
 InlineCode.displayName = 'InlineCode'
@@ -171,7 +177,8 @@ const Quote = forwardRef<HTMLQuoteElement, React.HTMLAttributes<HTMLQuoteElement
     <blockquote
       {...props}
       ref={ref}
-      className={cn('mt-6 border-l-2 pl-6 italic text-muted-foreground', props.className)}>
+      className={cn('mt-6 border-l-2 pl-6 italic text-muted-foreground', props.className)}
+    >
       {props.children}
     </blockquote>
   )
