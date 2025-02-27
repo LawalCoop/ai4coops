@@ -171,7 +171,7 @@ function NavLinks() {
   const links = [
     { href: '#home', label: t('HeroSection.navbarTitle') },
     { href: '#whatWeAreDoing', label: t('About.navbarTitle') },
-    { href: '#theProcess', label: t('TheProcess.navbarTitle') },
+    { href: '#aboutHow', label: t('AboutHow.navbarTitle') },
     { href: '#whoWeAre', label: t('WhoWeAre.navbarTitle') },
     { href: '#projects', label: t('Projects.navbarTitle') },
   ]
@@ -217,7 +217,7 @@ function MobileNavLinks({
   const links = [
     { href: '#home', label: t('HeroSection.navbarTitle') },
     { href: '#whatWeAreDoing', label: t('About.navbarTitle') },
-    { href: '#theProcess', label: t('TheProcess.navbarTitle') },
+    { href: '#aboutHow', label: t('AboutHow.navbarTitle') },
     { href: '#whoWeAre', label: t('WhoWeAre.navbarTitle') },
     { href: '#projects', label: t('Projects.navbarTitle') },
   ]

@@ -20,15 +20,22 @@
       "keyPoint1Title": "Título del punto clave 1",
       "keyPoint2Title": "Título del punto clave 2",
       "keyPoint3Title": "Título del punto clave 3",
-      "keyPoint1Description": "Descripción del punto clave 1",
-      "keyPoint2Description": "Descripción del punto clave 2",
-      "keyPoint3Description": "Descripción del punto clave 3",
-      "main_text": "Texto principal aquí"
+      "keyPoint1Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus, ut laoreet risus viverr",
+      "keyPoint2Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus, ut laoreet risus viverr",
+      "keyPoint3Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus, ut laoreet risus viverr",
+      "main_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus, ut laoreet risus viverr"
     },
-    "TheProcess": {
+    "AboutHow": {
       "title": "De cero a la solución",
       "subtitle": "Conoce nuestras iniciativas y cómo estamos usando la IA para resolver problemas reales",
-      "navbarTitle": "Cómo"
+      "navbarTitle": "Cómo",
+      "phase1_keyPoint1": "sakfnasfnlaf",
+      "phase1_keyPoint2": "sakfnasfnlaf",
+      "phase1_keyPoint3": "sakfnasfnlaf",
+      "phase2_text": "sakfnasfnlafsmanfaslkfnlskafnklasnflkasnflkasfnlaskfnlas",
+      "phase2_title": "sakfnasfnlaf",
+      "phase3_text": "sakfnasfnlafsmanfaslkfnlskafnklasnflkasnflkasfnlaskfnlas",
+      "phase3_title": "sakfnasfnlaf"
     },
     "WhoWeAre": {
       "title": "Quiénes somos",

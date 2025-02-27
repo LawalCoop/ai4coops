@@ -17,18 +17,25 @@
       "title": "What we are doing",
       "subtitle": "Learn about our initiatives and how we're using AI to solve real-world problems",
       "navbarTitle": "What we are doing",
-      "keyPoint1Title": "klslksnfasf",
-      "keyPoint2Title": "klslksnfasf",
-      "keyPoint3Title": "klslksnfasf",
-      "keyPoint1Description": "klslksnfasf",
-      "keyPoint2Description": "klslksnfasf",
-      "keyPoint3Description": "klslksnfasf",
-      "main_text": "klsdnfksdnfksdnfkjdsfndsjf"
+      "keyPoint1Title": "Artificial Intelligence",
+      "keyPoint2Title": "Human Center Solutions",
+      "keyPoint3Title": "Intercooperation",
+      "keyPoint1Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus, ut laoreet risus viverr",
+      "keyPoint2Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus, ut laoreet risus viverr",
+      "keyPoint3Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus, ut laoreet risus viverr",
+      "main_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus, ut laoreet risus viverr"
     },
-    "TheProcess": {
+    "AboutHow": {
       "title": "From scratch to the solution",
       "subtitle": "Learn about our initiatives and how we're using AI to solve real-world problems",
-      "navbarTitle": "How"
+      "navbarTitle": "How",
+      "phase1_keyPoint1": "sakfnasfnlaf",
+      "phase1_keyPoint2": "sakfnasfnlaf",
+      "phase1_keyPoint3": "sakfnasfnlaf",
+      "phase2_text": "sakfnasfnlafsmanfaslkfnlskafnklasnflkasnflkasfnlaskfnlas",
+      "phase2_title": "sakfnasfnlaf",
+      "phase3_text": "sakfnasfnlafsmanfaslkfnlskafnklasnflkasnflkasfnlaskfnlas",
+      "phase3_title": "sakfnasfnlaf"
     },
     "WhoWeAre": {
       "title": "Who we are",

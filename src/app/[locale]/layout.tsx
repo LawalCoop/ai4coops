@@ -31,7 +31,6 @@ export default async function RootLayout({
   children: React.ReactNode
   params: any
 }>) {
-
   const { locale } = params
   if (!routing.locales.includes(locale as any)) {
     notFound()

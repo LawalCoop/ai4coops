@@ -15,7 +15,7 @@ export default function About() {
   ]
 
   return (
-    <div className="w-full min-h-screen bg-white dark:bg-darkBg py-[110px] lg:py-[150px]">
+    <div className="w-full min-h-screen bg-bg dark:bg-darkBg py-[110px] lg:py-[150px]">
       <div className="mx-auto w-container max-w-full px-5 text-left flex flex-col lg:flex-col items-center gap-10">
         <div className="w-full flex flex-col lg:flex-row items-center gap-10">
           <div className="lg:w-1/2 flex justify-start">
@@ -32,7 +32,7 @@ export default function About() {
                 {t('title')} 🚀
               </h1>
             </div>
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">{t('subtitle')}</p>
+            <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">{t('main_text')}</p>
           </div>
         </div>
         <div className="w-full flex flex-col lg:flex-row justify-between gap-12 text-left mt-10">

@@ -15,7 +15,13 @@ const ProjectsShowcase = dynamic(() => import('@/sections/projects'), {
   ),
 })
 
-const whatWeAreDoing = dynamic(() => import('@/sections/about'), {
+const About = dynamic(() => import('@/sections/about'), {
+  loading: () => (
+    <div className="h-screen flex items-center justify-center">Loading the mission...</div>
+  ),
+})
+
+const AboutHow = dynamic(() => import('@/sections/aboutHow'), {
   loading: () => (
     <div className="h-screen flex items-center justify-center">Loading the mission...</div>
   ),
@@ -36,8 +42,8 @@ export default function Home() {
 
   const sections: Section[] = [
     { id: 'home', component: Header, priority: true },
-    { id: 'whatWeAreDoing', component: whatWeAreDoing, priority: false },
-    { id: 'theProcess', component: ProjectsShowcase, priority: false },
+    { id: 'about', component: About, priority: false },
+    { id: 'aboutHow', component: AboutHow, priority: false },
     { id: 'whoWeAre', component: ProjectsShowcase, priority: false },
     { id: 'projects', component: ProjectsShowcase, priority: false },
   ]
