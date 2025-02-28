@@ -116,7 +116,7 @@ export default function HeroSection() {
   return (
     <header className="relative flex min-h-[100vh] w-full flex-col items-center justify-center bg-bg dark:bg-darkBg bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-[size:70px_70px] pt-16 lg:pt-0">
       <motion.div
-        className="mx-auto w-container max-w-full px-5 py-[110px] text-left lg:py-[150px] flex flex-col lg:flex-row"
+        className="mx-auto w-container max-w-full px-5 py-[110px] text-left lg:py-[120px] flex flex-col lg:flex-row"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -182,7 +182,7 @@ export default function HeroSection() {
                   email: 'Email',
                   message: 'Message',
                 }}
-                buttonClassName="bg-primary dark:bg-darkPrimary h-12 text-text font-heading md:text-lg lg:h-14 lg:text-xl"
+                buttonClassName="dark:border-darkBorder border-4 dark:text-text font-bold dark:shadow-darkShadow dark:bg-darkPrimary"
               />
             </motion.div>
           </div>

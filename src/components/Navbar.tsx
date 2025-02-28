@@ -70,14 +70,14 @@ const NavBar = () => {
       >
         <div
           className={twMerge(
-            `mx-auto mt-4 flex h-[100px] w-full max-w-screen-xl
-        items-center justify-between px-6 transition-transform
-        duration-300 ease-in-out bg-yellow-300 dark:bg-darkBg transform shadow-black dark:shadow-darkPurple dark:border-darkPurple `,
-            showNav ? 'translate-y-0' : '-translate-y-[calc(100%+40px)]'
+              `mx-auto mt-4 flex h-[80px] w-full max-w-screen-xl
+              items-center justify-between px-6 transition-transform
+              duration-300 ease-in-out bg-yellow-300 dark:bg-darkBg transform`,
+              showNav ? 'translate-y-0' : '-translate-y-[calc(100%+40px)]'
           )}
           style={{
-            border: '3px  shadow-black #a833ff',
-            boxShadow: '8px 8px 0px 0px #a833ff',
+              border: '3px solid var(--border-color)',
+              boxShadow: '8px 8px 0px 0px var(--shadow-color)',
           }}
         >
           {/* Logo */}
@@ -111,20 +111,25 @@ const NavBar = () => {
                   email: 'Email',
                   message: 'Message',
                 }}
+                buttonClassName="dark:border-darkBorder border-4 dark:text-text font-bold dark:shadow-darkShadow dark:bg-darkPrimary"
               />
-              <ThemeSwitcher />
+              <ThemeSwitcher
+                    className="dark:border-darkBorder dark:text-text border-4 font-bold dark:shadow-darkShadow dark:bg-darkPrimary"
+                  />
             </div>
           </div>
 
           {/* Mobile Menu Toggle */}
           <div className="md:hidden flex items-center gap-4">
-            <ThemeSwitcher />
+            <ThemeSwitcher
+              className="text-text bg-primary dar_bg-darkPrimary dark:border-darkBorder dark:text-text border-2 font-bold dark:shadow-darkShadow dark:bg-darkPrimary"
+            />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 bg-main dark:bg-main transform hover:-rotate-3 transition-transform"
+              className="border-border dark:border-darkBorder p-3 bg-primary dark:bg-darkPrimary transform hover:-rotate-3 transition-transform"
               style={{
-                border: '2px solid black',
-                boxShadow: '4px 4px 0px 0px #000000',
+                  border: '2px solid var(--border-color)',
+                  boxShadow: '3px 3px 0px 0px var(--shadow-color)',
               }}
             >
               <div className="w-6 h-0.5 bg-black mb-1"></div>
@@ -146,17 +151,18 @@ const NavBar = () => {
             }}
           >
             <MobileNavLinks setIsOpen={setIsOpen} />
-            <div className="mt-4 p-2">
+            <div className="mt-4 p-2 ">
               <DialogComponent
-                triggerButtonText="Get in Touch!"
-                dialogTitle="Get in Touch"
-                dialogDescription="Please fill out the form below to get in touch with us."
-                inputLabels={{
-                  name: 'Name',
-                  email: 'Email',
-                  message: 'Message',
-                }}
-              />
+                  triggerButtonText="Get in Touch!"
+                  dialogTitle="Get in Touch"
+                  dialogDescription="Please fill out the form below to get in touch with me."
+                  inputLabels={{
+                    name: 'Name',
+                    email: 'Email',
+                    message: 'Message',
+                  }}
+                  buttonClassName="dark:border-darkBorder border-2 dark:text-text font-bold dark:shadow-darkShadow dark:bg-darkPrimary"
+                />
             </div>
           </div>
         </div>
@@ -230,12 +236,9 @@ function MobileNavLinks({
           href={link.href}
           target={link.href.startsWith('http') ? '_blank' : '_self'}
           rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-          className="p-2 text-center text-lg font-bold bg-yellow-300 dark:bg-darkBg
+          className="p-2 text-center text-lg font-bold
                              transform hover:rotate-2 transition-transform"
-          style={{
-            border: '2px solid black',
-            boxShadow: '4px 4px 0px 0px #000000',
-          }}
+
           onClick={e => {
             if (link.href.startsWith('#')) {
               e.preventDefault()

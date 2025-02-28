@@ -13,11 +13,16 @@ const config: Config = {
       width: {
         container: '1300px',
       },
+      lightShadow: '#ddd',
+      darkShadow: '#292929',
+      lightBorder: '#ddd',
+      darkBorder: '#292929',
       colors: {
         // Light mode
         bg: '#f5f7fa',
         text: '#212121',
-        border: '#ddd',
+        border: '#000',
+        shadow: '#000',
         primary: '#ff304f', // Rojo neón
         secondary: '#00e6ff', // Celeste neón
         accent: '#00ff99', // Verde neón
@@ -27,9 +32,10 @@ const config: Config = {
         orange: '#ff6600', // Naranja fuego
 
         // Dark mode
-        darkBg: '#121212',
-        darkText: '#e0e0e0',
-        darkBorder: '#292929',
+        darkBg: '#212121',
+        darkText: '#eeefe9',
+        darkShadow:'#000',
+        darkBorder: '#000',
         darkPrimary: '#ff304f',
         darkSecondary: '#00e6ff',
         darkAccent: '#00ff99',

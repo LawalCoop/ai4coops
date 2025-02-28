@@ -15,7 +15,7 @@ export default function About() {
   ]
 
   return (
-    <div className="w-full min-h-screen bg-bg dark:bg-darkBg py-[110px] lg:py-[150px]">
+    <div className="w-full min-h-screen bg-bg dark:bg-darkBg py-[110px] lg:py-[120px]">
       <div className="mx-auto w-container max-w-full px-5 text-left flex flex-col lg:flex-col items-center gap-10">
         <div className="w-full flex flex-col lg:flex-row items-center gap-10">
           <div className="lg:w-1/2 flex justify-start">
@@ -23,9 +23,9 @@ export default function About() {
           </div>
           <div className="lg:w-1/2 text-right">
             <div
-              className=" dark:border-darkPrimary bg-bg border-4 border-black dark:bg-darkBg
-                          shadow-[8px_8px_0px_0px_#ff304f]
-                          transform hover:-translate-y-1 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]
+              className="dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
+                          shadow-[8px_8px_0px_0px] shadow-shadow dark:shadow-darkShadow
+                          transform hover:-translate-y-1  hover:shadow-primary hover:shadow-[12px_12px_0px_0px] dark:hover:shadow-primary
                           transition-all duration-300 p-6 mb-10"
             >
               <h1 className="text-4xl md:text-5xl font-black text-black text-center dark:text-darkText">

@@ -31,3 +31,20 @@ body::-webkit-scrollbar-thumb {
     scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
   }
 }
+
+:root {
+  --border-color-light: #000;
+  --border-color-dark: #000;
+  --shadow-color-light: #000;
+  --shadow-color-dark: #000;
+}
+
+.dark {
+  --border-color: var(--border-color-dark);
+  --shadow-color: var(--shadow-color-dark);
+}
+
+.light {
+  --border-color: var(--border-color-light);
+  --shadow-color: var(--shadow-color-light);
+}
