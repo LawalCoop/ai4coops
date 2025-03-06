@@ -47,6 +47,11 @@
       "subtitle": "A team of visionaries committed to cooperativism and technology",
       "navbarTitle": "Who We Are"
     },
+    "Hero": {
+          "subtitle": "Transformando el futuro cooperativo",
+          "title": "La innovación comienza con la colaboración",
+          "description": "Construyendo puentes entre la inteligencia artificial y el movimiento cooperativo para un futuro más inclusivo y sostenible."
+        },
     "Contact": {
       "title": "Contact us",
       "subtitle": "Get in touch with us and find out how we can collaborate",

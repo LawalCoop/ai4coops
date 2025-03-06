@@ -4,6 +4,9 @@ import Image from 'next/image'
 import AI4CoopsAbout from '@/media/ai4coopsAbout.png'
 import { useTranslations } from 'next-intl'
 import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion'
+import { ParallaxLines } from '@/components/ui/parallaxLine'
+
+
 
 const BigText = () => {
   const ref = useRef(null)
@@ -47,6 +50,7 @@ export default function About() {
 
   return (
     <>
+
     <motion.div
       ref={sectionRef}
       className="w-full min-h-screen bg-bg dark:bg-darkBg py-[110px] lg:py-[120px] relative overflow-hidden"
@@ -56,6 +60,7 @@ export default function About() {
     >
       {/* Fondo con gradiente sutil */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
+      <ParallaxLines />
 
       <div className="mx-auto w-container max-w-full px-5 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-10">
@@ -124,7 +129,6 @@ export default function About() {
             </motion.p>
           </motion.div>
         </div>
-
         {/* Texto grande como transición */}
               <BigText />
 
