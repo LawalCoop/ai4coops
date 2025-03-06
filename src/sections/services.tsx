@@ -3,10 +3,10 @@
 import React from 'react'
 import { InfoCardsContainer, type InfoCardProps } from './info-card'
 import { useTranslations } from 'next-intl'
-import Character1 from '@/media/svgs/Character1.svg'
-import Character2 from '@/media/svgs/Character2.svg'
-import Character3 from '@/media/svgs/Character3.svg'
-import Character4 from '@/media/svgs/Character4.svg'
+import ComputerVision from '@/media/computervision.png'
+import Prediction from '@/media/prediction.png'
+import LLMs from '@/media/llms.png'
+import BigData from '@/media/bigdata.png'
 
 export default function Services() {
   const t = useTranslations('Sections.Services')
@@ -15,7 +15,7 @@ export default function Services() {
     {
       title: t('service1.title'),
       description: t('service1.description'),
-      imageSrc: Character1,
+      imageSrc: ComputerVision,
       imageAlt: 'Service 1',
       bgColor: 'bg-bg dark:bg-darkBg',
       imagePosition: 'right',
@@ -23,7 +23,7 @@ export default function Services() {
     {
       title: t('service2.title'),
       description: t('service2.description'),
-      imageSrc: Character2,
+      imageSrc: Prediction,
       imageAlt: 'Service 2',
       bgColor: 'bg-bg dark:bg-darkBg',
       imagePosition: 'left',
@@ -31,7 +31,7 @@ export default function Services() {
     {
       title: t('service3.title'),
       description: t('service3.description'),
-      imageSrc: Character3,
+      imageSrc: LLMs,
       imageAlt: 'Service 3',
       bgColor: 'bg-bg dark:bg-darkBg',
       imagePosition: 'right',
@@ -39,7 +39,7 @@ export default function Services() {
     {
       title: t('service4.title'),
       description: t('service4.description'),
-      imageSrc: Character4,
+      imageSrc: BigData,
       imageAlt: 'Service 4',
       bgColor: 'bg-bg dark:bg-darkBg',
       imagePosition: 'left',
@@ -63,9 +63,7 @@ export default function Services() {
           </div>
 
           {/* Subtitle/Description */}
-          <div
-            className=""
-          >
+          <div className="">
             <p className="text-lg md:text-xl text-center text-text dark:text-darkText">
               {t('subtitle')}
             </p>
