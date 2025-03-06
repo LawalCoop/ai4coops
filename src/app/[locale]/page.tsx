@@ -6,6 +6,7 @@ import LoadingScreen from '@/components/loadingScreen'
 import Navbar from '@/components/Navbar'
 import Header from '@/sections/HeroSection'
 import Footer from '@/sections/footer'
+import Services from '@/sections/services'
 
 // Dynamically import heavy components
 
@@ -43,8 +44,8 @@ export default function Home() {
   const sections: Section[] = [
     { id: 'home', component: Header, priority: true },
     { id: 'about', component: About, priority: false },
+    { id: 'whoWeAre', component: Services, priority: false },
     { id: 'aboutHow', component: AboutHow, priority: false },
-    { id: 'whoWeAre', component: ProjectsShowcase, priority: false },
     { id: 'projects', component: ProjectsShowcase, priority: false },
   ]
 

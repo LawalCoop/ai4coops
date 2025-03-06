@@ -6,6 +6,7 @@ import { NextIntlClientProvider } from 'next-intl'
 import { notFound } from 'next/navigation'
 import { getMessages } from 'next-intl/server'
 import { routing } from '@/i18n/routing'
+import { CustomCursor } from '@/components/ui/customCursor'
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] })
 
@@ -43,6 +44,8 @@ export default async function RootLayout({
       <body className={spaceGrotesk.className}>
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider attribute="class" disableTransitionOnChange>
+            <CustomCursor />
+
             {children}
           </ThemeProvider>
         </NextIntlClientProvider>

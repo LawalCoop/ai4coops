@@ -8,10 +8,23 @@
   box-sizing: border-box;
 }
 
+
+@media (max-width: 767px) {
+  body {
+    cursor: auto;
+  }
+}
+
 body {
   --sb-track-color: #ffffff;
   --sb-thumb-color: #000000;
   @apply text-text dark:text-darkText;
+  cursor: none; /* Para el cursor personalizado */
+  overflow-x: hidden;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
 }
 
 body::-webkit-scrollbar {
@@ -37,6 +50,7 @@ body::-webkit-scrollbar-thumb {
   --border-color-dark: #000;
   --shadow-color-light: #000;
   --shadow-color-dark: #000;
+  --primary-rgb: 14, 165, 233;
 }
 
 .dark {

@@ -1,12 +1,43 @@
-'use client'
 
-import React from 'react'
+import React, { useRef } from 'react'
 import Image from 'next/image'
 import AI4CoopsAbout from '@/media/ai4coopsAbout.png'
 import { useTranslations } from 'next-intl'
+import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion'
+
+const BigText = () => {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  })
+
+  const x = useTransform(scrollYProgress, [0, 1], [0, -1000])
+
+  return (
+    <div ref={ref} className="py-40 relative overflow-hidden">
+      <motion.h2
+        className="text-[120px] md:text-[200px] font-black whitespace-nowrap text-primary/10"
+        style={{ x }}
+      >
+        IA PARA COOPERATIVAS · IA PARA COOPERATIVAS ·
+      </motion.h2>
+    </div>
+  )
+}
 
 export default function About() {
   const t = useTranslations('Sections.About')
+  const sectionRef = useRef(null)
+  const isInView = useInView(sectionRef, { once: false })
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  })
+
+  const y = useTransform(scrollYProgress, [0, 1], [-50, 50])
+  const springY = useSpring(y, { stiffness: 100, damping: 30 })
 
   const keyPoints = [
     { title: t('keyPoint1Title'), description: t('keyPoint1Description') },
@@ -15,37 +46,127 @@ export default function About() {
   ]
 
   return (
-    <div className="w-full min-h-screen bg-bg dark:bg-darkBg py-[110px] lg:py-[120px]">
-      <div className="mx-auto w-container max-w-full px-5 text-left flex flex-col lg:flex-col items-center gap-10">
-        <div className="w-full flex flex-col lg:flex-row items-center gap-10">
-          <div className="lg:w-1/2 flex justify-start">
-            <Image src={AI4CoopsAbout} alt="Illustration" width={800} />
-          </div>
-          <div className="lg:w-1/2 text-right">
-            <div
-              className="dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
-                          shadow-[8px_8px_0px_0px] shadow-shadow dark:shadow-darkShadow
-                          transform hover:-translate-y-1  hover:shadow-primary hover:shadow-[12px_12px_0px_0px] dark:hover:shadow-primary
-                          transition-all duration-300 p-6 mb-10"
+    <>
+    <motion.div
+      ref={sectionRef}
+      className="w-full min-h-screen bg-bg dark:bg-darkBg py-[110px] lg:py-[120px] relative overflow-hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      {/* Fondo con gradiente sutil */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
+
+      <div className="mx-auto w-container max-w-full px-5 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center gap-10">
+          {/* Imagen con efectos */}
+          <motion.div
+            className="lg:w-1/2 relative"
+            style={{ y: springY }}
+          >
+            <motion.div
+              whileHover={{
+                scale: 1.05,
+                rotateY: 5,
+                transition: { duration: 0.3 }
+              }}
+              className="relative"
             >
-              <h1 className="text-4xl md:text-5xl font-black text-black text-center dark:text-darkText">
-                {t('title')} 🚀
+              <Image
+                src={AI4CoopsAbout}
+                alt="Illustration"
+                width={800}
+                className="rounded-lg shadow-lg transform transition-all duration-300"
+              />
+            </motion.div>
+          </motion.div>
+
+          {/* Contenido principal */}
+          <motion.div
+            className="lg:w-1/2"
+            initial={{ opacity: 0, x: 50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.div
+              className="dark:border-darkBorder bg-bg/80 backdrop-blur-sm border-4 border-border
+                        dark:bg-darkBg/80 shadow-[8px_8px_0px_0px] shadow-shadow dark:shadow-darkShadow
+                        transform hover:translate-y-[-8px] hover:translate-x-[8px]
+                        hover:shadow-primary hover:shadow-[12px_12px_0px_0px]
+                        dark:hover:shadow-primary transition-all duration-300 p-6 mb-10"
+              whileHover={{ scale: 1.02 }}
+            >
+              <h1 className="text-4xl md:text-5xl font-black text-black dark:text-darkText text-center">
+                {t('title')}
+                <motion.span
+                  animate={{
+                    rotate: [0, 20, 0],
+                    scale: [1, 1.2, 1]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="inline-block"
+                >
+                  🚀
+                </motion.span>
               </h1>
-            </div>
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">{t('main_text')}</p>
-          </div>
+            </motion.div>
+            <motion.p
+              className="text-lg text-gray-700 dark:text-gray-300"
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : {}}
+              transition={{ delay: 0.3 }}
+            >
+              {t('main_text')}
+            </motion.p>
+          </motion.div>
         </div>
-        <div className="w-full flex flex-col lg:flex-row justify-between gap-12 text-left mt-10">
+
+        {/* Texto grande como transición */}
+              <BigText />
+
+        {/* Key Points */}
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-20"
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+        >
           {keyPoints.map((point, index) => (
-            <div key={index} className="w-full lg:w-1/3">
-              <h3 className="text-2xl font-semibold text-primary border-b-4 border-primary inline-block pb-2 mb-4">
-                {point.title}
-              </h3>
-              <p className="text-gray-700 dark:text-gray-300">{point.description}</p>
-            </div>
+            <motion.div
+              key={index}
+              className="p-6 rounded-lg backdrop-blur-sm"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              whileHover={{
+                scale: 1.02,
+                y: -5,
+                transition: { duration: 0.2 }
+              }}
+            >
+              <div className="relative">
+                <h3 className="text-2xl font-semibold text-primary mb-4">
+                  {point.title}
+                </h3>
+                <motion.div
+                  className="h-0.5 bg-primary w-0"
+                  whileInView={{ width: "100%" }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                />
+              </div>
+              <p className="mt-4 text-gray-700 dark:text-gray-300">
+                {point.description}
+              </p>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
+    </>
+
   )
 }

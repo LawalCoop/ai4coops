@@ -13,7 +13,10 @@ import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { faStar, faRocket } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import AI4CoopsAbout from '@/media/ai4coopsAbout.png'
+import Character1 from '@/media/svgs/Character1.svg'
+import Character2 from '@/media/svgs/Character2.svg'
+import Character4 from '@/media/svgs/Character4.svg'
+import Character3 from '@/media/svgs/Character3.svg'
 
 // Datos para las cards del primer slide - Ahora usando keys para translations
 const featureCards = [
@@ -122,8 +125,11 @@ export default function AboutHow() {
             {' '}
             {/* Añade una altura fija */}
             {/* Primer slide - Cards */}
-            <CarouselItem className="flex items-center justify-center">
-              {' '}
+            <CarouselItem className="grid grid-cols-1  items-center justify-center">
+
+              <h1 className="text-4xl md:text-5xl font-black text-black text-center dark:text-darkText">
+                {t('title')} 🚀
+              </h1>
               {/* Añade flex y centrado */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
                 {featureCards.map((card, index) => (
@@ -138,7 +144,7 @@ export default function AboutHow() {
               <ContentSlide
                 titleKey="phase2_title"
                 descriptionKey="phase2_text"
-                image={AI4CoopsAbout}
+                image={Character1}
                 imageOnRight={true}
               />
             </CarouselItem>
@@ -148,7 +154,7 @@ export default function AboutHow() {
               <ContentSlide
                 titleKey="phase3_title"
                 descriptionKey="phase3_text"
-                image={AI4CoopsAbout}
+                image={Character2}
                 imageOnRight={false}
               />
             </CarouselItem>

@@ -46,6 +46,26 @@
       "title": "Contact us",
       "subtitle": "Get in touch with us and find out how we can collaborate",
       "navbarTitle": "Contact us"
+    },
+    "Services": {
+      "title": "Unlocking the power of AI for cooperatives",
+      "subtitle": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus, ut",
+      "service1": {
+        "title": "Computer Vision",
+        "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus, ut."
+      },
+      "service2": {
+        "title": "Prediction",
+        "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus, ut."
+      },
+      "service3": {
+        "title": "LLMs",
+        "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus, ut."
+      },
+      "service4": {
+        "title": "Big Data",
+        "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus, ut."
+      }
     }
   }
 }
