@@ -3,54 +3,41 @@ import { TypeAnimation } from 'react-type-animation'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { BiLogoPostgresql } from 'react-icons/bi'
 import Marquee from 'react-fast-marquee'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import coopImage from '@/media/ai4coopsHome.png'
 import {
+  SiAngular,
+  SiArcgis,
+  SiDocker,
+  SiGit,
+  SiHtml5,
+  SiJavascript,
+  SiLeaflet,
+  SiOpenlayers,
   SiPython,
-  SiTensorflow,
-  SiPytorch,
-  SiScikitlearn,
-  SiKeras,
-  SiHuggingface,
-  SiNumpy,
-  SiPandas,
-  SiKubernetes,
+  SiQgis,
+  SiTypescript,
 } from 'react-icons/si'
 import Image from 'next/image'
 import { DialogComponent } from '@/components/getInTouchDialog'
-import React, { useRef } from 'react'
+import React from 'react'
 import { useTranslations } from 'next-intl'
-import { ParallaxLine } from '@/components/ui/parallaxLine'
 
 export default function HeroSection() {
   const t = useTranslations('Sections')
-  const containerRef = useRef(null)
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  })
-
-  // Efectos Parallax
-  const yBg = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
-  const yTitle = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
-  const yImage = useTransform(scrollYProgress, [0, 1], ['0%', '30%'])
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8])
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
-
   const skills = [
+    { text: 'ArcGIS', Icon: SiArcgis },
+    { text: 'QGIS', Icon: SiQgis },
+    { text: 'OpenLayers', Icon: SiOpenlayers },
+    { text: 'Leaflet', Icon: SiLeaflet },
     { text: 'Python', Icon: SiPython },
-    { text: 'TensorFlow', Icon: SiTensorflow },
-    { text: 'PyTorch', Icon: SiPytorch },
-    { text: 'Scikit-learn', Icon: SiScikitlearn },
-    { text: 'Keras', Icon: SiKeras },
-    { text: 'Hugging Face', Icon: SiHuggingface },
-    { text: 'NumPy', Icon: SiNumpy },
-    { text: 'Pandas', Icon: SiPandas },
-    { text: 'OpenCV', Icon: SiTensorflow }, // OpenCV es una biblioteca de visión por computadora de código abierto.
-    { text: 'Django', Icon: SiPython }, // Framework de Python para crear aplicaciones web, usado para desplegar IA.
-    { text: 'Apache Kafka', Icon: SiKubernetes }, // Herramienta de código abierto para procesamiento de flujos de datos.
-    { text: 'Rasa', Icon: SiPython }, // Framework de código abierto para crear asistentes virtuales e IA conversacional.
+    { text: 'JavaScript', Icon: SiJavascript },
+    { text: 'HTML', Icon: SiHtml5 },
+    { text: 'TypeScript', Icon: SiTypescript },
+    { text: 'Angular', Icon: SiAngular },
+    { text: 'PostGIS', Icon: BiLogoPostgresql },
+    { text: 'Version Control', Icon: SiGit },
+    { text: 'Docker', Icon: SiDocker },
   ]
 
   const containerVariants = {
@@ -95,6 +82,7 @@ export default function HeroSection() {
     },
   }
 
+  // Adjust buttonVariants to remove hover effects and delay appearance
   const buttonVariants = {
     hidden: { scale: 0 },
     visible: {
@@ -103,7 +91,7 @@ export default function HeroSection() {
         type: 'spring',
         stiffness: 260,
         damping: 20,
-        delay: 1.5,
+        delay: 1.5, // Delay the button's appearance after marquee
       },
     },
     tap: {
@@ -111,37 +99,27 @@ export default function HeroSection() {
     },
   }
 
+  const marqueeContainerVariants = {
+    hidden: { y: 100, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        damping: 20,
+        delay: 1.2,
+      },
+    },
+  }
+
   return (
-    <>
-    <motion.header
-      ref={containerRef}
-      className="relative flex min-h-[100vh] w-full flex-col items-center justify-center bg-bg dark:bg-darkBg overflow-hidden"
-      style={{ opacity }}
-    >
-      {/* Grid Background con Parallax */}
+    <header className="relative flex min-h-[100vh] w-full flex-col items-center justify-center bg-bg dark:bg-darkBg bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-[size:70px_70px] pt-16 lg:pt-0">
       <motion.div
-        className="absolute inset-0 pointer-events-none"
-        style={{ y: yBg }}
-      >
-        <div className="w-full h-full bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-[size:70px_70px]" />
-      </motion.div>
-
-      {/* Círculos decorativos con parallax */}
-      <motion.div
-        className="absolute -top-20 -left-20 w-[40vw] h-[40vw] rounded-full bg-primary/5 blur-3xl"
-        style={{ y: useTransform(scrollYProgress, [0, 1], ['0%', '20%']) }}
-      />
-      <motion.div
-        className="absolute -bottom-20 -right-20 w-[30vw] h-[30vw] rounded-full bg-primary/5 blur-3xl"
-        style={{ y: useTransform(scrollYProgress, [0, 1], ['0%', '-20%']) }}
-      />
-
-      <motion.div
-        className="mx-auto w-container max-w-full px-5 py-[110px] text-left lg:py-[120px] flex flex-col lg:flex-row relative z-10"
+        className="mx-auto w-container max-w-full px-5 py-[110px] text-left lg:py-[120px] flex flex-col lg:flex-row"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        style={{ y: yTitle, scale }}
       >
         <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start lg:ml-8">
           <motion.div variants={itemVariants}>
@@ -213,23 +191,21 @@ export default function HeroSection() {
         <motion.div
           className="w-full lg:w-1/2 mt-8 lg:mt-0 flex justify-center"
           variants={itemVariants}
-          style={{ y: yImage }}
         >
           <Image
             src={coopImage}
             alt="cooperativism flag"
             loading="lazy"
-            className="mt-[-40px] lg:ml-28 relative z-10"
+            className="mt-[-40px] lg:ml-28"
           />
         </motion.div>
       </motion.div>
 
       <motion.div
         className="absolute bottom-0 left-0 w-full"
-        style={{
-          y: useTransform(scrollYProgress, [0, 1], ['0%', '50%']),
-          opacity: useTransform(scrollYProgress, [0, 0.5], [1, 0])
-        }}
+        variants={marqueeContainerVariants}
+        initial="hidden"
+        animate="visible"
       >
         <Marquee
           className="border-t-primary dark:border-t-darkPrimary dark:bg-darkBg border-t-2 border-b-2 border-b-primary dark:border-b-darkPrimary bg-white py-3 sm:py-5 font-base"
@@ -248,10 +224,7 @@ export default function HeroSection() {
             </motion.div>
           ))}
         </Marquee>
-
       </motion.div>
-
-    </motion.header>
-</>
+    </header>
   )
 }

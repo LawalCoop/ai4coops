@@ -34,7 +34,7 @@ const config: Config = {
         // Dark mode
         darkBg: '#212121',
         darkText: '#eeefe9',
-        darkShadow:'#000',
+        darkShadow: '#000',
         darkBorder: '#000',
         darkPrimary: '#ff304f',
         darkSecondary: '#00e6ff',

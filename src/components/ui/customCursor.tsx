@@ -17,8 +17,8 @@ export const CustomCursor = () => {
       const target = e.target as HTMLElement
       setIsHovering(
         target.tagName === 'BUTTON' ||
-        target.tagName === 'A' ||
-        target.closest('[data-hover]') !== null
+          target.tagName === 'A' ||
+          target.closest('[data-hover]') !== null
       )
     }
 
@@ -38,17 +38,17 @@ export const CustomCursor = () => {
         className="fixed top-0 left-0 w-3 h-3 rounded-full bg-red-500 pointer-events-none z-[9999]"
         style={{
           x: mousePosition.x - 6,
-          y: mousePosition.y - 6
+          y: mousePosition.y - 6,
         }}
         animate={{
-          scale: isHovering ? 1.5 : 1
+          scale: isHovering ? 1.5 : 1,
         }}
         transition={{
           scale: {
-            type: "spring",
+            type: 'spring',
             stiffness: 300,
-            damping: 25
-          }
+            damping: 25,
+          },
         }}
       />
       {/* Partícula seguidora */}
@@ -57,13 +57,13 @@ export const CustomCursor = () => {
         animate={{
           x: mousePosition.x - 10,
           y: mousePosition.y - 10,
-          scale: isHovering ? 1.2 : 1
+          scale: isHovering ? 1.2 : 1,
         }}
         transition={{
-          type: "spring",
+          type: 'spring',
           stiffness: 150,
           damping: 15,
-          mass: 0.5
+          mass: 0.5,
         }}
       />
     </>

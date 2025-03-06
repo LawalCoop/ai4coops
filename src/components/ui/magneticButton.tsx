@@ -26,7 +26,7 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({ children, classN
 
     setPosition({
       x: deltaX * magneticPull,
-      y: deltaY * magneticPull
+      y: deltaY * magneticPull,
     })
   }
 
@@ -45,10 +45,10 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({ children, classN
         y: position.y,
       }}
       transition={{
-        type: "spring",
+        type: 'spring',
         stiffness: 150,
         damping: 15,
-        mass: 0.1
+        mass: 0.1,
       }}
     >
       {children}

@@ -70,14 +70,14 @@ const NavBar = () => {
       >
         <div
           className={twMerge(
-              `mx-auto mt-4 flex h-[80px] w-full max-w-screen-xl
+            `mx-auto mt-4 flex h-[80px] w-full max-w-screen-xl
               items-center justify-between px-6 transition-transform
               duration-300 ease-in-out bg-yellow-300 dark:bg-darkBg transform`,
-              showNav ? 'translate-y-0' : '-translate-y-[calc(100%+40px)]'
+            showNav ? 'translate-y-0' : '-translate-y-[calc(100%+40px)]'
           )}
           style={{
-              border: '3px solid var(--border-color)',
-              boxShadow: '8px 8px 0px 0px var(--shadow-color)',
+            border: '3px solid var(--border-color)',
+            boxShadow: '8px 8px 0px 0px var(--shadow-color)',
           }}
         >
           {/* Logo */}
@@ -113,23 +113,19 @@ const NavBar = () => {
                 }}
                 buttonClassName="dark:border-darkBorder border-4 dark:text-text font-bold dark:shadow-darkShadow dark:bg-darkPrimary"
               />
-              <ThemeSwitcher
-                    className="dark:border-darkBorder dark:text-text border-4 font-bold dark:shadow-darkShadow dark:bg-darkPrimary"
-                  />
+              <ThemeSwitcher className="dark:border-darkBorder dark:text-text border-4 font-bold dark:shadow-darkShadow dark:bg-darkPrimary" />
             </div>
           </div>
 
           {/* Mobile Menu Toggle */}
           <div className="md:hidden flex items-center gap-4">
-            <ThemeSwitcher
-              className="text-text bg-primary dar_bg-darkPrimary dark:border-darkBorder dark:text-text border-2 font-bold dark:shadow-darkShadow dark:bg-darkPrimary"
-            />
+            <ThemeSwitcher className="text-text bg-primary dar_bg-darkPrimary dark:border-darkBorder dark:text-text border-2 font-bold dark:shadow-darkShadow dark:bg-darkPrimary" />
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="border-border dark:border-darkBorder p-3 bg-primary dark:bg-darkPrimary transform hover:-rotate-3 transition-transform"
               style={{
-                  border: '2px solid var(--border-color)',
-                  boxShadow: '3px 3px 0px 0px var(--shadow-color)',
+                border: '2px solid var(--border-color)',
+                boxShadow: '3px 3px 0px 0px var(--shadow-color)',
               }}
             >
               <div className="w-6 h-0.5 bg-black mb-1"></div>
@@ -153,16 +149,16 @@ const NavBar = () => {
             <MobileNavLinks setIsOpen={setIsOpen} />
             <div className="mt-4 p-2 ">
               <DialogComponent
-                  triggerButtonText="Get in Touch!"
-                  dialogTitle="Get in Touch"
-                  dialogDescription="Please fill out the form below to get in touch with me."
-                  inputLabels={{
-                    name: 'Name',
-                    email: 'Email',
-                    message: 'Message',
-                  }}
-                  buttonClassName="dark:border-darkBorder border-2 dark:text-text font-bold dark:shadow-darkShadow dark:bg-darkPrimary"
-                />
+                triggerButtonText="Get in Touch!"
+                dialogTitle="Get in Touch"
+                dialogDescription="Please fill out the form below to get in touch with me."
+                inputLabels={{
+                  name: 'Name',
+                  email: 'Email',
+                  message: 'Message',
+                }}
+                buttonClassName="dark:border-darkBorder border-2 dark:text-text font-bold dark:shadow-darkShadow dark:bg-darkPrimary"
+              />
             </div>
           </div>
         </div>
@@ -238,7 +234,6 @@ function MobileNavLinks({
           rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
           className="p-2 text-center text-lg font-bold
                              transform hover:rotate-2 transition-transform"
-
           onClick={e => {
             if (link.href.startsWith('#')) {
               e.preventDefault()

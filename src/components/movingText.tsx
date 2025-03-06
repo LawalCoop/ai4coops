@@ -7,7 +7,7 @@ export const MovingText = () => {
   const containerRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"]
+    offset: ['start end', 'end start'],
   })
 
   const x1 = useTransform(scrollYProgress, [0, 1], [0, -600])

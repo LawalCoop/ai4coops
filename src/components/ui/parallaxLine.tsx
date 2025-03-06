@@ -7,7 +7,7 @@ export const ParallaxLine = () => {
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"]
+    offset: ['start end', 'end start'],
   })
 
   const y = useTransform(scrollYProgress, [0, 1], [0, 300])
@@ -20,7 +20,7 @@ export const ParallaxLine = () => {
         className="relative h-full flex justify-center"
         style={{
           y,
-          opacity
+          opacity,
         }}
       >
         {/* Línea principal más gruesa */}
