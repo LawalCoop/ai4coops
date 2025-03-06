@@ -4,30 +4,11 @@ import Image from 'next/image'
 import AI4CoopsAbout from '@/media/ai4coopsAbout.png'
 import { useTranslations } from 'next-intl'
 import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion'
-import { ParallaxLines } from '@/components/ui/parallaxLine'
+import { ParallaxLine } from '@/components/ui/parallaxLine'
 
 
 
-const BigText = () => {
-  const ref = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  })
 
-  const x = useTransform(scrollYProgress, [0, 1], [0, -1000])
-
-  return (
-    <div ref={ref} className="py-40 relative overflow-hidden">
-      <motion.h2
-        className="text-[120px] md:text-[200px] font-black whitespace-nowrap text-primary/10"
-        style={{ x }}
-      >
-        IA PARA COOPERATIVAS · IA PARA COOPERATIVAS ·
-      </motion.h2>
-    </div>
-  )
-}
 
 export default function About() {
   const t = useTranslations('Sections.About')
@@ -38,6 +19,7 @@ export default function About() {
     target: sectionRef,
     offset: ["start end", "end start"]
   })
+
 
   const y = useTransform(scrollYProgress, [0, 1], [-50, 50])
   const springY = useSpring(y, { stiffness: 100, damping: 30 })
@@ -51,16 +33,14 @@ export default function About() {
   return (
     <>
 
-    <motion.div
-      ref={sectionRef}
-      className="w-full min-h-screen bg-bg dark:bg-darkBg py-[110px] lg:py-[120px] relative overflow-hidden"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
-      {/* Fondo con gradiente sutil */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
-      <ParallaxLines />
+      <motion.div
+              ref={sectionRef}
+              className="w-full min-h-screen bg-bg dark:bg-darkBg relative overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <ParallaxLine />
 
       <div className="mx-auto w-container max-w-full px-5 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-10">
@@ -81,7 +61,6 @@ export default function About() {
                 src={AI4CoopsAbout}
                 alt="Illustration"
                 width={800}
-                className="rounded-lg shadow-lg transform transition-all duration-300"
               />
             </motion.div>
           </motion.div>
@@ -129,8 +108,6 @@ export default function About() {
             </motion.p>
           </motion.div>
         </div>
-        {/* Texto grande como transición */}
-              <BigText />
 
         {/* Key Points */}
         <motion.div
@@ -169,6 +146,7 @@ export default function About() {
           ))}
         </motion.div>
       </div>
+
     </motion.div>
     </>
 
