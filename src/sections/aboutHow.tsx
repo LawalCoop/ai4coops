@@ -11,29 +11,27 @@ import {
 import { Card } from '@/components/ui/card'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
-import { faStar, faRocket } from '@fortawesome/free-solid-svg-icons'
+import { faMagnifyingGlass, faGaugeHigh, faLightbulb } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Character1 from '@/media/svgs/Character1.svg'
-import Character2 from '@/media/svgs/Character2.svg'
-import Character4 from '@/media/svgs/Character4.svg'
-import Character3 from '@/media/svgs/Character3.svg'
+import ExplorationImage from '@/media/exploration.png'
+import ProductionImage from '@/media/produccion.png'
 
 // Datos para las cards del primer slide - Ahora usando keys para translations
 const featureCards = [
   {
-    icon: faStar,
+    icon: faMagnifyingGlass,
     titleKey: 'phase1_keyPoint1',
-    descriptionKey: 'phase1_keyPoint1',
+    descriptionKey: 'phase1_keyPoint1_desc',
   },
   {
-    icon: faRocket,
+    icon: faLightbulb,
     titleKey: 'phase1_keyPoint2',
-    descriptionKey: 'phase1_keyPoint2',
+    descriptionKey: 'phase1_keyPoint2_desc',
   },
   {
-    icon: faRocket,
+    icon: faGaugeHigh,
     titleKey: 'phase1_keyPoint3',
-    descriptionKey: 'phase1_keyPoint3',
+    descriptionKey: 'phase1_keyPoint3_desc',
   },
 ]
 
@@ -75,11 +73,7 @@ const ContentSlide = ({ titleKey, descriptionKey, image, imageOnRight = true }) 
         <div className="lg:w-1/2">
           {' '}
           {/* Altura fija igual que las cards */}
-          <Image
-            src={image}
-            alt={t(titleKey)}
-            className="w-full h-full"
-          />
+          <Image src={image} alt={t(titleKey)} className="w-full h-full" />
         </div>
       )}
       <div className="lg:w-1/2 space-y-4">
@@ -88,11 +82,7 @@ const ContentSlide = ({ titleKey, descriptionKey, image, imageOnRight = true }) 
       </div>
       {imageOnRight && (
         <div className="lg:w-1/2">
-          <Image
-            src={image}
-            alt={t(titleKey)}
-            className="w-full h-full"
-          />
+          <Image src={image} alt={t(titleKey)} className="w-full h-full" />
         </div>
       )}
     </div>
@@ -125,36 +115,37 @@ export default function AboutHow() {
             {' '}
             {/* Añade una altura fija */}
             {/* Primer slide - Cards */}
-            <CarouselItem className="grid grid-cols-1  items-center justify-center">
+            <CarouselItem className="flex items-center justify-center">
 
-              <h1 className="text-4xl md:text-5xl font-black text-black text-center dark:text-darkText">
-                {t('title')} 🚀
-              </h1>
               {/* Añade flex y centrado */}
+              <ContentSlide
+                titleKey="phase1_title"
+                descriptionKey="phase1_text"
+                image={ExplorationImage}
+                imageOnRight={true}
+              />
+            </CarouselItem>
+            <CarouselItem className="grid grid-cols-1 items-center justify-center">
+              {' '}
+              {/* Añade flex y centrado */}
+              <h2 className="text-3xl font-bold text-black dark:text-darkText">
+                {t('phase2_title')}
+              </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
                 {featureCards.map((card, index) => (
                   <FeatureCard key={index} {...card} />
                 ))}
               </div>
             </CarouselItem>
-            {/* Slides de contenido */}
-            <CarouselItem className="flex items-center justify-center">
-              {' '}
-              {/* Añade flex y centrado */}
-              <ContentSlide
-                titleKey="phase2_title"
-                descriptionKey="phase2_text"
-                image={Character1}
-                imageOnRight={true}
-              />
-            </CarouselItem>
+
             <CarouselItem className="flex items-center justify-center">
               {' '}
               {/* Añade flex y centrado */}
               <ContentSlide
                 titleKey="phase3_title"
                 descriptionKey="phase3_text"
-                image={Character2}
+
+                image={ProductionImage}
                 imageOnRight={false}
               />
             </CarouselItem>
