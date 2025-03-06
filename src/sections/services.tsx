@@ -7,6 +7,7 @@ import ComputerVision from '@/media/computervision.png'
 import Prediction from '@/media/prediction.png'
 import LLMs from '@/media/llms.png'
 import BigData from '@/media/bigdata.png'
+import { motion } from 'framer-motion'
 
 export default function Services() {
   const t = useTranslations('Sections.Services')
@@ -58,7 +59,21 @@ export default function Services() {
               transition-all duration-300 p-6 mb-10"
           >
             <h1 className="text-4xl md:text-5xl font-black text-black text-center dark:text-darkText">
-              {t('title')} 🚀
+              {t('title')}
+              <motion.span
+                animate={{
+                  rotate: [0, 20, 0],
+                  scale: [1, 1.2, 1],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+                className="inline-block pl-3"
+              >
+                ⚙️
+              </motion.span>
             </h1>
           </div>
 

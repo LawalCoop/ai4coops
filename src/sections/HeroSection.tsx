@@ -6,17 +6,15 @@ import Marquee from 'react-fast-marquee'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import coopImage from '@/media/ai4coopsHome.png'
 import {
-  SiAngular,
-  SiArcgis,
-  SiDocker,
-  SiGit,
-  SiHtml5,
-  SiJavascript,
-  SiLeaflet,
-  SiOpenlayers,
   SiPython,
-  SiQgis,
-  SiTypescript,
+  SiTensorflow,
+  SiPytorch,
+  SiScikitlearn,
+  SiKeras,
+  SiHuggingface,
+  SiNumpy,
+  SiPandas,
+  SiKubernetes,
 } from 'react-icons/si'
 import Image from 'next/image'
 import { DialogComponent } from '@/components/getInTouchDialog'
@@ -41,18 +39,18 @@ export default function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
 
   const skills = [
-    { text: 'ArcGIS', Icon: SiArcgis },
-    { text: 'QGIS', Icon: SiQgis },
-    { text: 'OpenLayers', Icon: SiOpenlayers },
-    { text: 'Leaflet', Icon: SiLeaflet },
     { text: 'Python', Icon: SiPython },
-    { text: 'JavaScript', Icon: SiJavascript },
-    { text: 'HTML', Icon: SiHtml5 },
-    { text: 'TypeScript', Icon: SiTypescript },
-    { text: 'Angular', Icon: SiAngular },
-    { text: 'PostGIS', Icon: BiLogoPostgresql },
-    { text: 'Version Control', Icon: SiGit },
-    { text: 'Docker', Icon: SiDocker },
+    { text: 'TensorFlow', Icon: SiTensorflow },
+    { text: 'PyTorch', Icon: SiPytorch },
+    { text: 'Scikit-learn', Icon: SiScikitlearn },
+    { text: 'Keras', Icon: SiKeras },
+    { text: 'Hugging Face', Icon: SiHuggingface },
+    { text: 'NumPy', Icon: SiNumpy },
+    { text: 'Pandas', Icon: SiPandas },
+    { text: 'OpenCV', Icon: SiTensorflow }, // OpenCV es una biblioteca de visión por computadora de código abierto.
+    { text: 'Django', Icon: SiPython }, // Framework de Python para crear aplicaciones web, usado para desplegar IA.
+    { text: 'Apache Kafka', Icon: SiKubernetes }, // Herramienta de código abierto para procesamiento de flujos de datos.
+    { text: 'Rasa', Icon: SiPython }, // Framework de código abierto para crear asistentes virtuales e IA conversacional.
   ]
 
   const containerVariants = {
