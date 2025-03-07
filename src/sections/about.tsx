@@ -3,7 +3,6 @@ import Image from 'next/image'
 import AI4CoopsAbout from '@/media/ai4coopsAbout.png'
 import { useTranslations } from 'next-intl'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
-import { ParallaxLine } from '@/components/ui/parallaxLine'
 
 export default function About() {
   const t = useTranslations('Sections.About')
@@ -31,8 +30,6 @@ export default function About() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <ParallaxLine />
-
       <div className="mx-auto w-container max-w-full px-5 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-10">
           {/* Imagen con efectos */}
