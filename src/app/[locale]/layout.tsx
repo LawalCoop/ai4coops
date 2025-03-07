@@ -41,7 +41,7 @@ export default async function RootLayout({
     locale = routing.locales.find(l => userLocale.startsWith(l)) || 'en'
   }
 
-  if (!routing.locales.includes(locale)) {
+  if (!routing.locales.includes(locale as "en" | "es")) {
     notFound()
   }
 

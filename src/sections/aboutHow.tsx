@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { JSX } from 'react'
 import {
   Carousel,
   CarouselContent,
@@ -9,14 +9,24 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel'
 import { Card } from '@/components/ui/card'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import { useTranslations } from 'next-intl'
 import { faMagnifyingGlass, faGaugeHigh, faLightbulb } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ExplorationImage from '@/media/exploration.png'
 import ProductionImage from '@/media/produccion.png'
-import { motion } from 'framer-motion'
 import Autoplay from 'embla-carousel-autoplay'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
+
+interface FeatureCardProps {
+  icon: IconProp 
+  titleKey: string
+  descriptionKey: string
+}
+
+interface ContentSlideProps {
+  titleKey: string, descriptionKey: string, image: StaticImageData, imageOnRight: boolean
+}
 
 // Datos para las cards del primer slide - Ahora usando keys para translations
 const featureCards = [
@@ -38,7 +48,7 @@ const featureCards = [
 ]
 
 // Componente para las cards con iconos
-const FeatureCard = ({ icon, titleKey, descriptionKey }) => {
+const FeatureCard: React.FC<FeatureCardProps> = ({ icon, titleKey, descriptionKey }) => {
   const t = useTranslations('Sections.AboutHow')
 
   return (
@@ -66,7 +76,7 @@ const FeatureCard = ({ icon, titleKey, descriptionKey }) => {
 }
 
 // Componente para slides con imagen y texto
-const ContentSlide = ({ titleKey, descriptionKey, image, imageOnRight = true }) => {
+const ContentSlide: React.FC<ContentSlideProps> = ({ titleKey, descriptionKey, image, imageOnRight = true }) => {
   const t = useTranslations('Sections.AboutHow')
 
   return (

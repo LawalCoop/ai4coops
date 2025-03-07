@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { JSX, useState } from 'react'
 import { motion } from 'framer-motion'
 import {
   FaLightbulb,
@@ -9,7 +9,15 @@ import {
   FaRocket,
 } from 'react-icons/fa'
 
-const steps = [
+type Step = {
+  id: number
+  title: string
+  text: string
+  icon: JSX.Element
+  color: string
+}
+
+const steps: Step[] = [
   {
     id: 1,
     title: 'IDEA',
@@ -55,7 +63,7 @@ const steps = [
 ]
 
 export default function DevProcess() {
-  const [selectedStep, setSelectedStep] = useState(null)
+  const [selectedStep, setSelectedStep] = useState<Step | null>(null) // Definiendo el tipo correctamente
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-10 relative">
