@@ -1,0 +1,10 @@
+{
+    "build": {
+      "ignore": [
+        {
+          "command": "if [ \"$VERCEL_GIT_COMMIT_REF\" != \"dev\" ]; then exit 0; fi"
+        }
+      ]
+    }
+  }
+  
