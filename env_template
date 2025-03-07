@@ -1,0 +1,7 @@
+# Google reCAPTCHA keys
+NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY=your_recaptcha_site_key
+
+# EmailJS keys
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_emailjs_service_id
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_emailjs_template_id
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_emailjs_public_key
