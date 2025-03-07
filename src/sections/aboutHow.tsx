@@ -9,7 +9,7 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel'
 import { Card } from '@/components/ui/card'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import { useTranslations } from 'next-intl'
 import { faMagnifyingGlass, faGaugeHigh, faLightbulb } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -19,9 +19,13 @@ import Autoplay from 'embla-carousel-autoplay'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 interface FeatureCardProps {
-  icon: IconProp // Puedes mejorar esto con el tipo correcto de FontAwesomeIcon
+  icon: IconProp 
   titleKey: string
   descriptionKey: string
+}
+
+interface ContentSlideProps {
+  titleKey: string, descriptionKey: string, image: StaticImageData, imageOnRight: boolean
 }
 
 // Datos para las cards del primer slide - Ahora usando keys para translations
@@ -72,7 +76,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, titleKey, descriptionKe
 }
 
 // Componente para slides con imagen y texto
-const ContentSlide = ({ titleKey, descriptionKey, image, imageOnRight = true }) => {
+const ContentSlide: React.FC<ContentSlideProps> = ({ titleKey, descriptionKey, image, imageOnRight = true }) => {
   const t = useTranslations('Sections.AboutHow')
 
   return (
