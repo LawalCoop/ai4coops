@@ -6,18 +6,24 @@ import Marquee from 'react-fast-marquee'
 import { motion } from 'framer-motion'
 import coopImage from '@/media/home.svg'
 import {
-  SiAngular,
-  SiArcgis,
+  SiPython,
+  SiJavascript,
+  SiPytorch,
+  SiTensorflow,
+  SiOpencv,
+  SiApachespark,
+  SiKeras,
+  SiScikitlearn,
   SiDocker,
   SiGit,
-  SiHtml5,
-  SiJavascript,
-  SiLeaflet,
-  SiOpenlayers,
-  SiPython,
-  SiQgis,
-  SiTypescript,
+  SiPostgresql,
+  SiHuggingface,
+  SiJupyter,
+  SiPandas,
+  SiNumpy,
 } from 'react-icons/si'
+import { FaRobot } from 'react-icons/fa'
+
 import Image from 'next/image'
 import { DialogComponent } from '@/components/getInTouchDialog'
 import React from 'react'
@@ -26,16 +32,19 @@ import { useTranslations } from 'next-intl'
 export default function HeroSection() {
   const t = useTranslations('Sections')
   const skills = [
-    { text: 'ArcGIS', Icon: SiArcgis },
-    { text: 'QGIS', Icon: SiQgis },
-    { text: 'OpenLayers', Icon: SiOpenlayers },
-    { text: 'Leaflet', Icon: SiLeaflet },
     { text: 'Python', Icon: SiPython },
-    { text: 'JavaScript', Icon: SiJavascript },
-    { text: 'HTML', Icon: SiHtml5 },
-    { text: 'TypeScript', Icon: SiTypescript },
-    { text: 'Angular', Icon: SiAngular },
-    { text: 'PostGIS', Icon: BiLogoPostgresql },
+    { text: 'PyTorch', Icon: SiPytorch },
+    { text: 'TensorFlow', Icon: SiTensorflow },
+    { text: 'OpenCV', Icon: SiOpencv },
+    { text: 'Apache Spark', Icon: SiApachespark },
+    { text: 'Keras', Icon: SiKeras },
+    { text: 'Scikit-learn', Icon: SiScikitlearn },
+    { text: 'Jupyter Notebooks', Icon: SiJupyter },
+    { text: 'Pandas', Icon: SiPandas },
+    { text: 'NumPy', Icon: SiNumpy },
+    { text: 'PostgreSQL', Icon: BiLogoPostgresql },
+    { text: 'Hugging Face', Icon: SiHuggingface },
+    { text: 'Llama', Icon: FaRobot }, // Ícono genérico para IA/LLMs
     { text: 'Version Control', Icon: SiGit },
     { text: 'Docker', Icon: SiDocker },
   ]
