@@ -71,7 +71,7 @@ export default function About() {
               </h1>
             </motion.div>
             <motion.p
-              className="text-lg text-gray-700 dark:text-gray-300"
+              className="text-lg md:text-xl text-left text-text dark:text-darkText"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ delay: 0.3 }}
