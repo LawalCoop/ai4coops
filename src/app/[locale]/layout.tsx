@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 }
 
 export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }))
+  return routing.locales.map(locale => ({ locale }))
 }
 
 export default async function RootLayout({
@@ -35,7 +35,11 @@ export default async function RootLayout({
   children: React.ReactNode
   params: Promise<{ locale: string }>
 }>) {
-  const { locale } = await params
+  let { locale } = await params
+  if (!locale) {
+    const userLocale = navigator.language || 'en'
+    locale = routing.locales.find(l => userLocale.startsWith(l)) || 'en'
+  }
 
   if (!routing.locales.includes(locale)) {
     notFound()
