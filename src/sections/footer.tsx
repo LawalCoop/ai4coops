@@ -3,13 +3,16 @@ import React from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
+import { useTranslations } from 'next-intl'
 
 function NavLinks() {
+  const t = useTranslations('Sections')
+
   const links = [
-    { href: '#home', label: 'Home' },
-    { href: '#journey', label: 'Journey' },
-    { href: '#projects', label: 'Projects' },
-    { href: 'https://blog.maplabs.tech/', label: 'Blogs' },
+    { href: '#about', label: t('About.navbarTitle') },
+    { href: '#services', label: t('Services.navbarTitle') },
+    { href: '#aboutHow', label: t('AboutHow.navbarTitle') },
+    { href: '#projects', label: t('Projects.navbarTitle') },
   ]
 
   const scrolltoHash = (id: string) => {
@@ -68,10 +71,14 @@ const Footer = () => {
             </h3>
             <div className="flex flex-col items-center lg:items-start mb-8">
               <div className="flex space-x-6 mb-6">
-                <a href="https://lawal.coop" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/LawalCoop/" target="_blank" rel="noopener noreferrer">
                   <FaGithub className="text-4xl text-gray-800 dark:text-white hover:text-cerulean-400 transition-colors duration-300" />
                 </a>
-                <a href="https://lawal.coop" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.linkedin.com/company/lawalcoop/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaLinkedin className="text-4xl text-gray-800 dark:text-white hover:text-cerulean-400 transition-colors duration-300" />
                 </a>
               </div>
@@ -82,7 +89,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t-4 border-black pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-text font-bold text-lg dark:text-darkText">
-            {2025} LAWAL | Built with ❤ & ☕
+            {2025} LAWAL | Built with ❤ & 🧉
           </p>
           <div className="bg-black text-white px-4 py-2 font-mono text-sm dark:bg-bg dark:text-black">
             &lt;/&gt; with Next.js + Tailwind
