@@ -7,7 +7,6 @@ import { notFound } from 'next/navigation'
 import { getMessages } from 'next-intl/server'
 import { routing } from '@/i18n/routing'
 import { CustomCursor } from '@/components/ui/customCursor'
-
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] })
 
 // Metadata needs to be exported this way in Next.js 13+
@@ -25,19 +24,24 @@ export const metadata: Metadata = {
   },
 }
 
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }))
+}
+
 export default async function RootLayout({
   children,
   params,
 }: Readonly<{
   children: React.ReactNode
-  params: any
+  params: Promise<{ locale: string }>
 }>) {
-  const { locale } = params
-  if (!routing.locales.includes(locale as any)) {
+  const { locale } = await params
+
+  if (!routing.locales.includes(locale)) {
     notFound()
   }
 
-  const messages = await getMessages()
+  const messages = await getMessages({ locale })
 
   return (
     <html lang={locale}>
@@ -45,7 +49,6 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider attribute="class" disableTransitionOnChange>
             <CustomCursor />
-
             {children}
           </ThemeProvider>
         </NextIntlClientProvider>
