@@ -162,7 +162,7 @@ export default function HeroSection() {
           <div className="flex flex-col items-center lg:items-start mb-8">
             <motion.div className="flex space-x-6 mb-6" variants={itemVariants}>
               <motion.a
-                href="https://lawal.coop"
+                href="https://github.com/LawalCoop/"
                 target="_blank"
                 rel="noopener noreferrer"
                 variants={socialIconVariants}
@@ -171,7 +171,7 @@ export default function HeroSection() {
                 <FaGithub className="text-4xl text-text dark:text-white hover:text-primary dark:hover:text-darkPurple transition-colors duration-300" />
               </motion.a>
               <motion.a
-                href="https://lawal.coop"
+                href="https://www.linkedin.com/company/lawalcoop"
                 target="_blank"
                 rel="noopener noreferrer"
                 variants={socialIconVariants}
