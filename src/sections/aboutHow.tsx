@@ -16,9 +16,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ExplorationImage from '@/media/exploration.png'
 import ProductionImage from '@/media/produccion.png'
 import Autoplay from 'embla-carousel-autoplay'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 interface FeatureCardProps {
-  icon: JSX.Element // Puedes mejorar esto con el tipo correcto de FontAwesomeIcon
+  icon: IconProp // Puedes mejorar esto con el tipo correcto de FontAwesomeIcon
   titleKey: string
   descriptionKey: string
 }
