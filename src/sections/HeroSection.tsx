@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { BiLogoPostgresql } from 'react-icons/bi'
 import Marquee from 'react-fast-marquee'
 import { motion } from 'framer-motion'
-import coopImage from '@/media/ai4coopsHome.png'
+import coopImage from '@/media/home.svg'
 import {
   SiAngular,
   SiArcgis,

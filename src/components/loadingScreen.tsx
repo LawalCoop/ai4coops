@@ -2,7 +2,7 @@ import React from 'react'
 
 const LoadingScreen = () => {
   return (
-    <div className="fixed inset-0 bg-yellow-300 dark:bg-purple-900 transition-colors duration-300 flex items-center justify-center">
+    <div className="fixed inset-0 bg-black dark:bg-purple-900 transition-colors duration-300 flex items-center justify-center">
       <div className="relative">
         {/* Main loading text */}
         <div className="text-5xl sm:text-6xl font-black bg-white dark:bg-gray-900 dark:text-white p-8 rotate-2 border-4 border-black dark:border-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]">
