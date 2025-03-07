@@ -55,7 +55,7 @@ export default function Services() {
           <div
             className="dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
               shadow-[8px_8px_0px_0px] shadow-shadow dark:shadow-darkShadow
-              transform hover:-translate-y-1 hover:shadow-primary hover:shadow-[12px_12px_0px_0px] dark:hover:shadow-primary
+              transform hover:-translate-y-1 hover:shadow-shadow hover:shadow-[12px_12px_0px_0px] dark:hover:shadow-darkShadow
               transition-all duration-300 p-6 mb-10"
           >
             <h1 className="text-4xl md:text-5xl font-black text-black text-center dark:text-darkText">
