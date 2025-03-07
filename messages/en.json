@@ -59,6 +59,7 @@
     },
     "Services": {
       "title": "Unlocking the power of AI for cooperatives",
+      "navbarTitle": "Technologies",
       "subtitle": "We empower cooperatives with cutting-edge AI solutions designed to boost productivity, optimize workflows, and drive sustainable growth. By integrating artificial intelligence into daily operations, we help cooperative teams automate repetitive tasks, improve decision-making through data-driven insights, and enhance overall efficiency while keeping humans at the center of innovation.",
       "service1": {
         "title": "Computer Vision",
