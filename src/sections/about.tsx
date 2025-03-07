@@ -26,7 +26,7 @@ export default function About() {
   return (
     <motion.div
       ref={sectionRef}
-      className="w-full min-h-screen bg-bg dark:bg-darkBg relative overflow-hidden"
+      className="w-full min-h-screen bg-bg dark:bg-darkBg relative overflow-hidden py-[50px] lg:py-[50px]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -68,20 +68,6 @@ export default function About() {
             >
               <h1 className="text-4xl md:text-5xl font-black text-black dark:text-darkText text-center">
                 {t('title')}
-                <motion.span
-                  animate={{
-                    rotate: [0, 20, 0],
-                    scale: [1, 1.2, 1],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                  }}
-                  className="inline-block  pl-3"
-                >
-                  🚀
-                </motion.span>
               </h1>
             </motion.div>
             <motion.p

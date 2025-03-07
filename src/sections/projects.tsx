@@ -41,7 +41,7 @@ const ProjectsShowcase = () => {
   ]
 
   return (
-    <div className="w-full p-8 bg-bg dark:bg-darkBg">
+    <div className="w-full p-8 bg-bg dark:bg-darkBg py-[50px] lg:py-[50px]">
       <div
         className="w-full bg-bg border-4 border-black dark:bg-darkBg
                           shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]
@@ -50,20 +50,6 @@ const ProjectsShowcase = () => {
       >
         <h1 className="text-4xl md:text-5xl font-black text-black text-center dark:text-darkText">
           {t('title')}
-          <motion.span
-            animate={{
-              rotate: [0, 20, 0],
-              scale: [1, 1.2, 1],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-            className="inline-block  pl-3"
-          >
-            🎯
-          </motion.span>
         </h1>
       </div>
 
