@@ -138,7 +138,7 @@ export function DialogComponent({
                           name="name"
                           value={input.name}
                           onChange={handleInputChange}
-                          className={`mt-1 block w-full ${inputClassName}`}
+                          className={`mt-1 block w-full text-text ${inputClassName}`}
                           disabled={isLoading}
                           required
                         />
@@ -154,7 +154,7 @@ export function DialogComponent({
                           type="email"
                           value={input.email}
                           onChange={handleInputChange}
-                          className={`mt-1 block w-full ${inputClassName}`}
+                          className={`mt-1 block w-full text-text ${inputClassName}`}
                           disabled={isLoading}
                           required
                         />
@@ -169,7 +169,7 @@ export function DialogComponent({
                           name="message"
                           value={input.message}
                           onChange={handleInputChange}
-                          className={`mt-1 block w-full min-h-[100px] ${inputClassName}`}
+                          className={`mt-1 block w-full min-h-[100px] text-text ${inputClassName}`}
                           disabled={isLoading}
                           required
                         />
@@ -180,7 +180,7 @@ export function DialogComponent({
                       <Button
                         type="submit"
                         disabled={isLoading || !input.name || !input.email || !input.message}
-                        className="w-full bg-main text-black disabled:opacity-50 h-12 text-base font-heading md:text-lg lg:h-14 lg:text-xl"
+                        className="w-full bg-primary text-text disabled:opacity-50 h-12 text-base font-heading md:text-lg lg:h-14 lg:text-xl"
                       >
                         {isLoading ? (
                           <>

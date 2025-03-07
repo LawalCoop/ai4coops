@@ -157,6 +157,7 @@ const NavBar = () => {
                   email: 'Email',
                   message: 'Message',
                 }}
+                inputClassName="dark:text-text"
                 buttonClassName="dark:border-darkBorder border-2 dark:text-text font-bold dark:shadow-darkShadow dark:bg-darkPrimary"
               />
             </div>
