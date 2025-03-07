@@ -16,6 +16,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ExplorationImage from '@/media/exploration.png'
 import ProductionImage from '@/media/produccion.png'
 import { motion } from 'framer-motion'
+import Autoplay from 'embla-carousel-autoplay'
 
 // Datos para las cards del primer slide - Ahora usando keys para translations
 const featureCards = [
@@ -107,11 +108,24 @@ export default function AboutHow() {
             <h1 className="text-4xl md:text-5xl font-black text-black text-center dark:text-darkText">
               {t('title')}
             </h1>
+            {/* Subtitle/Description */}
+          </div>
+          <div className="">
+            <p className="text-lg md:text-xl text-center text-text dark:text-darkText">
+              {t('subtitle')}
+            </p>
           </div>
         </div>
 
         {/* Carousel section */}
-        <Carousel className="w-full px-8">
+        <Carousel
+          className="w-full px-8"
+          opts={{
+            align: 'start',
+            loop: true,
+          }}
+          plugins={[Autoplay({ delay: 5000, stopOnMouseEnter: true, stopOnInteraction: false })]}
+        >
           <CarouselContent>
             {' '}
             {/* Añade una altura fija */}
