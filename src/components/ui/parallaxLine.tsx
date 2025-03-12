@@ -7,7 +7,7 @@ export const Waves = () => {
   const ref = useRef(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
-  const handleMouseMove = event => {
+  const handleMouseMove = (event: { clientX: any; clientY: any }) => {
     const { clientX, clientY } = event
     setMousePosition({ x: clientX, y: clientY })
   }

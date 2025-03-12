@@ -55,15 +55,13 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, titleKey, descriptionKe
   const t = useTranslations('Sections.AboutHow')
 
   return (
-    <Card
-      className="dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
+    <div
+      className="group dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
                      shadow-[8px_8px_0px_0px] dark:shadow-darkShadow shadow-shadow
                      transform hover:-translate-y-1 hover:shadow-[12px_12px_0px_0px] hover:shadow-shadow dark:hover:shadow-darkShadow
-                     transition-all duration-300 p-6
-                     aspect-square w-full"
+                     transition-all duration-300 p-6 rounded-lg
+                     aspect-square w-full mx-2 my-4" // Ajustado mx-2 para reducir el margen horizontal
     >
-      {' '}
-      {/* Cambiado a aspect-square para hacerla cuadrada */}
       <div className="flex flex-col items-center justify-center h-full gap-6">
         <FontAwesomeIcon
           icon={icon}
@@ -74,11 +72,11 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, titleKey, descriptionKe
         </h3>
         <p className="text-center text-gray-700 dark:text-gray-300">{t(descriptionKey)}</p>
       </div>
-    </Card>
+    </div>
   )
 }
 
-// Componente para slides con imagen y texto
+// Componente para slides con imagen y texto, ahora dentro de una Card
 const ContentSlide: React.FC<ContentSlideProps> = ({
   titleKey,
   descriptionKey,
@@ -88,23 +86,29 @@ const ContentSlide: React.FC<ContentSlideProps> = ({
   const t = useTranslations('Sections.AboutHow')
 
   return (
-    <div className="flex flex-col lg:flex-row items-center gap-10">
-      {!imageOnRight && (
-        <div className="lg:w-1/2">
-          {' '}
-          {/* Altura fija igual que las cards */}
-          <Image src={image} alt={t(titleKey)} className="w-full h-full" />
+    <div
+      className="group dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
+                     shadow-[8px_8px_0px_0px] dark:shadow-darkShadow shadow-shadow
+                     transform hover:-translate-y-1 hover:shadow-[12px_12px_0px_0px] hover:shadow-shadow dark:hover:shadow-darkShadow
+                     transition-all duration-300 p-6 rounded-lg
+                     w-full mx-4 my-4"
+    >
+      <div className="flex flex-col lg:flex-row items-center gap-10">
+        {!imageOnRight && (
+          <div className="lg:w-1/2">
+            <Image src={image} alt={t(titleKey)} className="w-full h-full rounded-lg" />
+          </div>
+        )}
+        <div className="lg:w-1/2 space-y-4">
+          <h2 className="text-3xl font-bold text-black dark:text-darkText">{t(titleKey)}</h2>
+          <p className="text-gray-700 dark:text-gray-300">{t(descriptionKey)}</p>
         </div>
-      )}
-      <div className="lg:w-1/2 space-y-4">
-        <h2 className="text-3xl font-bold text-black dark:text-darkText">{t(titleKey)}</h2>
-        <p className="text-gray-700 dark:text-gray-300">{t(descriptionKey)}</p>
+        {imageOnRight && (
+          <div className="lg:w-1/2">
+            <Image src={image} alt={t(titleKey)} className="w-full h-full rounded-lg" />
+          </div>
+        )}
       </div>
-      {imageOnRight && (
-        <div className="lg:w-1/2">
-          <Image src={image} alt={t(titleKey)} className="w-full h-full" />
-        </div>
-      )}
     </div>
   )
 }
@@ -121,12 +125,11 @@ export default function AboutHow() {
             className="dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
                         shadow-[8px_8px_0px_0px] shadow-shadow dark:shadow-darkShadow
                         transform hover:-translate-y-1  hover:shadow-shadow hover:shadow-[12px_12px_0px_0px] dark:hover:shadow-darkShadow
-                        transition-all duration-300 p-6 mb-10"
+                        transition-all duration-300 p-6 mb-10 rounded-lg"
           >
             <h1 className="text-4xl md:text-5xl font-black text-black text-center dark:text-darkText">
               {t('title')}
             </h1>
-            {/* Subtitle/Description */}
           </div>
           <div className="">
             <p className="text-lg md:text-xl text-center text-text dark:text-darkText">
@@ -145,11 +148,8 @@ export default function AboutHow() {
           plugins={[Autoplay({ delay: 5000, stopOnMouseEnter: true, stopOnInteraction: false })]}
         >
           <CarouselContent>
-            {' '}
-            {/* Añade una altura fija */}
-            {/* Primer slide - Cards */}
+            {/* Primer slide - Card con imagen y texto */}
             <CarouselItem className="flex items-center justify-center">
-              {/* Añade flex y centrado */}
               <ContentSlide
                 titleKey="phase1_title"
                 descriptionKey="phase1_text"
@@ -157,21 +157,23 @@ export default function AboutHow() {
                 imageOnRight={true}
               />
             </CarouselItem>
-            <CarouselItem className="grid grid-cols-1 items-center justify-center">
-              {' '}
-              {/* Añade flex y centrado */}
-              <h2 className="text-3xl font-bold text-black dark:text-darkText">
-                {t('phase2_title')}
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-                {featureCards.map((card, index) => (
-                  <FeatureCard key={index} {...card} />
-                ))}
+
+            {/* Segundo slide - Cards con iconos */}
+            <CarouselItem className="flex items-center justify-center">
+              <div className="w-full">
+                <h2 className="text-3xl font-bold text-black dark:text-darkText text-center mb-6">
+                  {t('phase2_title')}
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
+                  {featureCards.map((card, index) => (
+                    <FeatureCard key={index} {...card} />
+                  ))}
+                </div>
               </div>
             </CarouselItem>
+
+            {/* Tercer slide - Card con imagen y texto */}
             <CarouselItem className="flex items-center justify-center">
-              {' '}
-              {/* Añade flex y centrado */}
               <ContentSlide
                 titleKey="phase3_title"
                 descriptionKey="phase3_text"
