@@ -175,6 +175,7 @@ function NavLinks() {
     { href: '#about', label: t('About.navbarTitle') },
     { href: '#services', label: t('Services.navbarTitle') },
     { href: '#aboutHow', label: t('AboutHow.navbarTitle') },
+    { href: '#whoWeAre', label: t('WhoWeAre.navbarTitle') },
     { href: '#projects', label: t('Projects.navbarTitle') },
   ]
 

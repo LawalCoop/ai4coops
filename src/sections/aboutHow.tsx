@@ -19,13 +19,16 @@ import Autoplay from 'embla-carousel-autoplay'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 interface FeatureCardProps {
-  icon: IconProp 
+  icon: IconProp
   titleKey: string
   descriptionKey: string
 }
 
 interface ContentSlideProps {
-  titleKey: string, descriptionKey: string, image: StaticImageData, imageOnRight: boolean
+  titleKey: string
+  descriptionKey: string
+  image: StaticImageData
+  imageOnRight: boolean
 }
 
 // Datos para las cards del primer slide - Ahora usando keys para translations
@@ -76,7 +79,12 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, titleKey, descriptionKe
 }
 
 // Componente para slides con imagen y texto
-const ContentSlide: React.FC<ContentSlideProps> = ({ titleKey, descriptionKey, image, imageOnRight = true }) => {
+const ContentSlide: React.FC<ContentSlideProps> = ({
+  titleKey,
+  descriptionKey,
+  image,
+  imageOnRight = true,
+}) => {
   const t = useTranslations('Sections.AboutHow')
 
   return (

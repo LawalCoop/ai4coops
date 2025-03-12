@@ -18,15 +18,17 @@ const ProjectsShowcase = dynamic(() => import('@/sections/projects'), {
 })
 
 const About = dynamic(() => import('@/sections/about'), {
+  loading: () => <div className="h-screen flex items-center justify-center">Loading about...</div>,
+})
+
+const WhoWeAre = dynamic(() => import('@/sections/whoWeAre'), {
   loading: () => (
-    <div className="h-screen flex items-center justify-center">Loading the mission...</div>
+    <div className="h-screen flex items-center justify-center">Loading who we are...</div>
   ),
 })
 
 const AboutHow = dynamic(() => import('@/sections/aboutHow'), {
-  loading: () => (
-    <div className="h-screen flex items-center justify-center">Loading the mission...</div>
-  ),
+  loading: () => <div className="h-screen flex items-center justify-center">Loading how...</div>,
 })
 
 // Define section interface
@@ -47,6 +49,7 @@ export default function Home() {
     { id: 'about', component: About, priority: false },
     { id: 'services', component: Services, priority: false },
     { id: 'aboutHow', component: AboutHow, priority: false },
+    { id: 'whoWeAre', component: WhoWeAre, priority: false },
     { id: 'projects', component: ProjectsShowcase, priority: false },
   ]
 

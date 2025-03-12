@@ -1,61 +1,71 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import { motion } from 'framer-motion'
+import { useRef, useState } from 'react'
 
-export const CompactModernParallax = () => {
+export const Waves = () => {
   const ref = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start'],
-  })
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
-  // Transformaciones para el parallax
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, 50]) // Movimiento lento
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, 100]) // Movimiento medio
-  const y3 = useTransform(scrollYProgress, [0, 1], [0, 150]) // Movimiento rápido
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]) // Desvanecimiento
+  const handleMouseMove = event => {
+    const { clientX, clientY } = event
+    setMousePosition({ x: clientX, y: clientY })
+  }
 
   return (
-    <div
-      ref={ref}
-      className="h-[50vh] relative overflow-hidden flex justify-center items-center bg-transparent"
-    >
-      {/* Capa 1: Formas geométricas grandes (movimiento lento) */}
-      <motion.div
-        className="w-32 h-32 bg-gradient-to-r from-[#6EE7B7] to-[#3B82F6] rounded-full absolute top-1/4 left-1/4 blur-xl opacity-50"
-        style={{
-          y: y1,
-          opacity,
-        }}
-      />
-
-      {/* Capa 2: Formas geométricas medianas (movimiento medio) */}
-      <motion.div
-        className="w-24 h-24 bg-gradient-to-r from-[#F472B6] to-[#F59E0B] rounded-lg absolute top-1/2 left-1/2 blur-lg opacity-70"
-        style={{
-          y: y2,
-          opacity,
-        }}
-      />
-
-      {/* Capa 3: Formas geométricas pequeñas (movimiento rápido) */}
-      <motion.div
-        className="w-16 h-16 bg-gradient-to-r from-[#A78BFA] to-[#F472B6] rounded-t-full absolute bottom-1/4 right-1/4 blur-md opacity-90"
-        style={{
-          y: y3,
-          opacity,
-        }}
-      />
-
-      {/* Efecto de luz central */}
-      <motion.div
-        className="w-48 h-48 bg-gradient-to-r from-[#38BDF8] to-[#A78BFA] rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 blur-2xl opacity-30"
-        style={{
-          scale: useTransform(scrollYProgress, [0, 1], [1, 1.5]),
-          opacity,
-        }}
-      />
+    <div ref={ref} onMouseMove={handleMouseMove} className="relative bg-transparent">
+      {/* Olas animadas en la parte superior */}
+      <div className="absolute top-0 left-0 bottom-10 w-full h-[5vh] overflow-hidden leading-none rotate-180">
+        <svg
+          className="absolute w-full h-full"
+          viewBox="0 24 150 28"
+          preserveAspectRatio="none"
+          shapeRendering="auto"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
+        >
+          <defs>
+            <path
+              id="gentle-wave"
+              d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+            />
+          </defs>
+          <g className="parallax">
+            <motion.use
+              xlinkHref="#gentle-wave"
+              x="48"
+              y="0"
+              fill="rgba(220, 20, 60, 0.7)"
+              animate={{ x: [0, -90, 0] }}
+              transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+            />
+            <motion.use
+              xlinkHref="#gentle-wave"
+              x="48"
+              y="3"
+              fill="rgba(255, 69, 0, 0.5)"
+              animate={{ x: [0, -90, 0] }}
+              transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+            />
+            <motion.use
+              xlinkHref="#gentle-wave"
+              x="48"
+              y="5"
+              fill="rgba(178, 34, 34, 0.3)"
+              animate={{ x: [0, -90, 0] }}
+              transition={{ duration: 13, repeat: Infinity, ease: 'easeInOut' }}
+            />
+            <motion.use
+              xlinkHref="#gentle-wave"
+              x="48"
+              y="7"
+              fill="#B22222"
+              animate={{ x: [0, -90, 0] }}
+              transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
+            />
+          </g>
+        </svg>
+      </div>
     </div>
   )
 }
