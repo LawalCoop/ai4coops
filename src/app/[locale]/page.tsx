@@ -7,9 +7,6 @@ import Navbar from '@/components/Navbar'
 import Header from '@/sections/HeroSection'
 import Footer from '@/sections/footer'
 import Services from '@/sections/services'
-import { Server } from 'lucide-react'
-
-// Dynamically import heavy components
 
 const ProjectsShowcase = dynamic(() => import('@/sections/projects'), {
   loading: () => (
@@ -107,6 +104,7 @@ export default function Home() {
   }
 
   return (
+    <>
     <div
       className={`min-h-screen ${
         isContentVisible ? 'opacity-100' : 'opacity-0'
@@ -136,5 +134,6 @@ export default function Home() {
 
       <Footer />
     </div>
+    </>
   )
 }

@@ -1,4 +1,14 @@
 {
+  "InDepth": {
+    "MainSection": {
+      "title": "AI for coops from coops!",
+      "subtitle": "Exploring how AI can empower cooperativism. Using technology to address real-world cooperative challenges while embracing the movement principles.",
+      "firstAnimationText": "Innovation",
+      "secondAnimationText": "development",
+      "thirdAnimationText": "other worlds are possible together",
+      "navbarTitle": "AI for Coops"
+    }
+  },
   "Sections": {
     "HeroSection": {
       "title": "AI for coops from coops!",

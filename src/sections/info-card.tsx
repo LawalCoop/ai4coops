@@ -20,26 +20,26 @@ export function InfoCardsContainer({ cards }: { cards: InfoCardProps[] }) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const containerRef = useRef(null)
   const isInView = useInView(containerRef, {
-    margin: "0px 0px -200px 0px"
+    margin: '0px 0px -200px 0px',
   })
 
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
-       y: 0,
+      y: 0,
       transition: {
         staggerChildren: 0.2,
-        duration: 0.5 // Esto crea un efecto escalonado entre cards
-      }
-    }
+        duration: 0.5, // Esto crea un efecto escalonado entre cards
+      },
+    },
   }
   return (
     <motion.div
       ref={containerRef}
       className="grid grid-cols-1 md:grid-cols-2 gap-16 w-full py-10"
       initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
+      animate={isInView ? 'visible' : 'hidden'}
       variants={containerVariants}
     >
       {cards.map((card, idx) => (
@@ -77,7 +77,7 @@ function InfoCard(props: InfoCardProps & { isHovered: boolean }) {
   const { title, description, imageSrc, imageAlt, bgColor, imagePosition } = props
   const ref = useRef(null) // Añade ref
   const isInView = useInView(ref, {
-    margin: "0px 0px -200px 0px" // Ajusta este valor para controlar cuándo se dispara la animación
+    margin: '0px 0px -200px 0px', // Ajusta este valor para controlar cuándo se dispara la animación
   })
   const infoCardClass = twMerge(
     'relative flex flex-col-reverse md:flex-row w-full max-w-[720px] min-h-[300px] items-center gap-12 md:gap-12 rounded-lg border-2 border-slate-900 px-6 py-8 shadow-light dark:shadow-gray-500 dark:border-gray-500 z-10',
@@ -94,15 +94,15 @@ function InfoCard(props: InfoCardProps & { isHovered: boolean }) {
   const cardVariants = {
     hidden: {
       y: 100,
-      opacity: 0
+      opacity: 0,
     },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: "easeOut"
-      }
+        ease: 'easeOut',
+      },
     },
     hover: {
       scale: 1.02,
@@ -138,14 +138,14 @@ function InfoCard(props: InfoCardProps & { isHovered: boolean }) {
   }
 
   return (
-     <motion.div
-       ref={ref}
-       className={infoCardClass}
-       initial="hidden"
-       animate={isInView ? "visible" : "hidden"}
-       variants={cardVariants}
-       whileHover="hover"
-     >
+    <motion.div
+      ref={ref}
+      className={infoCardClass}
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+      variants={cardVariants}
+      whileHover="hover"
+    >
       {/* Text Section */}
       <motion.div className={infoTextContainerClass} variants={textVariants}>
         <H3>{title}</H3>

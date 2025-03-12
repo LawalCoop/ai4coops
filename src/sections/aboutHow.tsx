@@ -1,6 +1,6 @@
 'use client'
 
-import React, { JSX } from 'react'
+import React, { useRef, JSX } from 'react'
 import {
   Carousel,
   CarouselContent,
@@ -17,15 +17,20 @@ import ExplorationImage from '@/media/exploration.png'
 import ProductionImage from '@/media/produccion.png'
 import Autoplay from 'embla-carousel-autoplay'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
+import { motion, useScroll, useTransform, useInView } from 'framer-motion'
+import Link from 'next/link'
 
 interface FeatureCardProps {
-  icon: IconProp 
+  icon: IconProp
   titleKey: string
   descriptionKey: string
 }
 
 interface ContentSlideProps {
-  titleKey: string, descriptionKey: string, image: StaticImageData, imageOnRight: boolean
+  titleKey: string
+  descriptionKey: string
+  image: StaticImageData
+  imageOnRight: boolean
 }
 
 // Datos para las cards del primer slide - Ahora usando keys para translations
@@ -76,7 +81,12 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, titleKey, descriptionKe
 }
 
 // Componente para slides con imagen y texto
-const ContentSlide: React.FC<ContentSlideProps> = ({ titleKey, descriptionKey, image, imageOnRight = true }) => {
+const ContentSlide: React.FC<ContentSlideProps> = ({
+  titleKey,
+  descriptionKey,
+  image,
+  imageOnRight = true,
+}) => {
   const t = useTranslations('Sections.AboutHow')
 
   return (
@@ -103,29 +113,60 @@ const ContentSlide: React.FC<ContentSlideProps> = ({ titleKey, descriptionKey, i
 
 export default function AboutHow() {
   const t = useTranslations('Sections.AboutHow')
+  const sectionRef = useRef(null)
+  const isInView = useInView(sectionRef, { once: false })
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  })
+
+  const headerY = useTransform(scrollYProgress, [0, 1], [0, -50])
+  const carouselY = useTransform(scrollYProgress, [0, 1], [50, -50])
 
   return (
-    <div className="w-full bg-bg dark:bg-darkBg py-[50px] lg:py-[50px]">
+    <motion.div
+      ref={sectionRef}
+      className="w-full bg-bg dark:bg-darkBg py-[50px] lg:py-[50px]"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <div className="mx-auto w-container max-w-full px-5">
-        {/* Header section with image */}
-        <div className="w-full mb-16">
-          <div
+        {/* Header section with animations */}
+        <motion.div
+          className="w-full mb-16"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.div
             className="dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
-                        shadow-[8px_8px_0px_0px] shadow-shadow dark:shadow-darkShadow
-                        transform hover:-translate-y-1  hover:shadow-shadow hover:shadow-[12px_12px_0px_0px] dark:hover:shadow-darkShadow
-                        transition-all duration-300 p-6 mb-10"
+                            shadow-[8px_8px_0px_0px] shadow-shadow dark:shadow-darkShadow
+                            transform hover:-translate-y-1 hover:shadow-[12px_12px_0px_0px] hover:shadow-shadow dark:hover:shadow-darkShadow
+                            transition-all duration-300 p-6 mb-10"
+            whileHover={{ scale: 1.02 }}
           >
-            <h1 className="text-4xl md:text-5xl font-black text-black text-center dark:text-darkText">
+            <motion.h1
+              className="text-4xl md:text-5xl font-black text-black text-center dark:text-darkText"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
               {t('title')}
-            </h1>
-            {/* Subtitle/Description */}
-          </div>
-          <div className="">
-            <p className="text-lg md:text-xl text-center text-text dark:text-darkText">
-              {t('subtitle')}
-            </p>
-          </div>
-        </div>
+            </motion.h1>
+          </motion.div>
+          <h2><Link href="/in-depth">In depth</Link>
+</h2>
+          <motion.p
+            className="text-lg md:text-xl text-center text-text dark:text-darkText"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            {t('subtitle')}
+          </motion.p>
+        </motion.div>
 
         {/* Carousel section */}
         <Carousel
@@ -185,6 +226,6 @@ export default function AboutHow() {
           />
         </Carousel>
       </div>
-    </div>
+    </motion.div>
   )
 }
