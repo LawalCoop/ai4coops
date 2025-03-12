@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { ExternalLink, Github } from 'lucide-react'
 import digipinImage from '../media/digipin.jpeg'

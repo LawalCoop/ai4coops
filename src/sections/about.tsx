@@ -1,9 +1,9 @@
+'use client'
 import React, { useRef } from 'react'
 import Image from 'next/image'
 import AI4CoopsAbout from '@/media/ai4coopsAbout.png'
 import { useTranslations } from 'next-intl'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
-import { Waves } from '@/components/ui/parallaxLine'
 
 export default function About() {
   const t = useTranslations('Sections.About')

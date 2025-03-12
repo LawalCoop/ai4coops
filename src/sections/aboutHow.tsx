@@ -19,7 +19,7 @@ import Autoplay from 'embla-carousel-autoplay'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 import Link from 'next/link'
-
+import { useLocale } from 'next-intl'
 interface FeatureCardProps {
   icon: IconProp
   titleKey: string
@@ -115,6 +115,7 @@ export default function AboutHow() {
   const t = useTranslations('Sections.AboutHow')
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: false })
+  const locale = useLocale() // Obtiene el idioma actual
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -156,8 +157,6 @@ export default function AboutHow() {
               {t('title')}
             </motion.h1>
           </motion.div>
-          <h2><Link href="/in-depth">In depth</Link>
-</h2>
           <motion.p
             className="text-lg md:text-xl text-center text-text dark:text-darkText"
             initial={{ opacity: 0, y: 20 }}
@@ -165,6 +164,7 @@ export default function AboutHow() {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             {t('subtitle')}
+            <Link href={`/${locale}/in-depth`}>HERE</Link>
           </motion.p>
         </motion.div>
 

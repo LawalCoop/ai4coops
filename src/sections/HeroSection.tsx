@@ -7,7 +7,6 @@ import { motion } from 'framer-motion'
 import coopImage from '@/media/home.svg'
 import {
   SiPython,
-  SiJavascript,
   SiPytorch,
   SiTensorflow,
   SiOpencv,
@@ -16,7 +15,6 @@ import {
   SiScikitlearn,
   SiDocker,
   SiGit,
-  SiPostgresql,
   SiHuggingface,
   SiJupyter,
   SiPandas,
