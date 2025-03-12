@@ -35,11 +35,11 @@
       "phase1_keyPoint2_desc": "Next, we develop a Minimum Viable Product (MVP) that includes a simplified but functional version of the chosen solution. This allows us to test the core features in a controlled environment and gather feedback for refinement.",
       "phase1_keyPoint3": "Performance Testing",
       "phase1_keyPoint3_desc": "Finally, we test the MVP in real-world conditions and measure its performance against the defined metrics. This phase helps us validate the solution's effectiveness and identify areas for improvement before full-scale implementation.",
-      "phase1_title": "#1 ~ Exploration Phase",
+      "phase1_title": "#1 | Exploration Phase",
       "phase1_text": "During this phase, we immerse ourselves in the cooperative’s daily operations to identify opportunities where AI can drive real improvements. We engage with the team, observe workflows, and identify key challenges. We focus on finding bottlenecks like inefficiencies, high costs, or repetitive tasks. Based on this analysis, we propose AI-driven solutions to address these issues. We then collaborate with the team to prioritize the most impactful improvements and establish measurable success metrics to track progress. Deliverable: A comprehensive document with an analysis of bottlenecks, prioritized AI solutions, and clear KPIs for the project.",
-      "phase2_title": "#2 ~ MVP Phase",
+      "phase2_title": "#2 | MVP Phase",
       "phase2_text": "In this phase, we select one of the proposed AI solutions and develop a Minimum Viable Product (MVP) to test its effectiveness in a controlled environment. The goal is to validate that the AI solution works in real-world conditions and delivers tangible results. The MVP is kept simple, yet functional, allowing us to gather feedback, identify areas for improvement, and measure its performance using the previously defined metrics. This phase ensures that the solution is on the right track before scaling it up. Deliverable: A fully functional MVP that demonstrates the viability of the chosen solution and provides initial performance data.",
-      "phase3_title": "#3 ~ Production Phase",
+      "phase3_title": "#3 | Production Phase",
       "phase3_text": "In the production phase, we take the validated solution and refine it to make it ready for full-scale implementation. This includes finalizing the solution, integrating it into the cooperative's day-to-day operations, and testing it in a live environment to ensure it meets all requirements. We analyze the impact of the solution by comparing performance metrics before and after implementation. Finally, based on the results, we plan the next steps, deciding on additional challenges that could be addressed with AI in the future. Deliverable: A fully operational and integrated AI solution that is actively improving the cooperative's processes, with measurable impact and clear next steps."
     },
     "WhoWeAre": {
