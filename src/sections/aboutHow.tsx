@@ -90,7 +90,7 @@ const ContentSlide: React.FC<ContentSlideProps> = ({
       className="group dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
                      shadow-[8px_8px_0px_0px] dark:shadow-darkShadow shadow-shadow
                      transform hover:-translate-y-1 hover:shadow-[12px_12px_0px_0px] hover:shadow-shadow dark:hover:shadow-darkShadow
-                     transition-all duration-300 p-6 rounded-lg
+                     transition-all duration-300 p-8 rounded-lg // Aumento del padding para más espacio
                      w-full mx-4 my-4"
     >
       <div className="flex flex-col lg:flex-row items-center gap-10">
@@ -99,7 +99,9 @@ const ContentSlide: React.FC<ContentSlideProps> = ({
             <Image src={image} alt={t(titleKey)} className="w-full h-full rounded-lg" />
           </div>
         )}
-        <div className="lg:w-1/2 space-y-4">
+        <div className="lg:w-1/2 space-y-4 px-6">
+          {' '}
+          {/* Padding adicional para más espacio alrededor del texto */}
           <h2 className="text-3xl font-bold text-black dark:text-darkText">{t(titleKey)}</h2>
           <p className="text-gray-700 dark:text-gray-300">{t(descriptionKey)}</p>
         </div>
