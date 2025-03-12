@@ -164,7 +164,7 @@ export default function AboutHow() {
                 <h2 className="text-3xl font-bold text-black dark:text-darkText text-center mb-6">
                   {t('phase2_title')}
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full px-4">
                   {featureCards.map((card, index) => (
                     <FeatureCard key={index} {...card} />
                   ))}
