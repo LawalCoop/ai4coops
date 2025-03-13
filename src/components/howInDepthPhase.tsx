@@ -40,9 +40,7 @@ export default function Phase({ title, description, steps, index, isInView }: Ph
       </div>
 
       {/* Descripción */}
-      <p className="text-lg text-text dark:text-darkText mb-6 pl-14">
-        {description}
-      </p>
+      <p className="text-lg text-text dark:text-darkText mb-6 pl-14">{description}</p>
 
       {/* Pasos */}
       <div className="pl-14 space-y-4">
@@ -54,9 +52,11 @@ export default function Phase({ title, description, steps, index, isInView }: Ph
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.1 * i }}
           >
-            <span className="w-6 h-6 flex items-center justify-center
+            <span
+              className="w-6 h-6 flex items-center justify-center
               border-2 border-purple dark:border-darkPurple rounded-full
-              text-sm font-bold text-purple dark:text-darkPurple">
+              text-sm font-bold text-purple dark:text-darkPurple"
+            >
               {i + 1}
             </span>
             <p className="text-text/90 dark:text-darkText/90">{step}</p>

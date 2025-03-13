@@ -100,7 +100,9 @@ export default function About() {
               }}
             >
               <div className="relative">
-                <h3 className="text-2xl font-semibold text-primary mb-4">{point.title}</h3>
+                <h3 className="text-2xl font-semibold text-primary mb-4 uppercase">
+                  {point.title}
+                </h3>
                 <motion.div
                   className="h-0.5 bg-primary w-0"
                   whileInView={{ width: '100%' }}

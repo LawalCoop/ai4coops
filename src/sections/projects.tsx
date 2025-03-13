@@ -1,9 +1,11 @@
 'use client'
 import React from 'react'
 import { ExternalLink, Github } from 'lucide-react'
-import digipinImage from '../media/digipin.jpeg'
-import qgisHubImage from '../media/qgisHub.png'
-import olBenchImage from '../media/olBench.png'
+import cv1Img from '../media/cv1.jpg'
+import agroImg from '../media/agro.png'
+import llmImg from '../media/llm.jpg'
+import bigDataImg from '../media/bigdata.jpg'
+import predictionImg from '../media/prediction.jpg'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
@@ -13,31 +15,49 @@ const ProjectsShowcase = () => {
 
   const projects = [
     {
-      title: 'Digipin',
+      title: 'Optimizing Quality Control in Manufacturing',
       description:
-        'Search for the DIGIPIN for your location. This app demonstrates how to use the Digital Postal Index Number (DIGIPIN) by the Department of Posts in India, aiming to simplify geo-coded addressing for public and private services.',
-      tech: ['Openlayers', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+        'We developed an AI-powered system for a manufacturing client to enhance quality control. It processes 16 images per second with 99.99% accuracy, identifying defects in real-time. This solution helps workers reduce errors and minimize waste, ensuring high-quality products.',
+      tech: ['TensorFlow', 'OpenCV', 'Python', 'Flask'], // Computer Vision y backend ligero
       github: 'https://github.com/ronitjadhav/digipin-openlayers',
       live: 'https://digipin.maplabs.tech',
-      image: digipinImage, // Ensure this path is correct
+      image: cv1Img,
     },
     {
-      title: 'QGIS Hub Plugin',
+      title: 'Satellite-Based Insights for Agriculture',
       description:
-        'Developed at Camptocamp with help from Ismail Sunni, this plugin allows QGIS users to easily browse and add resources from the QGIS Hub directly into their projects. It supports grid and list views, search, and filtering by resource type.',
-      tech: ['Python', 'Qt', 'QGIS'],
+        'We created a system that analyzes satellite imagery and field data across 60,000 hectares. It provides daily insights, enabling smarter decisions for crop management. This tool supports agricultural cooperatives in achieving higher yields and better resource allocation.',
+      tech: ['PyTorch', 'GDAL', 'GeoPandas', 'FastAPI'], // Procesamiento de imágenes satelitales y análisis geoespacial
       github: 'https://github.com/qgis/QGIS-Hub-Plugin',
       live: 'https://plugins.qgis.org/plugins/qgis_hub_plugin/',
-      image: qgisHubImage,
+      image: agroImg,
     },
     {
-      title: 'Openlayers Benchmark',
+      title: 'Automating Data Extraction from Printed Documents',
       description:
-        'Developed at Camptocamp as part of my internship, this project helps to benchmark the performance of WebGL and Canvas rendering in Openlayers. It includes a variety of tests and visualizations to compare the rendering speed of different layers.',
-      tech: ['Openlayers', 'TypeScript'],
+        'We built an AI solution for a client to automate data extraction from printed documents. The system captures and digitizes key information, reducing manual effort and errors. This ensures seamless integration with the cooperative’s digital systems, enhancing overall productivity.',
+      tech: ['LangChain', 'Tesseract OCR', 'Python', 'FastAPI'], // LLM y OCR para extracción de texto
       github: 'https://github.com/openlayers/bench',
       live: 'https://openlayers.org/bench/',
-      image: olBenchImage,
+      image: llmImg,
+    },
+    {
+      title: 'Big Data Solution',
+      description:
+        'We implemented a Big Data platform to analyze large volumes of operational data. The system provides actionable insights, helping staff make informed decisions and optimize resource allocation.',
+      tech: ['Apache Spark', 'Hadoop', 'Kafka', 'Python'], // Tecnologías Big Data
+      github: 'https://github.com/openlayers/bench',
+      live: 'https://openlayers.org/bench/',
+      image: bigDataImg,
+    },
+    {
+      title: 'Demand Forecasting for Logistics',
+      description:
+        'We implemented a predictive AI system for a logistics client to forecast demand and optimize delivery routes. By analyzing historical data and real-time variables, the system helps reduce costs, improve delivery times, and ensure efficient resource allocation.',
+      tech: ['Scikit-learn', 'XGBoost', 'Pandas', 'Flask'], // Machine Learning para predicción
+      github: 'https://github.com/openlayers/bench',
+      live: 'https://openlayers.org/bench/',
+      image: predictionImg,
     },
   ]
 
@@ -58,26 +78,30 @@ const ProjectsShowcase = () => {
         {projects.map(project => (
           <div
             key={project.title}
-            className="group bg-bg p-6 rounded-lg transform transition-transform hover:scale-105 dark:bg-darkBg"
+            className="group bg-bg p-6 rounded-lg transform transition-transform hover:scale-105 dark:bg-darkBg flex flex-col"
             style={{
               border: '3px solid black',
               boxShadow: '8px 8px 0px 0px #000000',
             }}
           >
-            <div className="relative mb-4 overflow-hidden rounded-lg">
+            {/* Imagen con altura fija más grande */}
+            <div className="relative mb-4 overflow-hidden rounded-lg h-56">
               <Image
                 src={project.image}
                 alt={project.title}
-                className="w-full object-cover transition-transform group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform group-hover:scale-110"
                 width={600}
                 height={400}
               />
             </div>
 
-            <h3 className="text-2xl font-bold mb-2 transform">{project.title}</h3>
+            {/* Título y descripción */}
+            <div className="flex-grow">
+              <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
+              <p className="text-text dark:text-darkText mb-4">{project.description}</p>
+            </div>
 
-            <p className="text-text dark:text-darkText mb-4">{project.description}</p>
-
+            {/* Tags alineados al fondo */}
             <div className="flex flex-wrap gap-2 mb-4">
               {project.tech.map(tech => (
                 <span
@@ -92,7 +116,8 @@ const ProjectsShowcase = () => {
               ))}
             </div>
 
-            <div className="flex gap-4">
+            {/* Botones alineados al fondo */}
+            <div className="flex gap-4 mt-auto">
               <a
                 href={project.github}
                 target="_blank"
