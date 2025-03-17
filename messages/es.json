@@ -1,81 +1,84 @@
 {
-  "Sections": {
-    "HeroSection": {
-      "title": "¡IA para cooperativas, por cooperativas!",
-      "subtitle": "Explorando cómo la IA puede empoderar el cooperativismo. Usamos la tecnología para abordar los desafíos reales de las cooperativas, respetando los principios del movimiento.",
+  "InDepth": {
+    "MainSection": {
+      "title": "¡IA para cooperativas, hecha por cooperativas!",
+      "subtitle": "Exploramos cómo la inteligencia artificial puede potenciar el cooperativismo. Usamos la tecnología para abordar desafíos reales de las cooperativas, siempre respetando los principios del movimiento.",
       "firstAnimationText": "Innovación",
       "secondAnimationText": "Desarrollo",
-      "thirdAnimationText": "Otros mundos son posibles juntos",
+      "thirdAnimationText": "Otros mundos son posibles, juntos",
+      "navbarTitle": "IA para Cooperativas"
+    }
+  },
+  "Sections": {
+    "HeroSection": {
+      "title": "¡IA para cooperativas, hecha por cooperativas!",
+      "subtitle": "Exploramos cómo la inteligencia artificial puede potenciar el cooperativismo. Usamos la tecnología para abordar desafíos reales de las cooperativas, siempre respetando los principios del movimiento.",
+      "firstAnimationText": "Innovación",
+      "secondAnimationText": "Desarrollo",
+      "thirdAnimationText": "Otros mundos son posibles, juntos",
       "navbarTitle": "IA para Cooperativas"
     },
     "Projects": {
       "title": "Casos de estudio",
-      "subtitle": "Casos de estudio sobre cómo la IA está transformando el mundo cooperativo",
+      "subtitle": "Ejemplos concretos de cómo la IA está transformando el mundo cooperativo.",
       "navbarTitle": "Casos de Estudio"
     },
     "About": {
-      "title": "Qué estamos haciendo",
-      "subtitle": "Conoce nuestras iniciativas y cómo estamos usando la IA para resolver problemas del mundo real",
-      "navbarTitle": "Qué estamos haciendo",
-      "keyPoint1Title": "Inteligencia Artificial",
-      "keyPoint2Title": "Soluciones Centradas en las Personas",
-      "keyPoint3Title": "Intercooperación",
-      "keyPoint1Description": "Como cooperativas tecnológicas, ofrecemos soluciones de IA diseñadas para mejorar los procesos en otras cooperativas. Nuestras soluciones buscan aumentar la eficiencia operativa, reducir tareas repetitivas y optimizar flujos de trabajo, siempre manteniendo a las personas en el centro. Creemos que la IA debe asistir a los trabajadores, no reemplazarlos, ayudando a las cooperativas a alcanzar mayor productividad y mejores resultados.",
-      "keyPoint2Description": "Nuestro enfoque se centra en crear soluciones de IA que sean amigables con las personas y trabajen en armonía con la fuerza laboral. Aseguramos que la IA se use para potenciar las capacidades humanas, no para reemplazarlas. Al poner a las personas en el centro de nuestras soluciones, empoderamos a los trabajadores para tomar mejores decisiones, mejorar su productividad y optimizar procesos sin perder el toque humano.",
-      "keyPoint3Description": "Promovemos la intercooperación entre cooperativas compartiendo conocimientos, herramientas y soluciones de IA. Al colaborar con otras cooperativas, ayudamos a construir una red más fuerte y resiliente. Nuestro objetivo es que la IA sea accesible para todas las cooperativas, creando una comunidad donde el avance tecnológico sea compartido y todos se beneficien del crecimiento mutuo y el éxito.",
-      "main_text": "Como cooperativas tecnológicas, ofrecemos soluciones basadas en IA que ayudan a otras cooperativas a mejorar sus procesos. Nuestro objetivo no es reemplazar a las personas, sino optimizar flujos de trabajo, ahorrar tiempo y, en última instancia, aumentar la productividad. Fomentando la intercooperación, creamos una red de cooperativas que pueden aprovechar la IA para resolver problemas reales, asegurando que la tecnología sirva para empoderar a los trabajadores y fortalecer las comunidades."
+      "title": "Qué hacemos",
+      "navbarTitle": "Qué hacemos",
+      "keyPoint1Title": "IA desde una mirada cooperativa",
+      "keyPoint2Title": "Enfoque centrado en las personas",
+      "keyPoint3Title": "Innovación colaborativa",
+      "keyPoint1Description": "Creamos herramientas de IA personalizadas que se adaptan a las necesidades de tu cooperativa. Ya sea para automatizar tareas repetitivas o mejorar la toma de decisiones, nuestro objetivo es hacer tu trabajo más fácil y eficiente.",
+      "keyPoint2Description": "Nuestras soluciones están diseñadas para trabajar junto a tu equipo, no para reemplazarlo. Nos enfocamos en crear herramientas que ayuden a las personas a hacer su trabajo mejor, más rápido y con menos estrés.",
+      "keyPoint3Description": "Creemos en el poder de trabajar juntos. Compartiendo conocimientos y herramientas, ayudamos a las cooperativas a construir redes más fuertes y lograr más como comunidad.",
+      "main_text": "Como cooperativas tecnológicas, desarrollamos soluciones de inteligencia artificial adaptadas a las necesidades de las cooperativas. Trabajamos codo a codo con cada cooperativa para entender sus procesos, desafíos y objetivos únicos. Observando y analizando cómo operan, co-creamos soluciones de IA a medida que se ajustan a sus necesidades. Juntos, identificamos oportunidades para mejorar flujos de trabajo, aumentar la eficiencia y empoderar a los trabajadores con tecnología que resuelve problemas reales y fortalece comunidades."
     },
     "AboutHow": {
-      "title": "Desde cero hasta la solución",
-      "subtitle": "Seguimos un enfoque estructurado y colaborativo para garantizar la implementación exitosa de la IA en tu cooperativa. A continuación, describimos nuestro proceso paso a paso, desde la identificación de oportunidades hasta la entrega de soluciones reales. Nuestro enfoque está en la co-creación, validación e impacto medible en cada etapa.",
-      "navbarTitle": "Cómo",
-      "phase1_keyPoint1": "Selección de la Solución",
-      "phase1_keyPoint1_desc": "En este primer paso, elegimos una solución de IA entre las opciones propuestas. Esta solución se selecciona en función de su impacto potencial y viabilidad, asegurando que esté alineada con las prioridades de la cooperativa.",
-      "phase1_keyPoint2": "Desarrollo del MVP",
-      "phase1_keyPoint2_desc": "A continuación, desarrollamos un Producto Mínimo Viable (MVP) que incluye una versión simplificada pero funcional de la solución elegida. Esto nos permite probar las funciones principales en un entorno controlado y recopilar comentarios para su refinamiento.",
-      "phase1_keyPoint3": "Pruebas de Rendimiento",
-      "phase1_keyPoint3_desc": "Finalmente, probamos el MVP en condiciones reales y medimos su rendimiento según las métricas definidas. Esta fase nos ayuda a validar la efectividad de la solución e identificar áreas de mejora antes de su implementación a gran escala.",
-      "phase1_title": "#1 | Fase de Exploración",
-      "phase1_text": "Durante esta fase, nos sumergimos en las operaciones diarias de la cooperativa para identificar oportunidades donde la IA puede generar mejoras reales. Nos involucramos con el equipo, observamos los flujos de trabajo e identificamos los principales desafíos. Nos enfocamos en encontrar cuellos de botella como ineficiencias, altos costos o tareas repetitivas. Basándonos en este análisis, proponemos soluciones impulsadas por IA para abordar estos problemas. Luego, colaboramos con el equipo para priorizar las mejoras más impactantes y establecer métricas de éxito claras para el proyecto. Entregable: Un documento completo con un análisis de los cuellos de botella, soluciones de IA priorizadas y KPIs claros para el proyecto.",
-      "phase2_title": "#2 | Fase de MVP",
-      "phase2_text": "En esta fase, seleccionamos una de las soluciones de IA propuestas y desarrollamos un Producto Mínimo Viable (MVP) para probar su efectividad en un entorno controlado. El objetivo es validar que la solución de IA funciona en condiciones reales y ofrece resultados tangibles. El MVP se mantiene simple pero funcional, lo que nos permite recopilar comentarios, identificar áreas de mejora y medir su rendimiento utilizando las métricas previamente definidas. Esta fase asegura que la solución esté en el camino correcto antes de escalarla. Entregable: Un MVP completamente funcional que demuestra la viabilidad de la solución elegida y proporciona datos iniciales de rendimiento.",
-      "phase3_title": "#3 | Fase de Producción",
-      "phase3_text": "En la fase de producción, tomamos la solución validada y la refinamos para que esté lista para su implementación a gran escala. Esto incluye finalizar la solución, integrarla en las operaciones diarias de la cooperativa y probarla en un entorno real para asegurarnos de que cumple con todos los requisitos. Analizamos el impacto de la solución comparando las métricas de rendimiento antes y después de la implementación. Finalmente, basándonos en los resultados, planificamos los próximos pasos, decidiendo qué otros desafíos podrían abordarse con IA en el futuro. Entregable: Una solución de IA completamente operativa e integrada que está mejorando activamente los procesos de la cooperativa, con un impacto medible y próximos pasos claros."
+      "title": "De la visión al impacto colectivo",
+      "subtitle": "Un enfoque colaborativo para implementar IA. A continuación, describimos nuestro proceso paso a paso, desde la identificación de oportunidades hasta la entrega de soluciones concretas.",
+      "navbarTitle": "Cómo lo hacemos",
+      "phase1_title": "#1 | Fase de exploración",
+      "phase1_text": "En esta fase, nos sumergimos en el día a día de tu cooperativa para identificar oportunidades donde la IA puede generar mejoras reales. Trabajamos junto a tu equipo, observamos los procesos y detectamos los principales desafíos. Nos enfocamos en encontrar cuellos de botella, como ineficiencias, costos elevados o tareas repetitivas. Con esta información, proponemos soluciones basadas en IA para abordar estos problemas.",
+      "phase2_title": "#2 | Fase de solución inicial (MVP)",
+      "phase2_keyPoint1": "Seleccionando la solución prioritaria:",
+      "phase2_keyPoint1_desc": "Colaboramos con tu equipo para elegir la solución de IA que mejor se ajuste a tus necesidades y prioridades.",
+      "phase2_keyPoint2": "Desarrollando el MVP",
+      "phase2_keyPoint2_desc": "Luego, creamos un Producto Mínimo Viable (MVP), una versión simplificada pero funcional de la solución elegida.",
+      "phase2_keyPoint3": "Pruebas y ajustes",
+      "phase2_keyPoint3_desc": "Lo probamos en un entorno controlado para asegurarnos de que las funciones principales funcionen correctamente. A través de varias iteraciones, recopilamos feedback, refinamos la herramienta y fortalecemos su funcionalidad.",
+       "phase3_title": "#3 | Fase de producción",
+      "phase3_text": "En esta fase, tomamos la solución validada y la ajustamos para su implementación a gran escala. Esto incluye integrarla en las operaciones diarias de tu cooperativa, probarla en un entorno real y analizar su impacto comparando métricas antes y después de la implementación. Con base en los resultados, planificamos los siguientes pasos para abordar nuevos desafíos."
     },
     "WhoWeAre": {
       "title": "Quiénes somos",
-      "subtitle": "Somos un grupo de cooperativas tecnológicas especializadas en Inteligencia Artificial y otras áreas de la tecnología. Nos hemos unido para ofrecer un servicio integral de implementación de IA diseñado específicamente para cooperativas. Nuestra misión es democratizar el acceso a la tecnología avanzada, ayudando a las cooperativas a innovar y crecer de manera sostenible. Si eres una cooperativa tecnológica que trabaja con IA y te gustaría unirte a nosotros, ¡nos encantaría saber de ti!",
+      "subtitle": "Después de más de 10 años trabajando en tecnología y cooperativismo, decidimos unirnos para combinar nuestras fortalezas, conocimientos y experiencia. Hemos visto cómo las cooperativas, a pesar de su potencial, a menudo se quedan atrás en la adopción de nuevas tecnologías. Por eso nos unimos como una red de cooperativas tecnológicas: para cerrar esa brecha. Como cooperativas, entendemos los desafíos que enfrentan las cooperativas porque, en muchos sentidos, hablamos el mismo idioma. Creemos en el poder del trabajo en equipo y la colaboración interdisciplinaria, y estamos comprometidos a marcar la diferencia desarrollando tecnología que realmente sirva a las cooperativas. Nuestro enfoque está en democratizar la inteligencia artificial, haciéndola accesible y un motor de crecimiento sostenible para las cooperativas. Si eres una cooperativa tecnológica que trabaja con IA y te gustaría unirte a nosotros, ¡nos encantaría saber de ti!",
       "navbarTitle": "Quiénes Somos"
-    },
-    "Hero": {
-      "subtitle": "Transformando el futuro cooperativo",
-      "title": "La innovación comienza con la colaboración",
-      "description": "Construyendo puentes entre la inteligencia artificial y el movimiento cooperativo para un futuro más inclusivo y sostenible."
     },
     "Contact": {
       "title": "Contáctanos",
-      "subtitle": "Ponte en contacto con nosotros y descubre cómo podemos colaborar",
+      "subtitle": "Ponte en contacto con nosotros y descubre cómo podemos colaborar.",
       "navbarTitle": "Contáctanos"
     },
     "Services": {
       "title": "Desbloqueando el poder de la IA para cooperativas",
       "navbarTitle": "Tecnologías",
-      "subtitle": "Empoderamos a las cooperativas con soluciones de IA de vanguardia diseñadas para aumentar la productividad, optimizar flujos de trabajo y fomentar un crecimiento sostenible. Al integrar la inteligencia artificial en las operaciones diarias, ayudamos a los equipos cooperativos a automatizar tareas repetitivas, mejorar la toma de decisiones a través de insights basados en datos y aumentar la eficiencia general, manteniendo a las personas en el centro de la innovación.",
+      "subtitle": "Usando herramientas de IA para un futuro cooperativo más fuerte",
       "service1": {
-        "title": "Visión por Computadora",
-        "description": "Creamos soluciones de visión por computadora impulsadas por IA para automatizar tareas como el reconocimiento de imágenes y el control de calidad. Esta tecnología ayuda a las cooperativas a mejorar la eficiencia operativa y tomar decisiones más rápidas y basadas en datos."
+        "title": "Ver lo que importa con Visión por Computadora",
+        "description": "Permite a las máquinas interpretar imágenes o videos. Usamos esta tecnología para automatizar tareas como el control de calidad (por ejemplo, identificar defectos en productos), el reconocimiento de objetos (por ejemplo, clasificar artículos en un almacén) y la monitorización de seguridad (por ejemplo, detectar anomalías en tiempo real). Es ideal para cooperativas que manejan datos visuales y necesitan agilizar procesos."
       },
       "service2": {
-        "title": "Predicción",
-        "description": "Nuestros modelos de predicción de IA ayudan a las cooperativas a pronosticar la demanda, optimizar recursos y planificar la producción. Al analizar datos históricos, empoderamos a los equipos para tomar decisiones informadas que mejoren la productividad y reduzcan costos."
+        "title": "Pronósticos estratégicos",
+        "description": "Los modelos de predicción usan datos históricos para anticipar eventos futuros. Para las cooperativas, esto significa prever la demanda (por ejemplo, predecir cuánto se necesitará de un producto), optimizar recursos (por ejemplo, planificar inventarios o personal) y reducir riesgos (por ejemplo, anticipar cambios en el mercado). Es una herramienta poderosa para tomar decisiones basadas en datos."
       },
       "service3": {
-        "title": "Modelos de Lenguaje (LLMs)",
-        "description": "Usamos modelos de lenguaje avanzados para mejorar el servicio al cliente y optimizar el procesamiento de documentos. Las soluciones de IA agilizan los flujos de trabajo, permitiendo a las cooperativas aumentar la eficiencia manteniendo la supervisión humana."
+        "title": "Optimizando flujos de texto con Modelos de Lenguaje (LLMs)",
+        "description": "Los modelos de lenguaje pueden entender y generar texto similar al humano. Los usamos para mejorar el servicio al cliente (por ejemplo, chatbots que responden preguntas al instante), automatizar el procesamiento de documentos (por ejemplo, extraer información clave de contratos) y ayudar en la creación de contenido (por ejemplo, generar informes o resúmenes). Es perfecto para cooperativas que manejan grandes volúmenes de texto."
       },
       "service4": {
-        "title": "Big Data",
-        "description": "Nuestras soluciones de big data permiten a las cooperativas gestionar y analizar grandes volúmenes de datos, convirtiéndolos en insights valiosos. Con nuestras herramientas, las cooperativas pueden optimizar operaciones, identificar tendencias y tomar decisiones estratégicas informadas."
+        "title": "Desbloqueando el potencial de los datos con Big Data",
+        "description": "Las herramientas de big data ayudan a gestionar y analizar grandes conjuntos de datos que son demasiado complejos para los métodos tradicionales. Para las cooperativas, esto significa identificar tendencias (por ejemplo, entender el comportamiento del cliente), optimizar operaciones (por ejemplo, encontrar ineficiencias en los flujos de trabajo) y tomar decisiones estratégicas (por ejemplo, basadas en datos en tiempo real). Es esencial para cooperativas que generan o dependen de grandes cantidades de datos."
       }
     }
   }

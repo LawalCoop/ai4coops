@@ -13,43 +13,42 @@ const config: Config = {
       width: {
         container: '1300px',
       },
-      lightShadow: '#ddd',
-      darkShadow: '#292929',
-      lightBorder: '#ddd',
-      darkBorder: '#292929',
       colors: {
-        // Light mode
-        bg: '#f5f7fa',
-        text: '#212121',
-        border: '#000',
-        shadow: '#000',
-        primary: '#ff304f', // Rojo neón
-        secondary: '#00e6ff', // Celeste neón
-        accent: '#00ff99', // Verde neón
-        warning: '#ffdd33', // Amarillo neón
-        info: '#0066ff', // Azul eléctrico
-        purple: '#a833ff', // Violeta neón
-        orange: '#ff6600', // Naranja fuego
+        // Colores base
+        bg: '#ffffff', // Fondo claro (blanco)
+        text: '#212121', // Texto oscuro
+        border: '#e0e0e0', // Borde gris claro
+        shadow: '#bdbdbd', // Sombra gris
+
+        // Colores cooperativistas (Light mode)
+        primary: '#ff0000', // Rojo cooperativo
+        secondary: '#0077b6', // Azul cooperativo
+        accent: '#4caf50', // Verde cooperativo
+        warning: '#ffc107', // Amarillo cooperativo
+        info: '#2196f3', // Azul claro (para información)
+        purple: '#673ab7', // Violeta (opcional)
+        orange: '#ff5722', // Naranja (opcional)
 
         // Dark mode
-        darkBg: '#212121',
-        darkText: '#eeefe9',
-        darkShadow: '#000',
-        darkBorder: '#000',
-        darkPrimary: '#ff304f',
-        darkSecondary: '#00e6ff',
-        darkAccent: '#00ff99',
-        darkWarning: '#ffdd33',
-        darkInfo: '#0066ff',
-        darkPurple: '#a833ff',
-        darkOrange: '#ff6600',
+        darkBg: '#1a1a1a', // Fondo oscuro
+        darkText: '#e0e0e0', // Texto claro
+        darkBorder: '#424242', // Borde gris oscuro
+        darkShadow: '#000000', // Sombra oscura
+        darkPrimary: '#ff5252', // Rojo cooperativo (más claro)
+        darkSecondary: '#29b6f6', // Azul cooperativo (más claro)
+        darkAccent: '#66bb6a', // Verde cooperativo (más claro)
+        darkWarning: '#ffca28', // Amarillo cooperativo (más claro)
+        darkInfo: '#64b5f6', // Azul claro (más claro)
+        darkPurple: '#7c4dff', // Violeta (más claro)
+        darkOrange: '#ff7043', // Naranja (más claro)
       },
       borderRadius: {
-        base: '5px',
+        base: '8px', // Bordes más redondeados
       },
       boxShadow: {
-        light: '4px 4px 0px 0px #000',
-        dark: '4px 4px 0px 0px #000',
+        // Sombras sutiles
+        light: '0 4px 6px rgba(0, 0, 0, 0.1)',
+        dark: '0 4px 6px rgba(0, 0, 0, 0.3)',
       },
       translate: {
         boxShadowX: '4px',
