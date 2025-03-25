@@ -4,11 +4,21 @@ import Image from 'next/image'
 import AI4CoopsAbout from '@/media/ai4coopsAbout.png'
 import { useTranslations } from 'next-intl'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
+import 'aos/dist/aos.css'; // Importa los estilos de AOS
+import AOS from 'aos'; // Importa la librería AOS
+import { useEffect } from 'react'; // Necesario para inicializar AOS
 
 export default function About() {
   const t = useTranslations('Sections.About')
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: false })
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800, // Duración de las animaciones
+      once: true, // Las animaciones solo se ejecutan una vez
+    });
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,

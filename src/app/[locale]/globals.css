@@ -18,8 +18,13 @@ body {
   --sb-track-color: #ffffff;
   --sb-thumb-color: #000000;
   @apply text-text dark:text-darkText;
-  cursor: none; /* Para el cursor personalizado */
   overflow-x: hidden;
+}
+
+@media (hover: hover) {
+  body {
+    cursor: none;
+  }
 }
 
 .perspective-1000 {

@@ -37,7 +37,7 @@ export function InfoCardsContainer({ cards }: { cards: InfoCardProps[] }) {
   return (
     <motion.div
       ref={containerRef}
-      className="grid grid-cols-1 md:grid-cols-2 gap-16 w-full py-10"
+      className="grid grid-cols-1 md:grid-cols-2 gap-16 w-full py-10 auto-rows-fr"
       initial="hidden"
       animate={isInView ? 'visible' : 'hidden'}
       variants={containerVariants}
@@ -45,7 +45,7 @@ export function InfoCardsContainer({ cards }: { cards: InfoCardProps[] }) {
       {cards.map((card, idx) => (
         <div
           key={idx}
-          className="relative"
+          className="relative h-full"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
@@ -80,12 +80,12 @@ function InfoCard(props: InfoCardProps & { isHovered: boolean }) {
     margin: '0px 0px -200px 0px', // Ajusta este valor para controlar cuándo se dispara la animación
   })
   const infoCardClass = twMerge(
-    'relative flex flex-col-reverse md:flex-row w-full max-w-[720px] min-h-[300px] items-center gap-12 md:gap-12 rounded-lg border-2 border-slate-900 px-6 py-8 shadow-light dark:shadow-gray-500 dark:border-gray-500 z-10',
-    imagePosition === 'left' ? 'md:flex-row-reverse' : 'md:flex-row',
-    bgColor
+    'relative flex flex-col-reverse md:flex-row w-full h-full items-center gap-12 md:gap-12 rounded-lg border-2 border-slate-900 px-6 py-8 shadow-light dark:shadow-gray-500 dark:border-gray-500 z-10',
+      imagePosition === 'left' ? 'md:flex-row-reverse' : 'md:flex-row',
+      bgColor
   )
 
-  const infoTextContainerClass = 'flex-grow w-full'
+  const infoTextContainerClass = 'flex-grow w-full flex flex-col justify-center'
   const imageContainerClass = twMerge(
     'md:w-2/5 w-full flex-shrink-0 flex justify-center items-center',
     imagePosition === 'left' ? 'md:ml-6' : 'md:mr-6'
@@ -157,7 +157,7 @@ function InfoCard(props: InfoCardProps & { isHovered: boolean }) {
         <Image
           src={imageSrc}
           alt={imageAlt}
-          className="object-contain w-48 h-48 md:w-64 md:h-64"
+          className="object-contain w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64"
           width={256}
           height={256}
         />

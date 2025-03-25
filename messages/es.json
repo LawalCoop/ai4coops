@@ -2,7 +2,7 @@
   "InDepth": {
     "MainSection": {
       "title": "¡IA para cooperativas, hecha por cooperativas!",
-      "subtitle": "Exploramos cómo la inteligencia artificial puede potenciar el cooperativismo. Usamos la tecnología para abordar desafíos reales de las cooperativas, siempre respetando los principios del movimiento.",
+      "subtitle": "Exploramos cómo la inteligencia artificial puede potenciar el cooperativismo. Usamos la tecnología para abordar desafíos reales, siempre respetando los principios del movimiento.",
       "firstAnimationText": "Innovación",
       "secondAnimationText": "Desarrollo",
       "thirdAnimationText": "Otros mundos son posibles, juntos",
@@ -12,7 +12,7 @@
   "Sections": {
     "HeroSection": {
       "title": "¡IA para cooperativas, hecha por cooperativas!",
-      "subtitle": "Exploramos cómo la inteligencia artificial puede potenciar el cooperativismo. Usamos la tecnología para abordar desafíos reales de las cooperativas, siempre respetando los principios del movimiento.",
+      "subtitle": "Exploramos cómo la inteligencia artificial puede potenciar el cooperativismo. Usamos la tecnología para abordar desafíos propios de las cooperativas, siempre respetando los principios del movimiento.",
       "firstAnimationText": "Innovación",
       "secondAnimationText": "Desarrollo",
       "thirdAnimationText": "Otros mundos son posibles, juntos",
@@ -20,16 +20,16 @@
     },
     "Projects": {
       "title": "Casos de estudio",
-      "subtitle": "Ejemplos concretos de cómo la IA está transformando el mundo cooperativo.",
+      "subtitle": "Proyectos que abordamos palicando herramientas de IA.",
       "navbarTitle": "Casos de Estudio"
     },
     "About": {
-      "title": "Qué hacemos",
-      "navbarTitle": "Qué hacemos",
+      "title": "Sobre IA4Coops",
+      "navbarTitle": "Motivación",
       "keyPoint1Title": "IA desde una mirada cooperativa",
       "keyPoint2Title": "Enfoque centrado en las personas",
       "keyPoint3Title": "Innovación colaborativa",
-      "keyPoint1Description": "Creamos herramientas de IA personalizadas que se adaptan a las necesidades de tu cooperativa. Ya sea para automatizar tareas repetitivas o mejorar la toma de decisiones, nuestro objetivo es hacer tu trabajo más fácil y eficiente.",
+      "keyPoint1Description": "Creamos herramientas tecnológicas partiendo de  Ya sea para automatizar tareas repetitivas o mejorar la toma de decisiones, nuestro objetivo es complementar el trabajo por hacer tecnología que contemple  .",
       "keyPoint2Description": "Nuestras soluciones están diseñadas para trabajar junto a tu equipo, no para reemplazarlo. Nos enfocamos en crear herramientas que ayuden a las personas a hacer su trabajo mejor, más rápido y con menos estrés.",
       "keyPoint3Description": "Creemos en el poder de trabajar juntos. Compartiendo conocimientos y herramientas, ayudamos a las cooperativas a construir redes más fuertes y lograr más como comunidad.",
       "main_text": "Como cooperativas tecnológicas, desarrollamos soluciones de inteligencia artificial adaptadas a las necesidades de las cooperativas. Trabajamos codo a codo con cada cooperativa para entender sus procesos, desafíos y objetivos únicos. Observando y analizando cómo operan, co-creamos soluciones de IA a medida que se ajustan a sus necesidades. Juntos, identificamos oportunidades para mejorar flujos de trabajo, aumentar la eficiencia y empoderar a los trabajadores con tecnología que resuelve problemas reales y fortalece comunidades."
@@ -56,9 +56,9 @@
       "navbarTitle": "Quiénes Somos"
     },
     "Contact": {
-      "title": "Contáctanos",
-      "subtitle": "Ponte en contacto con nosotros y descubre cómo podemos colaborar.",
-      "navbarTitle": "Contáctanos"
+      "title": "Contactanos",
+      "subtitle": "Si te interesa conocer cómo podemos integrar innovación tecnológica en la cooperativa, escribinos.",
+      "navbarTitle": "Contactanos"
     },
     "Services": {
       "title": "Desbloqueando el poder de la IA para cooperativas",
@@ -77,7 +77,7 @@
         "description": "Los modelos de lenguaje pueden entender y generar texto similar al humano. Los usamos para mejorar el servicio al cliente (por ejemplo, chatbots que responden preguntas al instante), automatizar el procesamiento de documentos (por ejemplo, extraer información clave de contratos) y ayudar en la creación de contenido (por ejemplo, generar informes o resúmenes). Es perfecto para cooperativas que manejan grandes volúmenes de texto."
       },
       "service4": {
-        "title": "Desbloqueando el potencial de los datos con Big Data",
+        "title": "Dando sentido a los datos con Big Data",
         "description": "Las herramientas de big data ayudan a gestionar y analizar grandes conjuntos de datos que son demasiado complejos para los métodos tradicionales. Para las cooperativas, esto significa identificar tendencias (por ejemplo, entender el comportamiento del cliente), optimizar operaciones (por ejemplo, encontrar ineficiencias en los flujos de trabajo) y tomar decisiones estratégicas (por ejemplo, basadas en datos en tiempo real). Es esencial para cooperativas que generan o dependen de grandes cantidades de datos."
       }
     }
