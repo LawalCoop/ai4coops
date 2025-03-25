@@ -53,7 +53,7 @@ export default function InDepth() {
   return (
     <motion.div
       ref={sectionRef}
-      className="w-full pt-16 min-h-screen bg-bg dark:bg-darkBg relative overflow-hidden"
+      className="w-full pt-[150px] pb-[100px] min-h-screen bg-bg dark:bg-darkBg relative overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

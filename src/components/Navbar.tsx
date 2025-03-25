@@ -1,6 +1,8 @@
+// Navbar.tsx
 'use client'
 
 import React, { useEffect, useState, useRef } from 'react'
+import { useRouter, usePathname } from 'next/navigation'
 import { twMerge } from 'tailwind-merge'
 import { motion } from 'framer-motion'
 import { ThemeSwitcher } from './theme-switcher'
@@ -11,29 +13,45 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import { useTranslations } from 'next-intl'
 
-const scrolltoHash = function (element_id: string) {
-  const element = document.getElementById(element_id)
-  element?.scrollIntoView({
-    behavior: 'smooth',
-    block: 'end',
-    inline: 'nearest',
-  })
-}
-
-const NavBar = () => {
+const NavBar = ({ isLoading }: { isLoading: boolean }) => {
+  const router = useRouter()
+  const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
-  const [showNav, setShowNav] = useState(true)
+  const [showNav, setShowNav] = useState(false) // Inicialmente oculto
   const [lastScrollY, setLastScrollY] = useState(0)
   const menuRef = useRef<HTMLDivElement>(null)
+
+  // Efecto para mostrar el navbar después del loading
+  useEffect(() => {
+    if (!isLoading) {
+      setShowNav(true) // Muestra el navbar cuando termina el loading
+    }
+  }, [isLoading])
+
+  // Efecto para reiniciar la animación al cambiar de ruta
+  useEffect(() => {
+    setShowNav(false) // Oculta el navbar al cambiar de ruta
+    const timeout = setTimeout(() => setShowNav(true), 100) // Vuelve a mostrarlo después de un breve retraso
+    return () => clearTimeout(timeout) // Limpia el timeout si el componente se desmonta
+  }, [pathname])
+
+  const scrolltoHash = (element_id: string) => {
+    if (window.location.pathname !== '/') {
+      router.push(`/#${element_id}`)
+    } else {
+      const element = document.getElementById(element_id)
+      element?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest',
+      })
+    }
+  }
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setShowNav(false)
-      } else if (currentScrollY < lastScrollY || currentScrollY <= 100) {
-        setShowNav(true)
-      }
+      setShowNav(currentScrollY < lastScrollY || currentScrollY <= 100)
       setLastScrollY(currentScrollY)
     }
 
@@ -66,7 +84,7 @@ const NavBar = () => {
         className="fixed left-0 top-0 z-50 w-full px-4"
         variants={navbarVariants}
         initial="hidden"
-        animate="visible"
+        animate={showNav ? 'visible' : 'hidden'}
       >
         <div
           className={twMerge(
@@ -81,16 +99,12 @@ const NavBar = () => {
           }}
         >
           {/* Logo */}
-          <h1
-            className="text-3xl font-black font-Space_Grotesk tracking-tight
-    text-black dark:text-white transform -rotate-2 hover:rotate-0 transition-transform
-    duration-300 min-w-[80px] xs:min-w-[100px] lg:text-5xl"
-          >
+          <h1 className="text-3xl font-black tracking-tight text-black dark:text-white transform -rotate-2 hover:rotate-0 transition-transform duration-300">
             <a
-              href="#home"
+              href="/"
               onClick={e => {
                 e.preventDefault()
-                scrolltoHash('home')
+                router.push('/')
               }}
             >
               <Image src={logo} alt="AI4Coops" width={250} />
@@ -99,8 +113,7 @@ const NavBar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center text-base lg:text-lg space-x-6">
-            <NavLinks />
-
+            <NavLinks scrolltoHash={scrolltoHash} />
             <div className="flex items-center gap-4">
               <DialogComponent
                 triggerButtonText="Get in Touch!"
@@ -119,7 +132,7 @@ const NavBar = () => {
 
           {/* Mobile Menu Toggle */}
           <div className="md:hidden flex items-center gap-4">
-            <ThemeSwitcher className="text-text bg-primary dar_bg-darkPrimary dark:border-darkBorder dark:text-text border-2 font-bold dark:shadow-darkShadow dark:bg-darkPrimary" />
+            <ThemeSwitcher className="text-text bg-primary dark:bg-darkPrimary dark:border-darkBorder dark:text-text border-2 font-bold dark:shadow-darkShadow dark:bg-darkPrimary" />
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="border-border dark:border-darkBorder p-3 bg-primary dark:bg-darkPrimary transform hover:-rotate-3 transition-transform"
@@ -146,21 +159,7 @@ const NavBar = () => {
               boxShadow: '8px 8px 0px 0px #000000',
             }}
           >
-            <MobileNavLinks setIsOpen={setIsOpen} />
-            <div className="mt-4 p-2 ">
-              <DialogComponent
-                triggerButtonText="Get in Touch!"
-                dialogTitle="Get in Touch"
-                dialogDescription="Please fill out the form below to get in touch with me."
-                inputLabels={{
-                  name: 'Name',
-                  email: 'Email',
-                  message: 'Message',
-                }}
-                inputClassName="dark:text-text"
-                buttonClassName="dark:border-darkBorder border-2 dark:text-text font-bold dark:shadow-darkShadow dark:bg-darkPrimary"
-              />
-            </div>
+            <MobileNavLinks scrolltoHash={scrolltoHash} setIsOpen={setIsOpen} />
           </div>
         </div>
       )}
@@ -168,15 +167,15 @@ const NavBar = () => {
   )
 }
 
-function NavLinks() {
+function NavLinks({ scrolltoHash }: { scrolltoHash: (id: string) => void }) {
   const t = useTranslations('Sections')
 
   const links = [
-    { href: '#about', label: t('About.navbarTitle') },
-    { href: '#services', label: t('Services.navbarTitle') },
-    { href: '#aboutHow', label: t('AboutHow.navbarTitle') },
-    { href: '#whoWeAre', label: t('WhoWeAre.navbarTitle') },
-    { href: '#projects', label: t('Projects.navbarTitle') },
+    { href: 'about', label: t('About.navbarTitle') },
+    { href: 'services', label: t('Services.navbarTitle') },
+    { href: 'aboutHow', label: t('AboutHow.navbarTitle') },
+    { href: 'whoWeAre', label: t('WhoWeAre.navbarTitle') },
+    { href: 'projects', label: t('Projects.navbarTitle') },
   ]
 
   return (
@@ -184,26 +183,14 @@ function NavLinks() {
       {links.map(link => (
         <a
           key={link.href}
-          href={link.href}
-          target={link.href.startsWith('http') ? '_blank' : '_self'}
-          rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-          className="px-3 py-1 font-bold text-black dark:text-white hover:-translate-y-1 hover:rotate-2
-                             transform transition-all duration-200"
-          style={{
-            border: '2px solid transparent',
-            borderRadius: '0px',
-          }}
+          href={`/#${link.href}`}
+          className="px-3 py-1 font-bold text-black dark:text-white hover:-translate-y-1 hover:rotate-2 transform transition-all duration-200"
           onClick={e => {
-            if (link.href.startsWith('#')) {
-              e.preventDefault()
-              scrolltoHash(link.href.substring(1))
-            }
+            e.preventDefault()
+            scrolltoHash(link.href)
           }}
         >
           {link.label}
-          {link.href.startsWith('http') && (
-            <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-2" />
-          )}
         </a>
       ))}
     </>
@@ -211,44 +198,18 @@ function NavLinks() {
 }
 
 function MobileNavLinks({
+  scrolltoHash,
   setIsOpen,
 }: {
+  scrolltoHash: (id: string) => void
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }) {
-  const t = useTranslations('Sections')
-
-  const links = [
-    { href: '#home', label: t('HeroSection.navbarTitle') },
-    { href: '#whatWeAreDoing', label: t('About.navbarTitle') },
-    { href: '#aboutHow', label: t('AboutHow.navbarTitle') },
-    { href: '#whoWeAre', label: t('WhoWeAre.navbarTitle') },
-    { href: '#projects', label: t('Projects.navbarTitle') },
-  ]
-
   return (
     <div className="flex flex-col space-y-3">
-      {links.map(link => (
-        <a
-          key={link.href}
-          href={link.href}
-          target={link.href.startsWith('http') ? '_blank' : '_self'}
-          rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-          className="p-2 text-center text-lg font-bold
-                             transform hover:rotate-2 transition-transform"
-          onClick={e => {
-            if (link.href.startsWith('#')) {
-              e.preventDefault()
-              scrolltoHash(link.href.substring(1))
-            }
-            setIsOpen(false)
-          }}
-        >
-          {link.label}
-          {link.href.startsWith('http') && (
-            <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-2" />
-          )}
-        </a>
-      ))}
+      <NavLinks scrolltoHash={scrolltoHash} />
+      <button className="mt-4 p-2 font-bold" onClick={() => setIsOpen(false)}>
+        Close Menu
+      </button>
     </div>
   )
 }

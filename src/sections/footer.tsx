@@ -1,9 +1,22 @@
+// Footer.tsx
 'use client'
-import React from 'react'
+
+import React, { useEffect, useState } from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import { useTranslations } from 'next-intl'
+import { motion } from 'framer-motion'
+import { usePathname } from 'next/navigation' // Importa usePathname
+
+const footerVariants = {
+  hidden: { y: '100%', opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.5, delay: 0.5 },
+  },
+}
 
 function NavLinks() {
   const t = useTranslations('Sections')
@@ -50,9 +63,27 @@ function NavLinks() {
   )
 }
 
-const Footer = () => {
+const Footer = ({ isLoading }: { isLoading: boolean }) => {
+  const [showFooter, setShowFooter] = useState(false)
+  const pathname = usePathname() // Obtén la ruta actual
+
+  // Efecto para ocultar el footer durante el loading o al cambiar de ruta
+  useEffect(() => {
+    if (isLoading) {
+      setShowFooter(false) // Oculta el footer durante el loading
+    } else {
+      const timeout = setTimeout(() => setShowFooter(true), 500) // Muestra el footer después del loading
+      return () => clearTimeout(timeout) // Limpia el timeout si el componente se desmonta
+    }
+  }, [isLoading, pathname]) // Ejecuta este efecto cuando cambia isLoading o la ruta
+
   return (
-    <footer className="w-full bg-bg p-8 border-t-8 border-black dark:border-darkBorder dark:bg-darkBg">
+    <motion.footer
+      className="w-full bg-bg p-8 border-t-8 border-black dark:border-darkBorder dark:bg-darkBg"
+      variants={footerVariants}
+      initial="hidden"
+      animate={showFooter ? 'visible' : 'hidden'}
+    >
       <div className="max-w-7xl mx-auto">
         {/* Top Section with Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -96,7 +127,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   )
 }
 

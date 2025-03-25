@@ -1,3 +1,5 @@
+// RootLayout.tsx (ejemplo actualizado)
+
 import { Space_Grotesk } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
@@ -7,9 +9,11 @@ import { notFound } from 'next/navigation'
 import { getMessages } from 'next-intl/server'
 import { routing } from '@/i18n/routing'
 import { CustomCursor } from '@/components/ui/customCursor'
+import Navbar from '@/components/Navbar'
+import Footer from '@/sections/footer' // Asegurémonos de incluir Footer aquí
+
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] })
 
-// Metadata needs to be exported this way in Next.js 13+
 export const metadata: Metadata = {
   title: 'AI for coops from coops',
   description: 'Exploring how AI can empower cooperativism.',
@@ -28,12 +32,15 @@ export function generateStaticParams() {
   return routing.locales.map(locale => ({ locale }))
 }
 
+// RootLayout.tsx
 export default async function RootLayout({
   children,
   params,
+  isLoading = false, // Nueva prop para controlar el estado de loading
 }: Readonly<{
   children: React.ReactNode
   params: Promise<{ locale: string }>
+  isLoading?: boolean // Prop opcional para controlar el estado de loading
 }>) {
   let { locale } = await params
   if (!locale) {
@@ -53,7 +60,9 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider attribute="class" disableTransitionOnChange>
             <CustomCursor />
-            {children}
+            <Navbar isLoading={isLoading} />
+            <main>{children}</main>
+            <Footer isLoading={isLoading} /> {/* Pasa isLoading al Footer */}
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
