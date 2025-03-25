@@ -3,9 +3,7 @@ import { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { ToastContainer } from 'react-toastify'
 import LoadingScreen from '@/components/loadingScreen'
-import Navbar from '@/components/Navbar'
 import Header from '@/sections/HeroSection'
-import Footer from '@/sections/footer'
 import Services from '@/sections/services'
 
 const ProjectsShowcase = dynamic(() => import('@/sections/projects'), {
@@ -107,36 +105,31 @@ export default function Home() {
   }
 
   return (
-    <>
-      <div
-        className={`min-h-screen ${
-          isContentVisible ? 'opacity-100' : 'opacity-0'
-        } transition-opacity duration-300`}
-      >
-        <Navbar />
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-        />
+    <div
+      className={`min-h-screen ${
+        isContentVisible ? 'opacity-100' : 'opacity-0'
+      } transition-opacity duration-300`}
+    >
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
 
-        <main className="relative">
-          {sections.map(({ id, component: Component, priority }) => (
-            <section key={id} id={id} className={`scroll-mt-16 ${priority ? '' : 'lazy-section'}`}>
-              <Component />
-            </section>
-          ))}
-        </main>
-
-        <Footer />
-      </div>
-    </>
+      <main className="relative">
+        {sections.map(({ id, component: Component, priority }) => (
+          <section key={id} id={id} className={`scroll-mt-16 ${priority ? '' : 'lazy-section'}`}>
+            <Component />
+          </section>
+        ))}
+      </main>
+    </div>
   )
 }
