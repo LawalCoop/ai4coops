@@ -126,7 +126,7 @@ const NavBar = ({ isLoading }: { isLoading: boolean }) => {
                 }}
                 buttonClassName="dark:border-darkBorder border-4 dark:text-text font-bold dark:shadow-darkShadow dark:bg-darkPrimary"
               />
-              <ThemeSwitcher className="dark:border-darkBorder dark:text-text border-4 font-bold dark:shadow-darkShadow dark:bg-darkPrimary" />
+              <ThemeSwitcher className="dark:text-text font-bold dark:shadow-darkShadow dark:bg-darkPrimary" />
             </div>
           </div>
 

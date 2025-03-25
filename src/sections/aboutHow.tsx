@@ -35,18 +35,18 @@ interface ContentSlideProps {
 const featureCards = [
   {
     icon: faMagnifyingGlass,
-    titleKey: 'phase1_keyPoint1',
-    descriptionKey: 'phase1_keyPoint1_desc',
+    titleKey: 'phase2_keyPoint1',
+    descriptionKey: 'phase2_keyPoint1_desc',
   },
   {
     icon: faLightbulb,
-    titleKey: 'phase1_keyPoint2',
-    descriptionKey: 'phase1_keyPoint2_desc',
+    titleKey: 'phase2_keyPoint2',
+    descriptionKey: 'phase2_keyPoint2_desc',
   },
   {
     icon: faGaugeHigh,
-    titleKey: 'phase1_keyPoint3',
-    descriptionKey: 'phase1_keyPoint3_desc',
+    titleKey: 'phase2_keyPoint3',
+    descriptionKey: 'phase2_keyPoint3_desc',
   },
 ]
 
