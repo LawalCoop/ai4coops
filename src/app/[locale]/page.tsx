@@ -5,6 +5,7 @@ import { ToastContainer } from 'react-toastify'
 import LoadingScreen from '@/components/loadingScreen'
 import Header from '@/sections/HeroSection'
 import Services from '@/sections/services'
+import { useLoading } from '@/contexts/LoadingContext'
 
 const ProjectsShowcase = dynamic(() => import('@/sections/projects'), {
   loading: () => (
@@ -26,7 +27,6 @@ const AboutHow = dynamic(() => import('@/sections/aboutHow'), {
   loading: () => <div className="h-screen flex items-center justify-center">Loading how...</div>,
 })
 
-// Define section interface
 interface Section {
   id: string
   component: React.ComponentType
@@ -34,10 +34,8 @@ interface Section {
 }
 
 export default function Home() {
-  const [loadingState, setLoadingState] = useState({
-    isLoading: true,
-    isContentVisible: false,
-  })
+  const { isLoading, setIsLoading } = useLoading()
+  const [contentVisible, setContentVisible] = useState(false)
 
   const sections: Section[] = [
     { id: 'home', component: Header, priority: true },
@@ -75,18 +73,14 @@ export default function Home() {
         ])
 
         if (mounted) {
-          setLoadingState({
-            isLoading: false,
-            isContentVisible: true,
-          })
+          setIsLoading(false)
+          setContentVisible(true)
         }
       } catch (error) {
         console.error('Loading error:', error)
         if (mounted) {
-          setLoadingState({
-            isLoading: false,
-            isContentVisible: true,
-          })
+          setIsLoading(false)
+          setContentVisible(true)
         }
       }
     }
@@ -96,9 +90,7 @@ export default function Home() {
     return () => {
       mounted = false
     }
-  }, [])
-
-  const { isLoading, isContentVisible } = loadingState
+  }, [setIsLoading])
 
   if (isLoading) {
     return <LoadingScreen />
@@ -107,7 +99,7 @@ export default function Home() {
   return (
     <div
       className={`min-h-screen ${
-        isContentVisible ? 'opacity-100' : 'opacity-0'
+        contentVisible ? 'opacity-100' : 'opacity-0'
       } transition-opacity duration-300`}
     >
       <ToastContainer

@@ -10,7 +10,8 @@ import { getMessages } from 'next-intl/server'
 import { routing } from '@/i18n/routing'
 import { CustomCursor } from '@/components/ui/customCursor'
 import Navbar from '@/components/Navbar'
-import Footer from '@/sections/footer' // Asegurémonos de incluir Footer aquí
+import Footer from '@/sections/footer'
+import { LoadingProvider } from '@/contexts/LoadingContext'
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] })
 
@@ -32,15 +33,12 @@ export function generateStaticParams() {
   return routing.locales.map(locale => ({ locale }))
 }
 
-// RootLayout.tsx
 export default async function RootLayout({
   children,
   params,
-  isLoading = false, // Nueva prop para controlar el estado de loading
 }: Readonly<{
   children: React.ReactNode
   params: Promise<{ locale: string }>
-  isLoading?: boolean // Prop opcional para controlar el estado de loading
 }>) {
   let { locale } = await params
   if (!locale) {
@@ -59,10 +57,12 @@ export default async function RootLayout({
       <body className={spaceGrotesk.className}>
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider attribute="class" disableTransitionOnChange>
-            <CustomCursor />
-            <Navbar isLoading={isLoading} />
-            <main>{children}</main>
-            <Footer isLoading={isLoading} /> {/* Pasa isLoading al Footer */}
+            <LoadingProvider>
+              <CustomCursor />
+              <Navbar />
+              <main>{children}</main>
+              <Footer />
+            </LoadingProvider>
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

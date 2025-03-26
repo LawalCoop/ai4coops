@@ -8,6 +8,7 @@ import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation' // Importa usePathname
+import { useLoading } from '@/contexts/LoadingContext'
 
 const footerVariants = {
   hidden: { y: '100%', opacity: 0 },
@@ -63,16 +64,16 @@ function NavLinks() {
   )
 }
 
-const Footer = ({ isLoading }: { isLoading: boolean }) => {
+const Footer = () => {
   const [showFooter, setShowFooter] = useState(false)
-  const pathname = usePathname() // Obtén la ruta actual
+  const pathname = usePathname()
+  const { isLoading } = useLoading()
 
-  // Efecto para ocultar el footer durante el loading o al cambiar de ruta
   useEffect(() => {
     if (isLoading) {
-      setShowFooter(false) // Oculta el footer durante el loading
+      setShowFooter(false)
     } else {
-      const timeout = setTimeout(() => setShowFooter(true), 500) // Muestra el footer después del loading
+      const timeout = setTimeout(() => setShowFooter(true), 500)
       return () => clearTimeout(timeout) // Limpia el timeout si el componente se desmonta
     }
   }, [isLoading, pathname]) // Ejecuta este efecto cuando cambia isLoading o la ruta

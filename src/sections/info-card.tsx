@@ -81,8 +81,8 @@ function InfoCard(props: InfoCardProps & { isHovered: boolean }) {
   })
   const infoCardClass = twMerge(
     'relative flex flex-col-reverse md:flex-row w-full h-full items-center gap-12 md:gap-12 rounded-lg border-2 border-slate-900 px-6 py-8 shadow-light dark:shadow-gray-500 dark:border-gray-500 z-10',
-      imagePosition === 'left' ? 'md:flex-row-reverse' : 'md:flex-row',
-      bgColor
+    imagePosition === 'left' ? 'md:flex-row-reverse' : 'md:flex-row',
+    bgColor
   )
 
   const infoTextContainerClass = 'flex-grow w-full flex flex-col justify-center'

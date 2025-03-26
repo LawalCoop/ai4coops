@@ -153,62 +153,69 @@ export default function AboutHow() {
                 </h1>
               </div>
               <div>
-                <p className="text-base md:text-lg text-center text-text dark:text-darkText">
+                <p className="text-base md:text-lg text-center text-text dark:text-darkText mb-4">
                   {t('subtitle')}
                 </p>
+                <div className="text-center">
+                  <Link
+                    href={`/${locale}/in-depth`}
+                    className="text-primary dark:text-darkPrimary hover:text-primary/80 dark:hover:text-darkPrimary/80
+                              transition-colors duration-300 text-sm md:text-base underline"
+                  >
+                    {t('see_more')}
+                  </Link>
+                </div>
               </div>
             </div>
-
-            <Carousel
-              className="w-full px-2 md:px-8"
-              opts={{
-                align: 'start',
-                loop: true,
-              }}
-              plugins={[
-                Autoplay({ delay: 5000, stopOnMouseEnter: true, stopOnInteraction: false }),
-              ]}
-            >
-              <CarouselContent>
-                <CarouselItem className="flex items-center justify-center">
-                  <ContentSlide
-                    titleKey="phase1_title"
-                    descriptionKey="phase1_text"
-                    image={ExplorationImage}
-                    imageOnRight={true}
-                  />
-                </CarouselItem>
-
-                <CarouselItem className="flex items-center justify-center">
-                  <div className="w-full">
-                    <h2 className="text-2xl md:text-3xl font-extrabold uppercase text-black dark:text-darkText text-center mb-6 md:mb-8">
-                      <span className="border-b-4 border-primary pb-2 inline-block">
-                        {t('phase2_title')}
-                      </span>
-                    </h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full px-2 md:px-4">
-                      {featureCards.map((card, index) => (
-                        <div className="h-full flex" key={index}>
-                          <FeatureCard {...card} />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </CarouselItem>
-
-                <CarouselItem className="flex items-center justify-center">
-                  <ContentSlide
-                    titleKey="phase3_title"
-                    descriptionKey="phase3_text"
-                    image={ProductionImage}
-                    imageOnRight={false}
-                  />
-                </CarouselItem>
-              </CarouselContent>
-              <CarouselPrevious className="dark:text-darkText" />
-              <CarouselNext className="dark:text-darkText" />
-            </Carousel>
           </div>
+
+          <Carousel
+            className="w-full px-2 md:px-8"
+            opts={{
+              align: 'start',
+              loop: true,
+            }}
+            plugins={[Autoplay({ delay: 5000, stopOnMouseEnter: true, stopOnInteraction: false })]}
+          >
+            <CarouselContent>
+              <CarouselItem className="flex items-center justify-center">
+                <ContentSlide
+                  titleKey="phase1_title"
+                  descriptionKey="phase1_text"
+                  image={ExplorationImage}
+                  imageOnRight={true}
+                />
+              </CarouselItem>
+
+              <CarouselItem className="flex items-center justify-center">
+                <div className="w-full">
+                  <h2 className="text-2xl md:text-3xl font-extrabold uppercase text-black dark:text-darkText text-center mb-6 md:mb-8">
+                    <span className="border-b-4 border-primary pb-2 inline-block">
+                      {t('phase2_title')}
+                    </span>
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full px-2 md:px-4">
+                    {featureCards.map((card, index) => (
+                      <div className="h-full flex" key={index}>
+                        <FeatureCard {...card} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </CarouselItem>
+
+              <CarouselItem className="flex items-center justify-center">
+                <ContentSlide
+                  titleKey="phase3_title"
+                  descriptionKey="phase3_text"
+                  image={ProductionImage}
+                  imageOnRight={false}
+                />
+              </CarouselItem>
+            </CarouselContent>
+            <CarouselPrevious className="dark:text-darkText" />
+            <CarouselNext className="dark:text-darkText" />
+          </Carousel>
         </div>
       </div>
     </motion.div>
