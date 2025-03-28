@@ -6,55 +6,61 @@ import agroImg from '../media/agro.png'
 import llmImg from '../media/llm.jpg'
 import bigDataImg from '../media/bigdata.jpg'
 import predictionImg from '../media/prediction.jpg'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 
-const ProjectsShowcase = () => {
-  const t = useTranslations('Sections.Projects')
+// Definimos los tipos para la estructura de los proyectos
+interface Project {
+  title: string
+  description: string
+  tech: string[] // Aquí especificamos que tech es un array de strings
+  github: string
+  live: string
+  image: StaticImageData // Tipo para las imágenes importadas
+}
 
-  const projects = [
+const ProjectsShowcase = () => {
+  const t = useTranslations('pages.home.projects')
+
+  // Especificamos el tipo Project[] para el array de proyectos
+  const projects: Project[] = [
     {
-      title: 'Optimizing Quality Control in Manufacturing',
-      description:
-        'We developed an AI-powered system for a manufacturing client to enhance quality control. It processes 16 images per second with 99.99% accuracy, identifying defects in real-time. This solution helps workers reduce errors and minimize waste, ensuring high-quality products.',
-      tech: ['TensorFlow', 'OpenCV', 'Python', 'Flask'], // Computer Vision y backend ligero
+      title: t('projects.0.title'),
+      description: t('projects.0.description'),
+      tech: t.raw('projects.0.tech') as string[], // Aseguramos el tipo aquí
       github: 'https://github.com/ronitjadhav/digipin-openlayers',
       live: 'https://digipin.maplabs.tech',
       image: cv1Img,
     },
     {
-      title: 'Satellite-Based Insights for Agriculture',
-      description:
-        'We created a system that analyzes satellite imagery and field data across 60,000 hectares. It provides daily insights, enabling smarter decisions for crop management. This tool supports agricultural cooperatives in achieving higher yields and better resource allocation.',
-      tech: ['PyTorch', 'GDAL', 'GeoPandas', 'FastAPI'], // Procesamiento de imágenes satelitales y análisis geoespacial
+      title: t('projects.1.title'),
+      description: t('projects.1.description'),
+      tech: t.raw('projects.1.tech') as string[],
       github: 'https://github.com/qgis/QGIS-Hub-Plugin',
       live: 'https://plugins.qgis.org/plugins/qgis_hub_plugin/',
       image: agroImg,
     },
     {
-      title: 'Automating Data Extraction from Printed Documents',
-      description:
-        'We built an AI solution for a client to automate data extraction from printed documents. The system captures and digitizes key information, reducing manual effort and errors. This ensures seamless integration with the cooperative’s digital systems, enhancing overall productivity.',
-      tech: ['LangChain', 'Tesseract OCR', 'Python', 'FastAPI'], // LLM y OCR para extracción de texto
+      title: t('projects.2.title'),
+      description: t('projects.2.description'),
+      tech: t.raw('projects.2.tech') as string[],
       github: 'https://github.com/openlayers/bench',
       live: 'https://openlayers.org/bench/',
       image: llmImg,
     },
     {
-      title: 'Big Data Solution',
-      description:
-        'We implemented a Big Data platform to analyze large volumes of operational data. The system provides actionable insights, helping staff make informed decisions and optimize resource allocation.',
-      tech: ['Apache Spark', 'Hadoop', 'Kafka', 'Python'], // Tecnologías Big Data
+      title: t('projects.3.title'),
+      description: t('projects.3.description'),
+      tech: t.raw('projects.3.tech') as string[],
       github: 'https://github.com/openlayers/bench',
       live: 'https://openlayers.org/bench/',
       image: bigDataImg,
     },
     {
-      title: 'Demand Forecasting for Logistics',
-      description:
-        'We implemented a predictive AI system for a logistics client to forecast demand and optimize delivery routes. By analyzing historical data and real-time variables, the system helps reduce costs, improve delivery times, and ensure efficient resource allocation.',
-      tech: ['Scikit-learn', 'XGBoost', 'Pandas', 'Flask'], // Machine Learning para predicción
+      title: t('projects.4.title'),
+      description: t('projects.4.description'),
+      tech: t.raw('projects.4.tech') as string[],
       github: 'https://github.com/openlayers/bench',
       live: 'https://openlayers.org/bench/',
       image: predictionImg,
@@ -62,27 +68,34 @@ const ProjectsShowcase = () => {
   ]
 
   return (
-    <div className="w-full p-8 bg-bg dark:bg-darkBg py-[50px] lg:py-[50px]">
-      <div
+    <div className="w-full p-8 bg-bg dark:bg-darkBg py-[50px] lg:py-[50px]" id="projects">
+      <motion.div
         className="w-full bg-bg border-4 border-black dark:bg-darkBg
-                          shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]
-                          transform hover:-translate-y-1 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]
-                          transition-all duration-300 p-6 mb-10"
+                    shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]
+                    transform hover:-translate-y-1 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]
+                    transition-all duration-300 p-6 mb-10"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
       >
         <h1 className="text-4xl md:text-5xl font-black text-black text-center dark:text-darkText">
           {t('title')}
         </h1>
-      </div>
+      </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map(project => (
-          <div
+        {projects.map((project, index) => (
+          <motion.div
             key={project.title}
             className="group bg-bg p-6 rounded-lg transform transition-transform hover:scale-105 dark:bg-darkBg flex flex-col"
             style={{
               border: '3px solid black',
               boxShadow: '8px 8px 0px 0px #000000',
             }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: true }}
           >
             {/* Imagen con altura fija más grande */}
             <div className="relative mb-4 overflow-hidden rounded-lg h-56">
@@ -92,6 +105,7 @@ const ProjectsShowcase = () => {
                 className="w-full h-full object-cover transition-transform group-hover:scale-110"
                 width={600}
                 height={400}
+                priority={index < 3} // Prioriza la carga de las primeras imágenes
               />
             </div>
 
@@ -103,22 +117,23 @@ const ProjectsShowcase = () => {
 
             {/* Tags alineados al fondo */}
             <div className="flex flex-wrap gap-2 mb-4">
-              {project.tech.map(tech => (
-                <span
-                  key={tech}
+              {project.tech.map((tech: string, techIndex: number) => (
+                <motion.span
+                  key={techIndex}
                   className="px-3 py-1 text-sm font-semibold bg-yellow-300 dark:text-black"
                   style={{
                     border: '2px solid black',
                   }}
+                  whileHover={{ scale: 1.05 }}
                 >
                   {tech}
-                </span>
+                </motion.span>
               ))}
             </div>
 
             {/* Botones alineados al fondo */}
             <div className="flex gap-4 mt-auto">
-              <a
+              <motion.a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -127,11 +142,13 @@ const ProjectsShowcase = () => {
                   border: '2px solid black',
                   boxShadow: '4px 4px 0px 0px #000000',
                 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <Github size={20} />
-                Code
-              </a>
-              <a
+                {t('codeButton')}
+              </motion.a>
+              <motion.a
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -140,12 +157,14 @@ const ProjectsShowcase = () => {
                   border: '2px solid black',
                   boxShadow: '4px 4px 0px 0px #000000',
                 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <ExternalLink size={20} />
-                Live Demo
-              </a>
+                {t('demoButton')}
+              </motion.a>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

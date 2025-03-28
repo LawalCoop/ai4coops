@@ -1,7 +1,5 @@
-// Navbar.tsx
 'use client'
-
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useCallback } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import { twMerge } from 'tailwind-merge'
 import { motion } from 'framer-motion'
@@ -11,49 +9,75 @@ import Image from 'next/image'
 import logo from '@/media/logo.png'
 import { useTranslations, useLocale } from 'next-intl'
 import { useLoading } from '@/contexts/LoadingContext'
-import { routes } from '@/config/routes'
+import { useNavigation } from '@/config/navigation'
 
 const NavBar = () => {
   const { push } = useRouter()
   const pathname = usePathname()
   const locale = useLocale()
+  const t = useTranslations('common')
   const [isOpen, setIsOpen] = useState(false)
-  const [showNav, setShowNav] = useState(false) // Inicialmente oculto
+  const [showNav, setShowNav] = useState(false)
   const [lastScrollY, setLastScrollY] = useState(0)
   const menuRef = useRef<HTMLDivElement>(null)
   const { isLoading } = useLoading()
+  const { mainNav, sectionNav } = useNavigation()
 
+  // Control de visibilidad del navbar durante scroll
   useEffect(() => {
     if (!isLoading) {
-      setShowNav(true) // Muestra el navbar cuando termina el loading
+      setShowNav(true)
     }
   }, [isLoading])
 
-  const handleNavigation = (path: string, isSection = false) => {
-    const isHomePage = pathname === `/${locale}` || pathname === `/${locale}/`
+  // Función optimizada para navegación
+  const handleNavigation = useCallback(async (path: string, isSection = false) => {
+    const isHomePage = pathname === `/${locale}` || pathname === `/${locale}/home`
 
     if (isSection) {
       if (isHomePage) {
-        // Si estamos en home y es una sección, solo hacemos scroll
-        const element = document.getElementById(path)
-        element?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        await scrollToSection(path)
       } else {
-        // Si no estamos en home, navegamos a home y luego scrolleamos
-        push(`/${locale}`)
-        setTimeout(() => {
-          const element = document.getElementById(path)
-          element?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }, 100)
+        // Navegamos a home con hash
+        push(`/${locale}/#${path}`)
       }
     } else {
-      // Para navegación normal entre páginas
-    push(`/${locale}${path}`)
+      // Navegación normal a otras páginas
+      push(`/${locale}${path}`)
     }
-  }
+    setIsOpen(false)
+  }, [pathname, locale, push])
+
+  // Scroll suave con reintentos
+  const scrollToSection = useCallback(async (id: string, retries = 3): Promise<boolean> => {
+    return new Promise((resolve) => {
+      const element = document.getElementById(id)
+
+      if (element) {
+        requestAnimationFrame(() => {
+          element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          })
+          resolve(true)
+        })
+      } else if (retries > 0) {
+        setTimeout(async () => {
+          const success = await scrollToSection(id, retries - 1)
+          resolve(success)
+        }, 300)
+      } else {
+        resolve(false)
+      }
+    })
+  }, [])
+
   const handleLogoClick = (e: React.MouseEvent) => {
     e.preventDefault()
     handleNavigation('/')
   }
+
+  // Efectos para control de scroll y clicks fuera del menú
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY
@@ -95,8 +119,8 @@ const NavBar = () => {
         <div
           className={twMerge(
             `mx-auto mt-4 flex h-[80px] w-full max-w-screen-xl
-              items-center justify-between px-6 transition-transform
-              duration-300 ease-in-out bg-yellow-300 dark:bg-darkBg transform`,
+            items-center justify-between px-6 transition-transform
+            duration-300 ease-in-out bg-yellow-300 dark:bg-darkBg transform`,
             showNav ? 'translate-y-0' : '-translate-y-[calc(100%+40px)]'
           )}
           style={{
@@ -106,23 +130,37 @@ const NavBar = () => {
         >
           {/* Logo */}
           <h1 className="text-3xl font-black tracking-tight text-black dark:text-white transform -rotate-2 hover:rotate-0 transition-transform duration-300">
-                      <button onClick={handleLogoClick}>
-                        <Image src={logo} alt="AI4Coops" width={250} />
-                      </button>
-                    </h1>
+            <button onClick={handleLogoClick}>
+              <Image
+                src={logo}
+                alt="AI4Coops"
+                width={250}
+                height={63}
+                priority
+                style={{
+                  width: 'auto',
+                  height: 'auto',
+                  maxWidth: '100%'
+                }}
+              />
+            </button>
+          </h1>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center text-base lg:text-lg space-x-6">
-            <NavLinks handleNavigation={handleNavigation} />
+            <NavLinks
+              handleNavigation={handleNavigation}
+              navItems={sectionNav}
+            />
             <div className="flex items-center gap-4">
               <DialogComponent
-                triggerButtonText="Get in Touch!"
-                dialogTitle="Get in Touch"
-                dialogDescription="Please fill out the form below to get in touch with me."
+                triggerButtonText={t('contactButton')}
+                dialogTitle={t('contactDialog.title')}
+                dialogDescription={t('contactDialog.description')}
                 inputLabels={{
-                  name: 'Name',
-                  email: 'Email',
-                  message: 'Message',
+                  name: t('contactDialog.name'),
+                  email: t('contactDialog.email'),
+                  message: t('contactDialog.message'),
                 }}
                 buttonClassName="dark:border-darkBorder border-4 dark:text-text font-bold dark:shadow-darkShadow dark:bg-darkPrimary"
               />
@@ -151,88 +189,65 @@ const NavBar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-              <div className="fixed top-[100px] z-50 w-full px-4" ref={menuRef}>
-                <MobileNavLinks
-                  handleNavigation={handleNavigation}
-                  setIsOpen={setIsOpen}
-                />
-              </div>
-            )}
+        <div className="fixed top-[100px] z-50 w-full px-4" ref={menuRef}>
+          <MobileNavLinks
+            handleNavigation={handleNavigation}
+            setIsOpen={setIsOpen}
+            navItems={sectionNav}
+          />
+        </div>
+      )}
     </>
   )
 }
 
-function NavLinks({
-  handleNavigation
-}: {
+interface NavLinksProps {
   handleNavigation: (path: string, isSection: boolean) => void
-}) {
-  const t = useTranslations('Sections')
-
-  const links = [
-      {
-        path: 'about',
-        label: t('About.navbarTitle'),  // "Motivación"
-        isSection: true
-      },
-      {
-        path: 'services',
-        label: t('Services.navbarTitle'),  // "Tecnologías"
-        isSection: true
-      },
-      {
-        path: 'aboutHow',
-        label: t('AboutHow.navbarTitle'),  // "Cómo lo hacemos"
-        isSection: true
-      },
-      {
-        path: 'whoWeAre',
-        label: t('WhoWeAre.navbarTitle'),  // "Quiénes Somos"
-        isSection: true
-      },
-      {
-        path: 'projects',
-        label: t('Projects.navbarTitle'),  // "Casos de Estudio"
-        isSection: true
-      },
-      // Añadimos el link a In-Depth usando la traducción correcta
-
-    ]
-
-
-  return (
-      <>
-        {links.map(link => (
-          <button
-            key={link.path}
-            onClick={() => handleNavigation(link.path, link.isSection)}
-            className="px-3 py-1 font-bold text-black dark:text-white hover:-translate-y-1 hover:rotate-2 transform transition-all duration-200"
-          >
-            {link.label}
-          </button>
-        ))}
-      </>
-    )
+  navItems: Array<{
+    path: string
+    label: string
+    isSection?: boolean
+  }>
 }
 
-function MobileNavLinks({
-  handleNavigation,
-  setIsOpen,
-}: {
-  handleNavigation: (path: string, isSection: boolean) => void
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
-}) {
+const NavLinks = React.memo(({ handleNavigation, navItems }: NavLinksProps) => {
   return (
-    <div className="flex flex-col space-y-3">
-      <NavLinks handleNavigation={handleNavigation} />
+    <>
+      {navItems.map(link => (
+        <button
+          key={link.path}
+          onClick={() => handleNavigation(link.path, link.isSection ?? false)}
+          className="px-3 py-1 font-bold text-black dark:text-white hover:-translate-y-1 hover:rotate-2 transform transition-all duration-200"
+        >
+          {link.label}
+        </button>
+      ))}
+    </>
+  )
+})
+
+NavLinks.displayName = 'NavLinks'
+
+interface MobileNavLinksProps extends NavLinksProps {
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const MobileNavLinks = React.memo(({ handleNavigation, setIsOpen, navItems }: MobileNavLinksProps) => {
+  const t = useTranslations('common')
+
+  return (
+    <div className="flex flex-col space-y-3 p-4 bg-white dark:bg-darkBg border-2 border-black dark:border-darkBorder shadow-[5px_5px_0_0_rgba(0,0,0,1)] dark:shadow-darkShadow">
+      <NavLinks handleNavigation={handleNavigation} navItems={navItems} />
       <button
-        className="mt-4 p-2 font-bold"
+        className="mt-4 p-2 font-bold border-2 border-black dark:border-darkBorder self-center"
         onClick={() => setIsOpen(false)}
       >
-        Close Menu
+        {t('closeMenu')}
       </button>
     </div>
   )
-}
+})
+
+MobileNavLinks.displayName = 'MobileNavLinks'
 
 export default NavBar

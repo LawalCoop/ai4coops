@@ -5,16 +5,10 @@ import createNextIntlPlugin from 'next-intl/plugin'
 const withNextIntl = createNextIntlPlugin()
 
 const nextConfig: NextConfig = {
-  webpack(config) {
-    // Asegúrate de que los archivos .json sean tratados correctamente
-    config.module.rules.push({
-      test: /\.json$/,
-      loader: 'json-loader', // Webpack ya tiene soporte para JSON por defecto
-      type: 'javascript/auto',
-    })
-
-    return config
-  },
+  webpack: (config) => {
+      config.resolve.fallback = { fs: false, path: false };
+      return config;
+    },
 }
 
 export default withNextIntl(nextConfig)

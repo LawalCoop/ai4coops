@@ -60,7 +60,7 @@ export default async function RootLayout({
             <LoadingProvider>
               <CustomCursor />
               <Navbar />
-              <main>{children}</main>
+              <main className="flex-grow">{children}</main>
               <Footer />
             </LoadingProvider>
           </ThemeProvider>

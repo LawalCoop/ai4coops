@@ -6,7 +6,6 @@ import { motion, useInView } from 'framer-motion'
 
 const InDepth = () => {
   const [lottieLoaded, setLottieLoaded] = useState(false)
-  const [hasPlayed, setHasPlayed] = useState(false) // Estado para asegurarnos que la animación se reproduce solo una vez
   const sectionRef = React.useRef(null)
   const isInView = useInView(sectionRef, { once: true }) // Se reproduce una vez al estar en vista
 
@@ -91,18 +90,7 @@ const InDepth = () => {
                 className="md:w-1/2 min-h-full flex justify-center items-center p-6" // Agregado el padding
                 style={{ height: 'auto' }} // Asegura que el contenedor ocupe todo el espacio
               >
-                {lottieLoaded && isInView && !hasPlayed && (
-                  <DotLottieReact
-                    src={phase.animation} // Ruta local de la animación .lottie
-                    loop // Solo se reproduce una vez
-                    autoplay
-                    style={{
-                      width: '80%', // Reducido al 80% del tamaño original
-                      height: '80%', // Reducido al 80% del tamaño original
-                      objectFit: 'contain', // Mantener la proporción y ajustarla dentro del contenedor
-                    }} // Marca como reproducido
-                  />
-                )}
+
               </div>
 
               {/* Contenido de la fase */}

@@ -1,85 +1,176 @@
 {
-  "InDepth": {
-    "MainSection": {
-      "title": "AI for coops from coops!",
-      "subtitle": "Exploring how AI can empower cooperativism. Using technology to address real-world cooperative challenges while embracing the movement principles.",
-      "firstAnimationText": "Innovation",
-      "secondAnimationText": "development",
-      "thirdAnimationText": "other worlds are possible together",
-      "navbarTitle": "AI for Coops"
+  "common": {
+    "contactButton": "Get in Touch!",
+    "closeMenu": "Close Menu",
+    "contactDialog": {
+      "title": "Get in Touch",
+      "description": "Please fill out the form below to get in touch with us.",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message"
+    },
+    "navbar": {
+      "title": "AI for Coops",
+      "links": {
+        "home": "Home",
+        "inDepth": "In Depth",
+        "projects": "Case Studies",
+        "about": "What we are doing",
+        "how": "How",
+        "who": "Who We Are",
+        "services": "Technologies",
+        "contact": "Contact us"
+      }
+    },
+    "footer": {
+      "quickLinks": "Quick Links",
+      "getInTouch": "Get in Touch!",
+      "builtWith": "Built with ❤ & 🧉",
+      "techStack": "with Next.js + Tailwind"
     }
   },
-  "Sections": {
-    "HeroSection": {
-      "title": "AI for coops from coops!",
-      "subtitle": "Exploring how AI can empower cooperativism. Using technology to address real-world cooperative challenges while embracing the movement principles.",
-      "firstAnimationText": "Innovation",
-      "secondAnimationText": "development",
-      "thirdAnimationText": "other worlds are possible together",
-      "navbarTitle": "AI for Coops"
-    },
-    "Projects": {
-      "title": "Case of studies",
-      "subtitle": "Case studies on how AI is transforming the cooperative world",
-      "navbarTitle": "Case Studies"
-    },
-    "About": {
-      "title": "What we are doing",
-      "navbarTitle": "What we are doing",
-      "keyPoint1Title": "IA from a cooperative view",
-      "keyPoint2Title": "Human-Centered approach",
-      "keyPoint3Title": "Collaborative Innovation",
-      "keyPoint1Description": "We create custom AI tools that adapt to your cooperative’s needs. Whether it’s automating repetitive tasks or improving decision-making, our goal is to make your work easier and more efficient.",
-      "keyPoint2Description": "Our solutions are designed to work alongside your team, not replace them. We focus on creating tools that help people do their jobs better, faster, and with less stress.",
-      "keyPoint3Description": "We believe in the power of working together. By sharing knowledge and tools, we help cooperatives build stronger networks and achieve more as a community.",
-      "main_text": "As technological cooperatives, we develop artificial intelligence solutions tailored to the needs of cooperatives. We work closely with each cooperative to understand their unique processes, challenges, and goals. By observing and analyzing how they operate, we co-create custom AI solutions that fit their needs. Together, we identify opportunities to enhance workflows, improve efficiency, and empower workers with technology to solve real-world problems and strengthen communities."
-    },
-    "AboutHow": {
-      "title": "From vision to collective impact",
-      "subtitle": "A collaborative approach to AI implementation. Below, we outline our step-by-step process, from identifying opportunities to delivering real-world solutions.",
-      "navbarTitle": "How",
-      "see_more": "Go deep",
-      "phase1_title": "#1 | Exploration Phase",
-      "phase1_text": "During this phase, we immerse ourselves in the cooperative’s daily operations to identify opportunities where AI can drive real improvements. We engage with the team, observe workflows, and identify key challenges. We focus on finding bottlenecks like inefficiencies, high costs, or repetitive tasks. Based on this analysis, we propose AI-driven solutions to address these issues.",
-      "phase2_title": "#2 | MVP Phase",
-      "phase2_keyPoint1": "Choosing the prioritiy solution:",
-      "phase2_keyPoint1_desc": "We collaborate with your team to select the AI solution that best fits your needs and priorities.",
-      "phase2_keyPoint2": "Building the MVP",
-      "phase2_keyPoint2_desc": "Next, we develop a Minimum Viable Product (MVP)—a simplified but functional version of the chosen solution.",
-      "phase2_keyPoint3": "Performance testing",
-      "phase2_keyPoint3_desc": "We test it in a controlled environment to ensure the core features work as expected. Through multiple iterations, we gather feedback, refine the tool, and strengthen its functionality.",
-      "phase3_text": "In this phase, we take the validated solution and refine it for full-scale implementation. This includes integrating it into your day-to-day operations, testing it in a live environment, and analyzing its impact by comparing performance metrics before and after implementation. Based on the results, we plan next steps to address additional challenges.",
-      "phase3_title": "#3 | Production Phase"
-    },
-    "WhoWeAre": {
-      "title": "Who we are",
-      "subtitle": "After more than 10 years of working in technology and cooperativism, we decided to come together to combine our strengths, knowledge, and experience. We’ve seen how cooperatives, despite their potential, often fall behind in adopting new technologies. That’s why we’ve come together as a network of tech cooperatives—to bridge that gap. As cooperatives ourselves, we understand the challenges cooperatives face because, in many ways, we speak the same language. We believe in the power of teamwork and interdisciplinary collaboration, and we’re committed to making a difference by developing technology that truly serves cooperatives. Our focus is on democratizing artificial intelligence, making it accessible and a driver of sustainable growth for cooperatives. If you’re a tech cooperative working with AI and would like to join us, we’d love to hear from you!",
-      "navbarTitle": "Who We Are"
-    },
-    "Contact": {
-      "title": "Contact us",
-      "subtitle": "Get in touch with us and find out how we can collaborate",
-      "navbarTitle": "Contact us"
-    },
-    "Services": {
-      "title": "Unlocking the power of AI for cooperatives",
-      "navbarTitle": "Technologies",
-      "subtitle": "Using AI Tools for a stronger cooperative future",
-      "service1": {
-        "title": "Seeing what matters with Computer Vision",
-        "description": "It allows machines to interpret images or videos. We use this technology to automate tasks like quality control (e.g., identifying defects in products), object recognition (e.g., sorting items in a warehouse), and security monitoring (e.g., detecting anomalies in real-time). It’s ideal for cooperatives that handle visual data and need to streamline processes."
+  "pages": {
+    "home": {
+      "heroSection": {
+        "title": "AI for coops from coops!",
+        "subtitle": "Exploring how AI can empower cooperativism. Using technology to address real-world cooperative challenges while embracing the movement principles.",
+        "animationTexts": ["Innovation", "development", "other worlds are possible together"]
       },
-      "service2": {
-        "title": "Strategic forecasting",
-        "description": "Prediction models use historical data to anticipate future events. For cooperatives, this means forecasting demand (e.g., predicting how much of a product will be needed), optimizing resources (e.g., planning inventory or workforce), and reducing risks (e.g., anticipating market changes). It’s a powerful tool for making data-driven decisions."
+      "projects": {
+              "title": "Case Studies",
+              "subtitle": "Real-world applications of our AI solutions",
+              "codeButton": "Code",
+              "demoButton": "Live Demo",
+              "projects": [
+                {
+                  "title": "Optimizing Quality Control in Manufacturing",
+                  "description": "We developed an AI-powered system for a manufacturing client to enhance quality control. It processes 16 images per second with 99.99% accuracy, identifying defects in real-time. This solution helps workers reduce errors and minimize waste, ensuring high-quality products.",
+                  "tech": ["TensorFlow", "OpenCV", "Python", "Flask"]
+                },
+                {
+                  "title": "Satellite-Based Insights for Agriculture",
+                  "description": "We created a system that analyzes satellite imagery and field data across 60,000 hectares. It provides daily insights, enabling smarter decisions for crop management. This tool supports agricultural cooperatives in achieving higher yields and better resource allocation.",
+                  "tech": ["PyTorch", "GDAL", "GeoPandas", "FastAPI"]
+                },
+                {
+                  "title": "Automating Data Extraction from Printed Documents",
+                  "description": "We built an AI solution for a client to automate data extraction from printed documents. The system captures and digitizes key information, reducing manual effort and errors. This ensures seamless integration with the cooperative's digital systems, enhancing overall productivity.",
+                  "tech": ["LangChain", "Tesseract OCR", "Python", "FastAPI"]
+                },
+                {
+                  "title": "Big Data Solution",
+                  "description": "We implemented a Big Data platform to analyze large volumes of operational data. The system provides actionable insights, helping staff make informed decisions and optimize resource allocation.",
+                  "tech": ["Apache Spark", "Hadoop", "Kafka", "Python"]
+                },
+                {
+                  "title": "Demand Forecasting for Logistics",
+                  "description": "We implemented a predictive AI system for a logistics client to forecast demand and optimize delivery routes. By analyzing historical data and real-time variables, the system helps reduce costs, improve delivery times, and ensure efficient resource allocation.",
+                  "tech": ["Scikit-learn", "XGBoost", "Pandas", "Flask"]
+                }
+              ]
+            },
+      "about": {
+        "title": "What we are doing",
+        "keyPoints": [
+          {
+            "title": "IA from a cooperative view",
+            "description": "We create custom AI tools that adapt to your cooperative's needs. Whether it's automating repetitive tasks or improving decision-making, our goal is to make your work easier and more efficient."
+          },
+          {
+            "title": "Human-Centered approach",
+            "description": "Our solutions are designed to work alongside your team, not replace them. We focus on creating tools that help people do their jobs better, faster, and with less stress."
+          },
+          {
+            "title": "Collaborative Innovation",
+            "description": "We believe in the power of working together. By sharing knowledge and tools, we help cooperatives build stronger networks and achieve more as a community."
+          }
+        ],
+        "mainText": "As technological cooperatives, we develop artificial intelligence solutions tailored to the needs of cooperatives. We work closely with each cooperative to understand their unique processes, challenges, and goals. By observing and analyzing how they operate, we co-create custom AI solutions that fit their needs. Together, we identify opportunities to enhance workflows, improve efficiency, and empower workers with technology to solve real-world problems and strengthen communities."
       },
-      "service3": {
-        "title": "Streamlining text workflows with Large Language Models (LLMs)",
-        "description": "Large language models can understand and generate human-like text. We use them to improve customer service (e.g., chatbots that answer questions instantly), automate document processing (e.g., extracting key information from contracts), and assist with content creation (e.g., generating reports or summaries). It’s perfect for cooperatives that deal with large volumes of text."
+      "aboutHow": {
+        "title": "From vision to collective impact",
+        "subtitle": "A collaborative approach to AI implementation. Below, we outline our step-by-step process, from identifying opportunities to delivering real-world solutions.",
+        "seeMore": "Go deep",
+        "phases": [
+          {
+            "title": "#1 | Exploration Phase",
+            "description": "During this phase, we immerse ourselves in the cooperative's daily operations to identify opportunities where AI can drive real improvements. We engage with the team, observe workflows, and identify key challenges. We focus on finding bottlenecks like inefficiencies, high costs, or repetitive tasks. Based on this analysis, we propose AI-driven solutions to address these issues."
+          },
+          {
+            "title": "#2 | MVP Phase",
+            "keyPoints": [
+              {
+                "title": "Choosing the priority solution:",
+                "description": "We collaborate with your team to select the AI solution that best fits your needs and priorities."
+              },
+              {
+                "title": "Building the MVP",
+                "description": "Next, we develop a Minimum Viable Product (MVP)—a simplified but functional version of the chosen solution."
+              },
+              {
+                "title": "Performance testing",
+                "description": "We test it in a controlled environment to ensure the core features work as expected. Through multiple iterations, we gather feedback, refine the tool, and strengthen its functionality."
+              }
+            ]
+          },
+          {
+            "title": "#3 | Production Phase",
+            "description": "In this phase, we take the validated solution and refine it for full-scale implementation. This includes integrating it into your day-to-day operations, testing it in a live environment, and analyzing its impact by comparing performance metrics before and after implementation. Based on the results, we plan next steps to address additional challenges."
+          }
+        ]
       },
-      "service4": {
-        "title": "Unlocking data potential with Big Data",
-        "description": "Big data tools help manage and analyze large datasets that are too complex for traditional methods. For cooperatives, this means identifying trends (e.g., understanding customer behavior), optimizing operations (e.g., finding inefficiencies in workflows), and making strategic decisions (e.g., based on real-time data). It’s essential for cooperatives that generate or rely on large amounts of data."
+      "whoWeAre": {
+        "title": "Who we are",
+        "subtitle": "After more than 10 years of working in technology and cooperativism, we decided to come together to combine our strengths, knowledge, and experience...",
+        "coops": {
+          "lawal": {
+            "name": "Lawal",
+            "description": "Tech cooperative specializing in AI solutions"
+          },
+          "eryx": {
+            "name": "Eryx",
+            "description": "Software development cooperative"
+          },
+          "animus": {
+            "name": "Animus",
+            "description": "Data science and analytics cooperative"
+          },
+          "newDev": {
+            "name": "New Dev",
+            "description": "Web and mobile development cooperative"
+          }
+        }
+      },
+      "services": {
+        "title": "Unlocking the power of AI for cooperatives",
+        "subtitle": "Using AI Tools for a stronger cooperative future",
+        "service1": {
+          "title": "Seeing what matters with Computer Vision",
+          "description": "It allows machines to interpret images or videos..."
+        },
+        "service2": {
+          "title": "Strategic forecasting",
+          "description": "Prediction models use historical data..."
+        },
+        "service3": {
+          "title": "Streamlining text workflows with Large Language Models (LLMs)",
+          "description": "Large language models can understand and generate..."
+        },
+        "service4": {
+          "title": "Unlocking data potential with Big Data",
+          "description": "Big data tools help manage and analyze large datasets..."
+        }
+      },
+      "contact": {
+        "title": "Contact us",
+        "subtitle": "Get in touch with us and find out how we can collaborate"
+      }
+    },
+    "inDepth": {
+      "mainSection": {
+        "title": "AI for coops from coops!",
+        "subtitle": "Exploring how AI can empower cooperativism. Using technology to address real-world cooperative challenges while embracing the movement principles.",
+        "animationTexts": ["Innovation", "development", "other worlds are possible together"]
       }
     }
   }

@@ -7,18 +7,19 @@ import ComputerVision from '@/media/computervision.png'
 import Prediction from '@/media/prediction.png'
 import LLMs from '@/media/llms.png'
 import BigData from '@/media/bigdata.png'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 export default function Services() {
-  const t = useTranslations('Sections.Services')
+  const t = useTranslations('pages.home.services')
   const titleRef = useRef(null)
 
+  // Verificamos que las traducciones existan antes de usarlas
   const services: InfoCardProps[] = [
     {
       title: t('service1.title'),
       description: t('service1.description'),
       imageSrc: ComputerVision,
-      imageAlt: 'Service 1',
+      imageAlt: 'Computer Vision',
       bgColor: 'bg-bg dark:bg-darkBg',
       imagePosition: 'right',
     },
@@ -26,7 +27,7 @@ export default function Services() {
       title: t('service2.title'),
       description: t('service2.description'),
       imageSrc: Prediction,
-      imageAlt: 'Service 2',
+      imageAlt: 'Strategic Forecasting',
       bgColor: 'bg-bg dark:bg-darkBg',
       imagePosition: 'left',
     },
@@ -34,7 +35,7 @@ export default function Services() {
       title: t('service3.title'),
       description: t('service3.description'),
       imageSrc: LLMs,
-      imageAlt: 'Service 3',
+      imageAlt: 'Large Language Models',
       bgColor: 'bg-bg dark:bg-darkBg',
       imagePosition: 'right',
     },
@@ -42,14 +43,14 @@ export default function Services() {
       title: t('service4.title'),
       description: t('service4.description'),
       imageSrc: BigData,
-      imageAlt: 'Service 4',
+      imageAlt: 'Big Data',
       bgColor: 'bg-bg dark:bg-darkBg',
       imagePosition: 'left',
     },
   ]
 
   return (
-    <div className="w-full min-h-screen bg-bg dark:bg-darkBg py-[50px] lg:py-[50px]">
+    <div className="w-full min-h-screen bg-bg dark:bg-darkBg py-[50px] lg:py-[50px]" id="services">
       <div className="mx-auto w-container max-w-full px-5">
         {/* Header section */}
         <div className="w-full mb-16" ref={titleRef}>
@@ -64,7 +65,6 @@ export default function Services() {
             </h1>
           </div>
 
-          {/* Subtitle con el mismo efecto */}
           <div className="overflow-hidden">
             <motion.p
               className="text-lg md:text-xl text-center text-text dark:text-darkText"

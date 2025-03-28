@@ -21,14 +21,14 @@ import {
   SiNumpy,
 } from 'react-icons/si'
 import { FaRobot } from 'react-icons/fa'
-
 import Image from 'next/image'
 import { DialogComponent } from '@/components/getInTouchDialog'
-import React from 'react'
 import { useTranslations } from 'next-intl'
 
 export default function HeroSection() {
-  const t = useTranslations('Sections')
+  const t = useTranslations('pages.home.heroSection')
+  const commonT = useTranslations('common')
+
   const skills = [
     { text: 'Python', Icon: SiPython },
     { text: 'PyTorch', Icon: SiPytorch },
@@ -42,7 +42,7 @@ export default function HeroSection() {
     { text: 'NumPy', Icon: SiNumpy },
     { text: 'PostgreSQL', Icon: BiLogoPostgresql },
     { text: 'Hugging Face', Icon: SiHuggingface },
-    { text: 'Llama', Icon: FaRobot }, // Ícono genérico para IA/LLMs
+    { text: 'Llama', Icon: FaRobot },
     { text: 'Version Control', Icon: SiGit },
     { text: 'Docker', Icon: SiDocker },
   ]
@@ -89,7 +89,6 @@ export default function HeroSection() {
     },
   }
 
-  // Adjust buttonVariants to remove hover effects and delay appearance
   const buttonVariants = {
     hidden: { scale: 0 },
     visible: {
@@ -98,7 +97,7 @@ export default function HeroSection() {
         type: 'spring',
         stiffness: 260,
         damping: 20,
-        delay: 1.5, // Delay the button's appearance after marquee
+        delay: 1.5,
       },
     },
     tap: {
@@ -133,11 +132,11 @@ export default function HeroSection() {
             <TypeAnimation
               className="text-3xl lg:text-3xl font-bold text-info dark:text-darkPurple relative z-10"
               sequence={[
-                t('HeroSection.firstAnimationText'),
+                t('animationTexts.0'),
                 1000,
-                t('HeroSection.secondAnimationText'),
+                t('animationTexts.1'),
                 1000,
-                t('HeroSection.thirdAnimationText'),
+                t('animationTexts.2'),
                 1000,
               ]}
             />
@@ -147,14 +146,14 @@ export default function HeroSection() {
             variants={itemVariants}
             className="text-text dark:text-darkText text-3xl font-heading md:text-4xl lg:text-5xl mt-5"
           >
-            {t('HeroSection.title')}
+            {t('title')}
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
             className="my-12 mt-8 text-lg font-normal leading-relaxed md:text-xl lg:text-2xl lg:leading-relaxed"
           >
-            {t('HeroSection.subtitle')}
+            {t('subtitle')}
           </motion.p>
 
           <div className="flex flex-col items-center lg:items-start mb-8">
@@ -181,13 +180,13 @@ export default function HeroSection() {
 
             <motion.div variants={buttonVariants} initial="hidden" animate="visible" whileTap="tap">
               <DialogComponent
-                triggerButtonText="Get in Touch!"
-                dialogTitle="Get in Touch"
-                dialogDescription="Please fill out the form below to get in touch with me."
+                triggerButtonText={commonT('contactButton')}
+                dialogTitle={commonT('contactDialog.title')}
+                dialogDescription={commonT('contactDialog.description')}
                 inputLabels={{
-                  name: 'Name',
-                  email: 'Email',
-                  message: 'Message',
+                  name: commonT('contactDialog.name'),
+                  email: commonT('contactDialog.email'),
+                  message: commonT('contactDialog.message'),
                 }}
                 buttonClassName="dark:border-darkBorder border-4 dark:text-text font-bold dark:shadow-darkShadow dark:bg-darkPrimary"
               />
