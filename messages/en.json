@@ -71,6 +71,7 @@
       },
       "about": {
         "title": "What we are doing",
+        "image": "about_en.svg",
         "keyPoints": [
           {
             "title": "IA from a cooperative view",

@@ -1,8 +1,9 @@
 'use client'
 import React, { useRef, useEffect } from 'react'
 import Image from 'next/image'
-import AI4CoopsAbout from '@/media/ai4coopsAbout.png'
-import { useTranslations } from 'next-intl'
+import AboutImageEs from '@/media/about_es.svg'
+import AboutImageEn from '@/media/about_en.svg'
+import { useLocale, useTranslations } from 'next-intl'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { faHandshake, faUsers, faLightbulb } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -11,7 +12,10 @@ import AOS from 'aos'
 
 export default function About() {
   const t = useTranslations('pages.home.about')
+  const locale = useLocale()
   const sectionRef = useRef(null)
+
+  const AboutImage = locale === 'es' ? AboutImageEs : AboutImageEn
 
   useEffect(() => {
     AOS.init({
@@ -67,7 +71,7 @@ export default function About() {
               transition={{ duration: 0.8, type: 'spring', stiffness: 100 }}
             >
               <Image
-                src={AI4CoopsAbout}
+                src={AboutImage}
                 alt="Illustration"
                 width={800}
                 className="w-full h-auto rounded-lg"

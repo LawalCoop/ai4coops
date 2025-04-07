@@ -1,10 +1,8 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 import { motion, useInView } from 'framer-motion'
 import { faEye, faChartLine, faLanguage, faDatabase } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ComputerVision from '@/media/computervision.png'
 import Prediction from '@/media/prediction.png'
 import LLMs from '@/media/llms.png'
