@@ -138,6 +138,10 @@
           "newDev": {
             "name": "New Dev",
             "description": "Web and mobile development cooperative"
+          },
+          "elMaizal": {
+            "name": "El Maizal",
+            "description": "Integral Communication cooperative"
           }
         }
       },
@@ -146,19 +150,19 @@
         "subtitle": "Using AI Tools for a stronger cooperative future",
         "service1": {
           "title": "Seeing what matters with Computer Vision",
-          "description": "It allows machines to interpret images or videos..."
+          "description": "It allows machines to interpret images or videos. We use this technology to automate tasks like quality control (e.g., identifying defects in products), object recognition (e.g., sorting items in a warehouse), and security monitoring (e.g., detecting anomalies in real-time). It’s ideal for cooperatives that handle visual data and need to streamline processes."
         },
         "service2": {
           "title": "Strategic forecasting",
-          "description": "Prediction models use historical data..."
+          "description": "Prediction models use historical data to anticipate future events. For cooperatives, this means forecasting demand (e.g., predicting how much of a product will be needed), optimizing resources (e.g., planning inventory or workforce), and reducing risks (e.g., anticipating market changes). It’s a powerful tool for making data-driven decisions."
         },
         "service3": {
           "title": "Streamlining text workflows with Large Language Models (LLMs)",
-          "description": "Large language models can understand and generate..."
+          "description": "Large language models can understand and generate human-like text. We use them to improve customer service (e.g., chatbots that answer questions instantly), automate document processing (e.g., extracting key information from contracts), and assist with content creation (e.g., generating reports or summaries). It’s perfect for cooperatives that deal with large volumes of text."
         },
         "service4": {
           "title": "Unlocking data potential with Big Data",
-          "description": "Big data tools help manage and analyze large datasets..."
+          "description": "Big data tools help manage and analyze large datasets that are too complex for traditional methods. For cooperatives, this means identifying trends (e.g., understanding customer behavior), optimizing operations (e.g., finding inefficiencies in workflows), and making strategic decisions (e.g., based on real-time data). It’s essential for cooperatives that generate or rely on large amounts of data."
         }
       },
       "contact": {

@@ -3,17 +3,23 @@
 import React, { useEffect, useState } from 'react'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 import { motion, useInView } from 'framer-motion'
+import { faEye, faChartLine, faLanguage, faDatabase } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import ComputerVision from '@/media/computervision.png'
+import Prediction from '@/media/prediction.png'
+import LLMs from '@/media/llms.png'
+import BigData from '@/media/bigdata.png'
+import Image from 'next/image'
 
 const InDepth = () => {
   const [lottieLoaded, setLottieLoaded] = useState(false)
   const sectionRef = React.useRef(null)
-  const isInView = useInView(sectionRef, { once: true }) // Se reproduce una vez al estar en vista
+  const isInView = useInView(sectionRef, { once: true })
 
   const phases = [
     {
       title: 'Fase de Exploración: Entendemos y Planificamos',
-      description:
-        'Nos sumergimos en el funcionamiento diario de la cooperativa para analizar sus operaciones y detectar oportunidades de optimización mediante IA. Entendemos las necesidades, identificamos áreas críticas y diseñamos una estrategia clara para la implementación.',
+      description: 'Nos sumergimos en el funcionamiento diario de la cooperativa para analizar sus operaciones y detectar oportunidades de optimización mediante IA. Entendemos las necesidades, identificamos áreas críticas y diseñamos una estrategia clara para la implementación.',
       steps: [
         'Realizamos entrevistas con los equipos clave para conocer sus procesos y desafíos.',
         'Analizamos flujos de trabajo para detectar ineficiencias y puntos de mejora.',
@@ -21,12 +27,12 @@ const InDepth = () => {
         'Definimos objetivos claros y medibles con KPIs específicos para evaluar el impacto.',
         'Elaboramos un informe detallado con hallazgos, oportunidades y plan de acción.',
       ],
-      animation: '/animations/exploration.lottie', // Ruta local
+      image: ComputerVision,
+      icon: faEye
     },
     {
       title: 'Fase MVP: Probamos la Solución',
-      description:
-        'Desarrollamos un Producto Mínimo Viable (MVP) para validar la eficacia de la solución IA. Probamos su funcionamiento en un entorno controlado y analizamos los resultados antes de una implementación a gran escala.',
+      description: 'Desarrollamos un Producto Mínimo Viable (MVP) para validar la eficacia de la solución IA. Probamos su funcionamiento en un entorno controlado y analizamos los resultados antes de una implementación a gran escala.',
       steps: [
         'Definimos el alcance del MVP, seleccionando las funcionalidades más críticas.',
         'Desarrollamos un prototipo funcional con las capacidades esenciales de la IA.',
@@ -34,12 +40,12 @@ const InDepth = () => {
         'Analizamos los resultados y ajustamos la solución según los aprendizajes.',
         'Preparamos un informe con métricas de desempeño y recomendaciones.',
       ],
-      animation: '/animations/mvp.lottie', // Ruta local
+      image: Prediction,
+      icon: faChartLine
     },
     {
       title: 'Fase de Producción: Lo Hacemos Realidad',
-      description:
-        'Escalamos la solución IA y la integramos completamente en la cooperativa, asegurando su estabilidad, funcionalidad y beneficios a largo plazo. Realizamos un monitoreo continuo para garantizar el éxito.',
+      description: 'Escalamos la solución IA y la integramos completamente en la cooperativa, asegurando su estabilidad, funcionalidad y beneficios a largo plazo. Realizamos un monitoreo continuo para garantizar el éxito.',
       steps: [
         'Desarrollamos la versión final, optimizada y lista para producción.',
         'Integramos la solución con los sistemas existentes de la cooperativa.',
@@ -47,7 +53,8 @@ const InDepth = () => {
         'Monitoreamos el rendimiento y recopilamos métricas de mejora.',
         'Planificamos futuras optimizaciones basadas en los resultados obtenidos.',
       ],
-      animation: '/animations/production.lottie', // Ruta local
+      image: BigData,
+      icon: faDatabase
     },
   ]
 
@@ -64,17 +71,24 @@ const InDepth = () => {
       exit={{ opacity: 0 }}
     >
       <div className="mx-auto w-full max-w-7xl px-5 relative z-10">
+        {/* Encabezado con el nuevo estilo */}
         <motion.div
-          className="dark:border-darkBorder bg-bg/80 backdrop-blur-sm border-4 border-border dark:bg-darkBg/80 shadow-lg transform transition-all duration-300 p-6 mb-10"
-          whileHover={{ scale: 1.02 }}
+          className="dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
+                    shadow-[8px_8px_0px_0px] shadow-shadow dark:shadow-darkShadow
+                    transform hover:-translate-y-1 hover:shadow-[12px_12px_0px_0px] hover:shadow-shadow dark:hover:shadow-darkShadow
+                    transition-all duration-300 p-6 mb-10 mx-auto text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
         >
-          <h1 className="text-4xl md:text-5xl font-black text-black dark:text-darkText text-center">
+          <h1 className="text-4xl md:text-5xl font-black text-black dark:text-darkText">
             Fases del Proyecto
           </h1>
         </motion.div>
 
+        {/* Fases con el nuevo estilo de tarjetas */}
         <motion.div
-          className="flex flex-col gap-16 mt-20 items-center w-full"
+          className="flex flex-col gap-8 mt-12"
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
@@ -82,34 +96,52 @@ const InDepth = () => {
           {phases.map((phase, index) => (
             <motion.div
               key={index}
-              className={`w-full max-w-7xl bg-white dark:bg-darkBg border border-border dark:border-darkBorder rounded-xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 flex flex-col md:flex-row ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
+              className="group"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
             >
-              {/* Animación de cada fase */}
-              <div
-                id={phase.title}
-                className="md:w-1/2 min-h-full flex justify-center items-center p-6" // Agregado el padding
-                style={{ height: 'auto' }} // Asegura que el contenedor ocupe todo el espacio
-              >
+              <div className={`
+                dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
+                shadow-[8px_8px_0px_0px] shadow-shadow dark:shadow-darkShadow
+                transform group-hover:-translate-y-1 group-hover:shadow-[12px_12px_0px_0px] group-hover:shadow-shadow dark:group-hover:shadow-darkShadow
+                transition-all duration-300 p-6 rounded-lg
+                flex flex-col md:flex-row ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-6
+              `}>
+                <div className="md:w-1/4 flex-shrink-0 flex items-center justify-center">
+                  <div className="w-full h-32 md:h-full relative rounded-lg overflow-hidden">
+                    <Image
+                      src={phase.image}
+                      alt={`Imagen de ${phase.title}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
 
-              </div>
+                {/* Contenido de la fase */}
+                <div className="md:w-3/4 flex-grow">
+                  <div className="flex items-center gap-3 mb-4">
+                    <h2 className="text-2xl md:text-3xl font-extrabold text-black dark:text-darkText">
+                      {phase.title}
+                    </h2>
+                  </div>
 
-              {/* Contenido de la fase */}
-              <div className="p-10 md:w-1/2 flex flex-col justify-center">
-                <h2 className="text-3xl font-bold text-black dark:text-darkText">{phase.title}</h2>
-                <p className="text-gray-600 dark:text-gray-400 mb-6 text-lg line-clamp-3">
-                  {phase.description}
-                </p>{' '}
-                {/* Agregado line-clamp */}
-                <ul className="list-none pl-0 text-gray-600 dark:text-gray-400 space-y-4">
-                  {phase.steps.map((step, i) => (
-                    <li key={i} className="flex items-start gap-4 text-lg">
-                      <span className="bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-bold">
-                        {i + 1}
-                      </span>
-                      <span>{step}</span>
-                    </li>
-                  ))}
-                </ul>
+                  <p className="text-text dark:text-darkText text-base md:text-lg mb-6">
+                    {phase.description}
+                  </p>
+
+                  <ul className="space-y-3">
+                    {phase.steps.map((step, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <span className="bg-primary dark:bg-darkPrimary text-white px-3 py-1 rounded-full text-md font-bold mt-1 flex-shrink-0">
+                          {i + 1}
+                        </span>
+                        <span className="text-text dark:text-darkText text-base">{step}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </motion.div>
           ))}

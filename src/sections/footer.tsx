@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FaGithub } from 'react-icons/fa'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import { useTranslations } from 'next-intl'
@@ -54,10 +54,6 @@ const FooterLinks = () => {
       href: 'https://github.com/LawalCoop/',
       label: 'GitHub'
     },
-    {
-      href: 'https://www.linkedin.com/company/lawalcoop/',
-      label: 'LinkedIn'
-    }
   ]
 
   return (
@@ -133,14 +129,6 @@ const Footer = () => {
                 className="text-4xl text-gray-800 dark:text-white hover:text-yellow-400 transition-colors duration-300"
               >
                 <FaGithub />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/lawalcoop/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-4xl text-gray-800 dark:text-white hover:text-yellow-400 transition-colors duration-300"
-              >
-                <FaLinkedin />
               </a>
             </div>
           </div>

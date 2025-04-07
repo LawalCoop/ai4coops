@@ -1,6 +1,6 @@
 'use client'
 import { TypeAnimation } from 'react-type-animation'
-import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FaGithub } from 'react-icons/fa'
 import { BiLogoPostgresql } from 'react-icons/bi'
 import Marquee from 'react-fast-marquee'
 import { motion } from 'framer-motion'
@@ -166,15 +166,6 @@ export default function HeroSection() {
                 whileHover="hover"
               >
                 <FaGithub className="text-4xl text-text dark:text-white hover:text-primary dark:hover:text-darkPurple transition-colors duration-300" />
-              </motion.a>
-              <motion.a
-                href="https://www.linkedin.com/company/lawalcoop"
-                target="_blank"
-                rel="noopener noreferrer"
-                variants={socialIconVariants}
-                whileHover="hover"
-              >
-                <FaLinkedin className="text-4xl text-text dark:text-white hover:text-primary dark:hover:text-darkPurple transition-colors duration-300" />
               </motion.a>
             </motion.div>
 

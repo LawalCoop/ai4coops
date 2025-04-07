@@ -133,6 +133,10 @@
           "newDev": {
             "name": "New Dev",
             "description": "Cooperativa de desarrollo web y móvil"
+          },
+          "elMaizal": {
+            "name": "El Maizal",
+            "description": "Cooperativa dedicada a la Comunicación de manera integral."
           }
         }
       },
@@ -141,20 +145,16 @@
         "subtitle": "Herramientas de IA para un futuro cooperativo más fuerte",
         "service1": {
           "title": "Visión por Computadora",
-          "description": "Permite a las máquinas interpretar imágenes o videos..."
-        },
+          "description": "Hacemos que las máquinas interpreten imágenes y videos. Esto nos permite automatizar tareas como control de calidad, clasificación de productos y monitoreo de seguridad en tiempo real. Ideal para cooperativas que manejan datos visuales y quieren optimizar procesos."        },
         "service2": {
           "title": "Predicciones estratégicas",
-          "description": "Modelos predictivos que usan datos históricos..."
-        },
+          "description": "Usamos datos históricos para anticiparnos a lo que viene. Esto permite prever demanda, optimizar recursos y minimizar riesgos en la toma de decisiones."        },
         "service3": {
           "title": "Optimización de textos con Modelos de Lenguaje (LLMs)",
-          "description": "Modelos de lenguaje que entienden y generan texto..."
-        },
+          "description": "Los modelos de lenguaje entienden y generan texto de forma inteligente. Esto se traduce en mejoras para atención al cliente, automatización de documentos y generación de contenido."        },
         "service4": {
           "title": "Big Data para cooperativas",
-          "description": "Herramientas para gestionar y analizar grandes conjuntos..."
-        }
+          "description": "Analizamos grandes volúmenes de datos para identificar tendencias, mejorar operaciones y tomar decisiones estratégicas basadas en información en tiempo real."        }
       },
       "contact": {
         "title": "Contactanos",
