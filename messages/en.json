@@ -37,38 +37,38 @@
         "animationTexts": ["Innovation", "development", "other worlds are possible together"]
       },
       "projects": {
-              "title": "Case Studies",
-              "subtitle": "Real-world applications of our AI solutions",
-              "codeButton": "Code",
-              "demoButton": "Live Demo",
-              "projects": [
-                {
-                  "title": "Optimizing Quality Control in Manufacturing",
-                  "description": "We developed an AI-powered system for a manufacturing client to enhance quality control. It processes 16 images per second with 99.99% accuracy, identifying defects in real-time. This solution helps workers reduce errors and minimize waste, ensuring high-quality products.",
-                  "tech": ["TensorFlow", "OpenCV", "Python", "Flask"]
-                },
-                {
-                  "title": "Satellite-Based Insights for Agriculture",
-                  "description": "We created a system that analyzes satellite imagery and field data across 60,000 hectares. It provides daily insights, enabling smarter decisions for crop management. This tool supports agricultural cooperatives in achieving higher yields and better resource allocation.",
-                  "tech": ["PyTorch", "GDAL", "GeoPandas", "FastAPI"]
-                },
-                {
-                  "title": "Automating Data Extraction from Printed Documents",
-                  "description": "We built an AI solution for a client to automate data extraction from printed documents. The system captures and digitizes key information, reducing manual effort and errors. This ensures seamless integration with the cooperative's digital systems, enhancing overall productivity.",
-                  "tech": ["LangChain", "Tesseract OCR", "Python", "FastAPI"]
-                },
-                {
-                  "title": "Big Data Solution",
-                  "description": "We implemented a Big Data platform to analyze large volumes of operational data. The system provides actionable insights, helping staff make informed decisions and optimize resource allocation.",
-                  "tech": ["Apache Spark", "Hadoop", "Kafka", "Python"]
-                },
-                {
-                  "title": "Demand Forecasting for Logistics",
-                  "description": "We implemented a predictive AI system for a logistics client to forecast demand and optimize delivery routes. By analyzing historical data and real-time variables, the system helps reduce costs, improve delivery times, and ensure efficient resource allocation.",
-                  "tech": ["Scikit-learn", "XGBoost", "Pandas", "Flask"]
-                }
-              ]
-            },
+        "title": "Case Studies",
+        "subtitle": "Real-world applications of our AI solutions",
+        "codeButton": "Code",
+        "demoButton": "Live Demo",
+        "projects": [
+          {
+            "title": "Optimizing Quality Control in Manufacturing",
+            "description": "We developed an AI-powered system for a manufacturing client to enhance quality control. It processes 16 images per second with 99.99% accuracy, identifying defects in real-time. This solution helps workers reduce errors and minimize waste, ensuring high-quality products.",
+            "tech": ["TensorFlow", "OpenCV", "Python", "Flask"]
+          },
+          {
+            "title": "Satellite-Based Insights for Agriculture",
+            "description": "We created a system that analyzes satellite imagery and field data across 60,000 hectares. It provides daily insights, enabling smarter decisions for crop management. This tool supports agricultural cooperatives in achieving higher yields and better resource allocation.",
+            "tech": ["PyTorch", "GDAL", "GeoPandas", "FastAPI"]
+          },
+          {
+            "title": "Automating Data Extraction from Printed Documents",
+            "description": "We built an AI solution for a client to automate data extraction from printed documents. The system captures and digitizes key information, reducing manual effort and errors. This ensures seamless integration with the cooperative's digital systems, enhancing overall productivity.",
+            "tech": ["LangChain", "Tesseract OCR", "Python", "FastAPI"]
+          },
+          {
+            "title": "Big Data Solution",
+            "description": "We implemented a Big Data platform to analyze large volumes of operational data. The system provides actionable insights, helping staff make informed decisions and optimize resource allocation.",
+            "tech": ["Apache Spark", "Hadoop", "Kafka", "Python"]
+          },
+          {
+            "title": "Demand Forecasting for Logistics",
+            "description": "We implemented a predictive AI system for a logistics client to forecast demand and optimize delivery routes. By analyzing historical data and real-time variables, the system helps reduce costs, improve delivery times, and ensure efficient resource allocation.",
+            "tech": ["Scikit-learn", "XGBoost", "Pandas", "Flask"]
+          }
+        ]
+      },
       "about": {
         "title": "What we are doing",
         "keyPoints": [
@@ -121,7 +121,7 @@
       },
       "whoWeAre": {
         "title": "Who we are",
-        "subtitle": "After more than 10 years of working in technology and cooperativism, we decided to come together to combine our strengths, knowledge, and experience...",
+        "subtitle": "After more than 10 years of working in technology and cooperativism, we decided to come together to combine our strengths, knowledge, and experience. We’ve seen how cooperatives, despite their potential, often fall behind in adopting new technologies. That’s why we’ve come together as a network of tech cooperatives—to bridge that gap. As cooperatives ourselves, we understand the challenges cooperatives face because, in many ways, we speak the same language. We believe in the power of teamwork and interdisciplinary collaboration, and we’re committed to making a difference by developing technology that truly serves cooperatives. Our focus is on democratizing artificial intelligence, making it accessible and a driver of sustainable growth for cooperatives. If you’re a tech cooperative working with AI and would like to join us, we’d love to hear from you!",
         "coops": {
           "lawal": {
             "name": "Lawal",

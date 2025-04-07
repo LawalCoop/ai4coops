@@ -48,11 +48,11 @@ const FooterLinks = () => {
       href: `#${link.path}`,
       label: link.label,
       isSection: true,
-      onClick: () => handleClick(link.path, true)
+      onClick: () => handleClick(link.path, true),
     })),
     {
       href: 'https://github.com/LawalCoop/',
-      label: 'GitHub'
+      label: 'GitHub',
     },
   ]
 
@@ -63,7 +63,7 @@ const FooterLinks = () => {
           {link.isSection ? (
             <a
               href={link.href}
-              onClick={(e) => {
+              onClick={e => {
                 e.preventDefault()
                 link.onClick?.(link.href.replace('#', ''))
               }}

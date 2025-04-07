@@ -19,7 +19,8 @@ const InDepth = () => {
   const phases = [
     {
       title: 'Fase de Exploración: Entendemos y Planificamos',
-      description: 'Nos sumergimos en el funcionamiento diario de la cooperativa para analizar sus operaciones y detectar oportunidades de optimización mediante IA. Entendemos las necesidades, identificamos áreas críticas y diseñamos una estrategia clara para la implementación.',
+      description:
+        'Nos sumergimos en el funcionamiento diario de la cooperativa para analizar sus operaciones y detectar oportunidades de optimización mediante IA. Entendemos las necesidades, identificamos áreas críticas y diseñamos una estrategia clara para la implementación.',
       steps: [
         'Realizamos entrevistas con los equipos clave para conocer sus procesos y desafíos.',
         'Analizamos flujos de trabajo para detectar ineficiencias y puntos de mejora.',
@@ -28,11 +29,12 @@ const InDepth = () => {
         'Elaboramos un informe detallado con hallazgos, oportunidades y plan de acción.',
       ],
       image: ComputerVision,
-      icon: faEye
+      icon: faEye,
     },
     {
       title: 'Fase MVP: Probamos la Solución',
-      description: 'Desarrollamos un Producto Mínimo Viable (MVP) para validar la eficacia de la solución IA. Probamos su funcionamiento en un entorno controlado y analizamos los resultados antes de una implementación a gran escala.',
+      description:
+        'Desarrollamos un Producto Mínimo Viable (MVP) para validar la eficacia de la solución IA. Probamos su funcionamiento en un entorno controlado y analizamos los resultados antes de una implementación a gran escala.',
       steps: [
         'Definimos el alcance del MVP, seleccionando las funcionalidades más críticas.',
         'Desarrollamos un prototipo funcional con las capacidades esenciales de la IA.',
@@ -41,11 +43,12 @@ const InDepth = () => {
         'Preparamos un informe con métricas de desempeño y recomendaciones.',
       ],
       image: Prediction,
-      icon: faChartLine
+      icon: faChartLine,
     },
     {
       title: 'Fase de Producción: Lo Hacemos Realidad',
-      description: 'Escalamos la solución IA y la integramos completamente en la cooperativa, asegurando su estabilidad, funcionalidad y beneficios a largo plazo. Realizamos un monitoreo continuo para garantizar el éxito.',
+      description:
+        'Escalamos la solución IA y la integramos completamente en la cooperativa, asegurando su estabilidad, funcionalidad y beneficios a largo plazo. Realizamos un monitoreo continuo para garantizar el éxito.',
       steps: [
         'Desarrollamos la versión final, optimizada y lista para producción.',
         'Integramos la solución con los sistemas existentes de la cooperativa.',
@@ -54,7 +57,7 @@ const InDepth = () => {
         'Planificamos futuras optimizaciones basadas en los resultados obtenidos.',
       ],
       image: BigData,
-      icon: faDatabase
+      icon: faDatabase,
     },
   ]
 
@@ -101,13 +104,15 @@ const InDepth = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
             >
-              <div className={`
+              <div
+                className={`
                 dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
                 shadow-[8px_8px_0px_0px] shadow-shadow dark:shadow-darkShadow
                 transform group-hover:-translate-y-1 group-hover:shadow-[12px_12px_0px_0px] group-hover:shadow-shadow dark:group-hover:shadow-darkShadow
                 transition-all duration-300 p-6 rounded-lg
                 flex flex-col md:flex-row ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-6
-              `}>
+              `}
+              >
                 <div className="md:w-1/4 flex-shrink-0 flex items-center justify-center">
                   <div className="w-full h-32 md:h-full relative rounded-lg overflow-hidden">
                     <Image

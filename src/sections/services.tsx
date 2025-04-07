@@ -82,11 +82,12 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <div className="dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
+              <div
+                className="dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
                           shadow-[8px_8px_0px_0px] shadow-shadow dark:shadow-darkShadow
                           transform group-hover:-translate-y-1 group-hover:shadow-[12px_12px_0px_0px] group-hover:shadow-shadow dark:group-hover:shadow-darkShadow
-                          transition-all duration-300 p-5 rounded-lg h-full flex gap-4">
-
+                          transition-all duration-300 p-5 rounded-lg h-full flex gap-4"
+              >
                 <div className=" flex-shrink-0">
                   <Image
                     src={service.image}

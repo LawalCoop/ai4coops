@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from 'react'
 import Image from 'next/image'
 import AI4CoopsAbout from '@/media/ai4coopsAbout.png'
 import { useTranslations } from 'next-intl'
-import { motion, useScroll, useTransform, useInView } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { faHandshake, faUsers, faLightbulb } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import 'aos/dist/aos.css'
@@ -12,7 +12,6 @@ import AOS from 'aos'
 export default function About() {
   const t = useTranslations('pages.home.about')
   const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: false })
 
   useEffect(() => {
     AOS.init({
@@ -106,9 +105,7 @@ export default function About() {
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
               >
-                <p className="text-lg text-left text-text dark:text-darkText">
-                  {t('mainText')}
-                </p>
+                <p className="text-lg text-left text-text dark:text-darkText">{t('mainText')}</p>
               </motion.div>
             </motion.div>
           </div>

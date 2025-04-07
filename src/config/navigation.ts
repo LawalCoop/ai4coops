@@ -11,12 +11,11 @@ export const useNavigation = () => {
       path: '/',
       label: t('common.navbar.links.home'),
       sections: [
-        { path: 'projects', label: t('common.navbar.links.projects'), isSection: true },
         { path: 'about', label: t('common.navbar.links.about'), isSection: true },
         { path: 'how', label: t('common.navbar.links.how'), isSection: true },
         { path: 'who', label: t('common.navbar.links.who'), isSection: true },
         { path: 'services', label: t('common.navbar.links.services'), isSection: true },
-        { path: 'contact', label: t('common.navbar.links.contact'), isSection: true },
+        { path: 'projects', label: t('common.navbar.links.projects'), isSection: true },
       ],
     },
     {
@@ -28,11 +27,11 @@ export const useNavigation = () => {
   ]
 
   const sectionNav: NavLink[] = [
-    { path: 'projects', label: t('common.navbar.links.projects'), isSection: true },
     { path: 'about', label: t('common.navbar.links.about'), isSection: true },
     { path: 'how', label: t('common.navbar.links.how'), isSection: true },
     { path: 'who', label: t('common.navbar.links.who'), isSection: true },
     { path: 'services', label: t('common.navbar.links.services'), isSection: true },
+    { path: 'projects', label: t('common.navbar.links.projects'), isSection: true },
   ]
 
   return { mainNav, sectionNav }
