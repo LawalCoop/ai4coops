@@ -1,6 +1,6 @@
 {
   "common": {
-    "contactButton": "¡Contáctanos!",
+    "contactButton": "¡Contactanos!",
     "closeMenu": "Cerrar menú",
     "contactDialog": {
       "title": "Contacto",
@@ -36,34 +36,39 @@
         "subtitle": "Exploramos cómo la inteligencia artificial puede potenciar el cooperativismo. Desarrollamos herramientas adaptadas a las necesidades reales de las cooperativas, respetando siempre los valores del movimiento.",
         "animationTexts": ["Innovación", "Desarrollo", "Otros mundos son posibles, juntos"]
       },
-      "projects": [
-                {
-                  "title": "Optimización de Control de Calidad en Manufactura",
-                  "description": "Desarrollamos un sistema con IA para mejorar el control de calidad en manufactura. Procesa 16 imágenes por segundo con 99.99% de precisión, identificando defectos en tiempo real. Esta solución ayuda a reducir errores y minimizar desperdicios.",
-                  "tech": ["TensorFlow", "OpenCV", "Python", "Flask"]
-                },
-                {
-                  "title": "Análisis Satelital para Agricultura",
-                  "description": "Creamos un sistema que analiza imágenes satelitales y datos de campo en 60,000 hectáreas. Proporciona información diaria para una mejor gestión de cultivos, ayudando a cooperativas agrícolas a mejorar rendimientos.",
-                  "tech": ["PyTorch", "GDAL", "GeoPandas", "FastAPI"]
-                },
-                {
-                  "title": "Automatización de Extracción de Datos",
-                  "description": "Desarrollamos una solución de IA para automatizar la extracción de datos de documentos impresos. El sistema captura y digitaliza información clave, reduciendo esfuerzo manual y errores.",
-                  "tech": ["LangChain", "Tesseract OCR", "Python", "FastAPI"]
-                },
-                {
-                  "title": "Solución de Big Data",
-                  "description": "Implementamos una plataforma de Big Data para analizar grandes volúmenes de datos operacionales. El sistema proporciona insights accionables para una mejor toma de decisiones.",
-                  "tech": ["Apache Spark", "Hadoop", "Kafka", "Python"]
-                },
-                {
-                  "title": "Predicción de Demanda para Logística",
-                  "description": "Implementamos un sistema predictivo para pronosticar demanda y optimizar rutas de entrega. Analiza datos históricos y variables en tiempo real para reducir costos y mejorar tiempos de entrega.",
-                  "tech": ["Scikit-learn", "XGBoost", "Pandas", "Flask"]
-                }
-              ]
-            },
+      "projects": {
+        "title": "Case Studies",
+        "subtitle": "Real-world applications of our AI solutions",
+        "codeButton": "Code",
+        "demoButton": "Live Demo",
+        "projects": [
+          {
+            "title": "Optimización de Control de Calidad en Manufactura",
+            "description": "Desarrollamos un sistema con IA para mejorar el control de calidad en manufactura. Procesa 16 imágenes por segundo con 99.99% de precisión, identificando defectos en tiempo real. Esta solución ayuda a reducir errores y minimizar desperdicios.",
+            "tech": ["TensorFlow", "OpenCV", "Python", "Flask"]
+          },
+          {
+            "title": "Análisis Satelital para Agricultura",
+            "description": "Creamos un sistema que analiza imágenes satelitales y datos de campo en 60,000 hectáreas. Proporciona información diaria para una mejor gestión de cultivos, ayudando a cooperativas agrícolas a mejorar rendimientos.",
+            "tech": ["PyTorch", "GDAL", "GeoPandas", "FastAPI"]
+          },
+          {
+            "title": "Automatización de Extracción de Datos",
+            "description": "Desarrollamos una solución de IA para automatizar la extracción de datos de documentos impresos. El sistema captura y digitaliza información clave, reduciendo esfuerzo manual y errores.",
+            "tech": ["LangChain", "Tesseract OCR", "Python", "FastAPI"]
+          },
+          {
+            "title": "Solución de Big Data",
+            "description": "Implementamos una plataforma de Big Data para analizar grandes volúmenes de datos operacionales. El sistema proporciona insights accionables para una mejor toma de decisiones.",
+            "tech": ["Apache Spark", "Hadoop", "Kafka", "Python"]
+          },
+          {
+            "title": "Predicción de Demanda para Logística",
+            "description": "Implementamos un sistema predictivo para pronosticar demanda y optimizar rutas de entrega. Analiza datos históricos y variables en tiempo real para reducir costos y mejorar tiempos de entrega.",
+            "tech": ["Scikit-learn", "XGBoost", "Pandas", "Flask"]
+          }
+        ]
+      },
       "about": {
         "title": "Sobre IA4Coops",
         "keyPoints": [
@@ -133,6 +138,10 @@
           "newDev": {
             "name": "New Dev",
             "description": "Cooperativa de desarrollo web y móvil"
+          },
+          "elMaizal": {
+            "name": "El Maizal",
+            "description": "Cooperativa dedicada a la Comunicación de manera integral."
           }
         }
       },
@@ -141,19 +150,19 @@
         "subtitle": "Herramientas de IA para un futuro cooperativo más fuerte",
         "service1": {
           "title": "Visión por Computadora",
-          "description": "Permite a las máquinas interpretar imágenes o videos..."
+          "description": "Hacemos que las máquinas interpreten imágenes y videos. Esto nos permite automatizar tareas como control de calidad, clasificación de productos y monitoreo de seguridad en tiempo real. Ideal para cooperativas que manejan datos visuales y quieren optimizar procesos."
         },
         "service2": {
           "title": "Predicciones estratégicas",
-          "description": "Modelos predictivos que usan datos históricos..."
+          "description": "Usamos datos históricos para anticiparnos a lo que viene. Esto permite prever demanda, optimizar recursos y minimizar riesgos en la toma de decisiones."
         },
         "service3": {
           "title": "Optimización de textos con Modelos de Lenguaje (LLMs)",
-          "description": "Modelos de lenguaje que entienden y generan texto..."
+          "description": "Los modelos de lenguaje entienden y generan texto de forma inteligente. Esto se traduce en mejoras para atención al cliente, automatización de documentos y generación de contenido."
         },
         "service4": {
           "title": "Big Data para cooperativas",
-          "description": "Herramientas para gestionar y analizar grandes conjuntos..."
+          "description": "Analizamos grandes volúmenes de datos para identificar tendencias, mejorar operaciones y tomar decisiones estratégicas basadas en información en tiempo real."
         }
       },
       "contact": {
@@ -169,3 +178,4 @@
       }
     }
   }
+}

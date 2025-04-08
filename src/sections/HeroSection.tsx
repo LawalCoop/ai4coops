@@ -1,10 +1,11 @@
 'use client'
 import { TypeAnimation } from 'react-type-animation'
-import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FaGithub } from 'react-icons/fa'
 import { BiLogoPostgresql } from 'react-icons/bi'
 import Marquee from 'react-fast-marquee'
 import { motion } from 'framer-motion'
-import coopImage from '@/media/home.svg'
+import homeImageEs from '@/media/home_es.svg'
+import homeImageEn from '@/media/home_en.svg'
 import {
   SiPython,
   SiPytorch,
@@ -23,10 +24,14 @@ import {
 import { FaRobot } from 'react-icons/fa'
 import Image from 'next/image'
 import { DialogComponent } from '@/components/getInTouchDialog'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 export default function HeroSection() {
   const t = useTranslations('pages.home.heroSection')
+  const locale = useLocale()
+
+  const HomeImage = locale === 'es' ? homeImageEs : homeImageEn
+
   const commonT = useTranslations('common')
 
   const skills = [
@@ -167,15 +172,6 @@ export default function HeroSection() {
               >
                 <FaGithub className="text-4xl text-text dark:text-white hover:text-primary dark:hover:text-darkPurple transition-colors duration-300" />
               </motion.a>
-              <motion.a
-                href="https://www.linkedin.com/company/lawalcoop"
-                target="_blank"
-                rel="noopener noreferrer"
-                variants={socialIconVariants}
-                whileHover="hover"
-              >
-                <FaLinkedin className="text-4xl text-text dark:text-white hover:text-primary dark:hover:text-darkPurple transition-colors duration-300" />
-              </motion.a>
             </motion.div>
 
             <motion.div variants={buttonVariants} initial="hidden" animate="visible" whileTap="tap">
@@ -199,7 +195,7 @@ export default function HeroSection() {
           variants={itemVariants}
         >
           <Image
-            src={coopImage}
+            src={HomeImage}
             alt="cooperativism flag"
             loading="lazy"
             className="mt-[-40px] lg:ml-28"

@@ -23,41 +23,41 @@ const NavBar = () => {
   const { isLoading } = useLoading()
   const { mainNav, sectionNav } = useNavigation()
 
-  // Control de visibilidad del navbar durante scroll
   useEffect(() => {
     if (!isLoading) {
       setShowNav(true)
     }
   }, [isLoading])
 
-  // Función optimizada para navegación
-  const handleNavigation = useCallback(async (path: string, isSection = false) => {
-    const isHomePage = pathname === `/${locale}` || pathname === `/${locale}/home`
+  const handleNavigation = useCallback(
+    async (path: string, isSection = false) => {
+      const isHomePage = pathname === `/${locale}` || pathname === `/${locale}/home`
 
-    if (isSection) {
-      if (isHomePage) {
-        await scrollToSection(path)
+      if (isSection) {
+        if (isHomePage) {
+          await scrollToSection(path)
+        } else {
+          // Navegamos a home con hash
+          push(`/${locale}/#${path}`)
+        }
       } else {
-        // Navegamos a home con hash
-        push(`/${locale}/#${path}`)
+        // Navegación normal a otras páginas
+        push(`/${locale}${path}`)
       }
-    } else {
-      // Navegación normal a otras páginas
-      push(`/${locale}${path}`)
-    }
-    setIsOpen(false)
-  }, [pathname, locale, push])
+      setIsOpen(false)
+    },
+    [pathname, locale, push]
+  )
 
-  // Scroll suave con reintentos
   const scrollToSection = useCallback(async (id: string, retries = 3): Promise<boolean> => {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       const element = document.getElementById(id)
 
       if (element) {
         requestAnimationFrame(() => {
           element.scrollIntoView({
             behavior: 'smooth',
-            block: 'start'
+            block: 'start',
           })
           resolve(true)
         })
@@ -140,7 +140,7 @@ const NavBar = () => {
                 style={{
                   width: 'auto',
                   height: 'auto',
-                  maxWidth: '100%'
+                  maxWidth: '100%',
                 }}
               />
             </button>
@@ -148,10 +148,7 @@ const NavBar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center text-base lg:text-lg space-x-6">
-            <NavLinks
-              handleNavigation={handleNavigation}
-              navItems={sectionNav}
-            />
+            <NavLinks handleNavigation={handleNavigation} navItems={sectionNav} />
             <div className="flex items-center gap-4">
               <DialogComponent
                 triggerButtonText={t('contactButton')}
@@ -232,21 +229,23 @@ interface MobileNavLinksProps extends NavLinksProps {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const MobileNavLinks = React.memo(({ handleNavigation, setIsOpen, navItems }: MobileNavLinksProps) => {
-  const t = useTranslations('common')
+const MobileNavLinks = React.memo(
+  ({ handleNavigation, setIsOpen, navItems }: MobileNavLinksProps) => {
+    const t = useTranslations('common')
 
-  return (
-    <div className="flex flex-col space-y-3 p-4 bg-white dark:bg-darkBg border-2 border-black dark:border-darkBorder shadow-[5px_5px_0_0_rgba(0,0,0,1)] dark:shadow-darkShadow">
-      <NavLinks handleNavigation={handleNavigation} navItems={navItems} />
-      <button
-        className="mt-4 p-2 font-bold border-2 border-black dark:border-darkBorder self-center"
-        onClick={() => setIsOpen(false)}
-      >
-        {t('closeMenu')}
-      </button>
-    </div>
-  )
-})
+    return (
+      <div className="flex flex-col space-y-3 p-4 bg-white dark:bg-darkBg border-2 border-black dark:border-darkBorder shadow-[5px_5px_0_0_rgba(0,0,0,1)] dark:shadow-darkShadow">
+        <NavLinks handleNavigation={handleNavigation} navItems={navItems} />
+        <button
+          className="mt-4 p-2 font-bold border-2 border-black dark:border-darkBorder self-center"
+          onClick={() => setIsOpen(false)}
+        >
+          {t('closeMenu')}
+        </button>
+      </div>
+    )
+  }
+)
 
 MobileNavLinks.displayName = 'MobileNavLinks'
 

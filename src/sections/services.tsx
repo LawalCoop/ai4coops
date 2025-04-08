@@ -1,88 +1,118 @@
 'use client'
 
-import React, { useRef } from 'react'
-import { InfoCardsContainer, type InfoCardProps } from './info-card'
+import React from 'react'
 import { useTranslations } from 'next-intl'
 import ComputerVision from '@/media/computervision.png'
 import Prediction from '@/media/prediction.png'
 import LLMs from '@/media/llms.png'
 import BigData from '@/media/bigdata.png'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { faEye, faChartLine, faLanguage, faDatabase } from '@fortawesome/free-solid-svg-icons'
 
 export default function Services() {
   const t = useTranslations('pages.home.services')
-  const titleRef = useRef(null)
 
-  // Verificamos que las traducciones existan antes de usarlas
-  const services: InfoCardProps[] = [
+  const services = [
     {
+      icon: faEye,
       title: t('service1.title'),
       description: t('service1.description'),
-      imageSrc: ComputerVision,
+      image: ComputerVision,
       imageAlt: 'Computer Vision',
-      bgColor: 'bg-bg dark:bg-darkBg',
-      imagePosition: 'right',
     },
     {
+      icon: faChartLine,
       title: t('service2.title'),
       description: t('service2.description'),
-      imageSrc: Prediction,
+      image: Prediction,
       imageAlt: 'Strategic Forecasting',
-      bgColor: 'bg-bg dark:bg-darkBg',
-      imagePosition: 'left',
     },
     {
+      icon: faLanguage,
       title: t('service3.title'),
       description: t('service3.description'),
-      imageSrc: LLMs,
+      image: LLMs,
       imageAlt: 'Large Language Models',
-      bgColor: 'bg-bg dark:bg-darkBg',
-      imagePosition: 'right',
     },
     {
+      icon: faDatabase,
       title: t('service4.title'),
       description: t('service4.description'),
-      imageSrc: BigData,
+      image: BigData,
       imageAlt: 'Big Data',
-      bgColor: 'bg-bg dark:bg-darkBg',
-      imagePosition: 'left',
     },
   ]
 
   return (
-    <div className="w-full min-h-screen bg-bg dark:bg-darkBg py-[50px] lg:py-[50px]" id="services">
-      <div className="mx-auto w-container max-w-full px-5">
-        {/* Header section */}
-        <div className="w-full mb-16" ref={titleRef}>
-          <div
+    <div className="w-full bg-bg dark:bg-darkBg py-16 lg:py-24" id="services">
+      <div className="mx-auto max-w-7xl px-5">
+        {/* ENCABEZADO CON ANCHO COMPLETO */}
+        <div className="w-full mb-16 text-center">
+          <motion.div
             className="dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
-                  shadow-[8px_8px_0px_0px] shadow-shadow dark:shadow-darkShadow
-                  transform hover:-translate-y-1 hover:shadow-shadow hover:shadow-[12px_12px_0px_0px] dark:hover:shadow-darkShadow
-                  transition-all duration-300 p-6 mb-10 overflow-hidden"
+                      shadow-[8px_8px_0px_0px] shadow-shadow dark:shadow-darkShadow
+                      transform hover:-translate-y-1 hover:shadow-[12px_12px_0px_0px] hover:shadow-shadow dark:hover:shadow-darkShadow
+                      transition-all duration-300 p-6 mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-5xl font-black text-black text-center dark:text-darkText">
+            <h1 className="text-4xl md:text-5xl font-black text-black dark:text-darkText">
               {t('title')}
             </h1>
-          </div>
+          </motion.div>
 
-          <div className="overflow-hidden">
-            <motion.p
-              className="text-lg md:text-xl text-center text-text dark:text-darkText"
-              initial={{ y: '100%' }}
-              whileInView={{ y: '0%' }}
-              transition={{
-                duration: 0.8,
-                ease: [0.16, 1, 0.3, 1],
-                delay: 0.1,
-              }}
-              viewport={{ once: false, margin: '-20%' }}
-            >
-              {t('subtitle')}
-            </motion.p>
-          </div>
+          <motion.p
+            className="text-lg text-text dark:text-darkText max-w-4xl mx-auto"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            {t('subtitle')}
+          </motion.p>
         </div>
-        {/* Services Cards */}
-        <InfoCardsContainer cards={services} />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              className="group"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+            >
+              <div
+                className="dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
+                          shadow-[8px_8px_0px_0px] shadow-shadow dark:shadow-darkShadow
+                          transform group-hover:-translate-y-1 group-hover:shadow-[12px_12px_0px_0px] group-hover:shadow-shadow dark:group-hover:shadow-darkShadow
+                          transition-all duration-300 p-5 rounded-lg h-full flex gap-4"
+              >
+                <div className=" flex-shrink-0">
+                  <Image
+                    src={service.image}
+                    alt={service.imageAlt}
+                    width={120}
+                    height={120}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+
+                {/* CONTENIDO PRINCIPAL */}
+                <div className="flex-grow">
+                  <div className="flex items-center gap-2 mb-2">
+                    <h3 className="text-xl font-extrabold text-black dark:text-darkText">
+                      {service.title}
+                    </h3>
+                  </div>
+                  <p className="text-text dark:text-darkText text-md leading-normal">
+                    {service.description}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   )

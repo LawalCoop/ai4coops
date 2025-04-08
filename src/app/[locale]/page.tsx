@@ -10,22 +10,22 @@ import { useLoading } from '@/contexts/LoadingContext'
 // Componentes dinámicos
 const ProjectsShowcase = dynamic(() => import('@/sections/projects'), {
   loading: () => <LoadingPlaceholder text="Loading Projects..." />,
-  ssr: false
+  ssr: false,
 })
 
 const About = dynamic(() => import('@/sections/about'), {
   loading: () => <LoadingPlaceholder text="Loading About..." />,
-  ssr: false
+  ssr: false,
 })
 
 const WhoWeAre = dynamic(() => import('@/sections/whoWeAre'), {
   loading: () => <LoadingPlaceholder text="Loading Team..." />,
-  ssr: false
+  ssr: false,
 })
 
 const AboutHow = dynamic(() => import('@/sections/aboutHow'), {
   loading: () => <LoadingPlaceholder text="Loading Methodology..." />,
-  ssr: false
+  ssr: false,
 })
 
 // Componente auxiliar para placeholders
@@ -112,7 +112,9 @@ export default function Home() {
   }
 
   return (
-    <div className={`min-h-screen ${contentVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}>
+    <div
+      className={`min-h-screen ${contentVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}
+    >
       <ToastContainer
         position="top-right"
         autoClose={5000}

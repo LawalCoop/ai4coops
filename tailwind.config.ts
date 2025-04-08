@@ -32,7 +32,7 @@ const config: Config = {
         // Dark mode
         darkBg: '#1a1a1a', // Fondo oscuro
         darkText: '#e0e0e0', // Texto claro
-        darkBorder: '#424242', // Borde gris oscuro
+        darkBorder: '#000000', // Borde gris oscuro
         darkShadow: '#000000', // Sombra oscura
         darkPrimary: '#ff5252', // Rojo cooperativo (más claro)
         darkSecondary: '#29b6f6', // Azul cooperativo (más claro)

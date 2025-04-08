@@ -168,7 +168,9 @@ export default function AboutHow() {
                 </p>
                 <div className="text-center">
                   <Link
-                    href={`/${locale}/in-depth#how`}  // Añade el hash #how
+                    href="/documents/ai4coops_brochure.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer" // Añade el hash #how
                     className="text-primary dark:text-darkPrimary hover:text-primary/80 dark:hover:text-darkPrimary/80
                               transition-colors duration-300 text-sm md:text-base underline"
                   >

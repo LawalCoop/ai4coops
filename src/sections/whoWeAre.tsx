@@ -5,6 +5,7 @@ import LawalImg from '@/media/logos/lawal.png'
 import EryxImg from '@/media/logos/eryx.png'
 import AnimusImg from '@/media/logos/animus.png'
 import NewDevImg from '@/media/logos/newdev.png'
+import ElMaizalImg from '@/media/logos/elMaizal.png'
 import Image from 'next/image'
 import React, { useRef } from 'react'
 import { useTranslations } from 'next-intl'
@@ -37,6 +38,12 @@ export default function WhoWeAre() {
       logo: NewDevImg,
       link: 'https://www.newdev.cl',
       translationKey: 'newDev',
+    },
+    {
+      name: 'El Maizal',
+      logo: ElMaizalImg,
+      link: 'https://elmaizal.coop.ar/',
+      translationKey: 'elMaizal',
     },
   ]
 
