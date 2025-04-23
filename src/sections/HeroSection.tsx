@@ -4,7 +4,8 @@ import { FaGithub } from 'react-icons/fa'
 import { BiLogoPostgresql } from 'react-icons/bi'
 import Marquee from 'react-fast-marquee'
 import { motion } from 'framer-motion'
-import coopImage from '@/media/home.svg'
+import homeImageEs from '@/media/home_es.svg'
+import homeImageEn from '@/media/home_en.svg'
 import {
   SiPython,
   SiPytorch,
@@ -23,10 +24,14 @@ import {
 import { FaRobot } from 'react-icons/fa'
 import Image from 'next/image'
 import { DialogComponent } from '@/components/getInTouchDialog'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 export default function HeroSection() {
   const t = useTranslations('pages.home.heroSection')
+  const locale = useLocale()
+
+  const HomeImage = locale === 'es' ? homeImageEs : homeImageEn
+
   const commonT = useTranslations('common')
 
   const skills = [
@@ -190,7 +195,7 @@ export default function HeroSection() {
           variants={itemVariants}
         >
           <Image
-            src={coopImage}
+            src={HomeImage}
             alt="cooperativism flag"
             loading="lazy"
             className="mt-[-40px] lg:ml-28"
