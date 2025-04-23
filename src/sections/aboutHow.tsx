@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useRef } from 'react'
+import React from 'react'
 import {
   Carousel,
   CarouselContent,
@@ -16,8 +16,9 @@ import ExplorationImage from '@/media/exploration.png'
 import ProductionImage from '@/media/produccion.png'
 import Autoplay from 'embla-carousel-autoplay'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
-import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 import Link from 'next/link'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 interface FeatureCardProps {
   icon: IconProp
@@ -34,17 +35,17 @@ interface ContentSlideProps {
 
 export default function AboutHow() {
   const t = useTranslations('pages.home.aboutHow')
-  const sectionRef = useRef(null)
-
   const locale = useLocale()
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start'],
-  })
-
-  const headerY = useTransform(scrollYProgress, [0, 1], [0, -50])
-  const carouselY = useTransform(scrollYProgress, [0, 1], [50, -50])
+  React.useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+      mirror: true,
+      offset: 100,
+      easing: 'ease-out',
+    })
+  }, [])
 
   const featureCards = [
     {
@@ -88,6 +89,7 @@ export default function AboutHow() {
                    transition-all duration-300 p-4 md:p-6 rounded-lg
                    flex flex-col justify-between items-center text-center
                    w-full h-full overflow-hidden"
+        data-aos="fade-up"
       >
         <div className="flex flex-col items-center justify-center h-full gap-3 md:gap-4">
           <FontAwesomeIcon
@@ -116,10 +118,11 @@ export default function AboutHow() {
                    transform hover:-translate-y-1 hover:shadow-[12px_12px_0px_0px] hover:shadow-shadow dark:hover:shadow-darkShadow
                    transition-all duration-300 p-4 md:p-8 rounded-lg
                    w-full mx-2 md:mx-4 my-4"
+        data-aos="fade-up"
       >
         <div className="flex flex-col lg:flex-row items-center gap-6 md:gap-10">
           {!imageOnRight && (
-            <div className="lg:w-1/2">
+            <div className="lg:w-1/2" data-aos={imageOnRight ? 'fade-left' : 'fade-right'}>
               <Image src={image} alt={title} className="w-full h-full rounded-lg" />
             </div>
           )}
@@ -130,7 +133,7 @@ export default function AboutHow() {
             <p className="text-sm md:text-base text-gray-700 dark:text-gray-300">{description}</p>
           </div>
           {imageOnRight && (
-            <div className="lg:w-1/2">
+            <div className="lg:w-1/2" data-aos={imageOnRight ? 'fade-right' : 'fade-left'}>
               <Image src={image} alt={title} className="w-full h-full rounded-lg" />
             </div>
           )}
@@ -140,14 +143,7 @@ export default function AboutHow() {
   }
 
   return (
-    <motion.div
-      ref={sectionRef}
-      className="w-full bg-bg dark:bg-darkBg py-[50px] lg:py-[50px]"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      id="how"
-    >
+    <div className="w-full bg-bg dark:bg-darkBg py-[50px] lg:py-[50px]" id="how">
       <div className="mx-auto w-container max-w-full px-5">
         <div className="w-full bg-bg dark:bg-darkBg py-[30px] md:py-[50px]">
           <div className="mx-auto w-container max-w-full px-4 md:px-5">
@@ -157,12 +153,13 @@ export default function AboutHow() {
                         shadow-[8px_8px_0px_0px] shadow-shadow dark:shadow-darkShadow
                         transform hover:-translate-y-1 hover:shadow-shadow hover:shadow-[12px_12px_0px_0px] dark:hover:shadow-darkShadow
                         transition-all duration-300 p-4 md:p-6 mb-8 md:mb-10 rounded-lg"
+                data-aos="fade-down"
               >
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-black text-center dark:text-darkText">
                   <span className="pb-2 inline-block">{t('title')}</span>
                 </h1>
               </div>
-              <div>
+              <div data-aos="fade-up" data-aos-delay="150">
                 <p className="text-base md:text-lg text-center text-text dark:text-darkText mb-4">
                   {t('subtitle')}
                 </p>
@@ -170,7 +167,7 @@ export default function AboutHow() {
                   <Link
                     href="/documents/ai4coops_brochure.pdf"
                     target="_blank"
-                    rel="noopener noreferrer" // Añade el hash #how
+                    rel="noopener noreferrer"
                     className="text-primary dark:text-darkPrimary hover:text-primary/80 dark:hover:text-darkPrimary/80
                               transition-colors duration-300 text-sm md:text-base underline"
                   >
@@ -190,19 +187,19 @@ export default function AboutHow() {
             plugins={[Autoplay({ delay: 5000, stopOnMouseEnter: true, stopOnInteraction: false })]}
           >
             <CarouselContent>
-              {phases.map((phase, index) => (
-                <CarouselItem key={index} className="flex items-center justify-center">
-                  <ContentSlide
-                    title={phase.title}
-                    description={phase.description}
-                    image={phase.image}
-                    imageOnRight={phase.imageOnRight}
-                  />
-                </CarouselItem>
-              ))}
+              {/* 1. Fase de Exploración */}
+              <CarouselItem key="exploration" className="flex items-center justify-center">
+                <ContentSlide
+                  title={phases[0].title}
+                  description={phases[0].description}
+                  image={phases[0].image}
+                  imageOnRight={phases[0].imageOnRight}
+                />
+              </CarouselItem>
 
-              <CarouselItem className="flex items-center justify-center">
-                <div className="w-full">
+              {/* 2. Fase con Cards (ahora en el medio) */}
+              <CarouselItem key="feature-cards" className="flex items-center justify-center">
+                <div className="w-full" data-aos="zoom-in">
                   <h2 className="text-2xl md:text-3xl font-extrabold uppercase text-black dark:text-darkText text-center mb-6 md:mb-8">
                     <span className="border-b-4 border-primary pb-2 inline-block">
                       {t('phases.1.title')}
@@ -210,12 +207,27 @@ export default function AboutHow() {
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full px-2 md:px-4">
                     {featureCards.map((card, index) => (
-                      <div className="h-full flex" key={index}>
+                      <div
+                        className="h-full flex"
+                        key={index}
+                        data-aos="fade-up"
+                        data-aos-delay={index * 100}
+                      >
                         <FeatureCard {...card} />
                       </div>
                     ))}
                   </div>
                 </div>
+              </CarouselItem>
+
+              {/* 3. Fase de Producción */}
+              <CarouselItem key="production" className="flex items-center justify-center">
+                <ContentSlide
+                  title={phases[1].title}
+                  description={phases[1].description}
+                  image={phases[1].image}
+                  imageOnRight={phases[1].imageOnRight}
+                />
               </CarouselItem>
             </CarouselContent>
             <CarouselPrevious className="dark:text-darkText" />
@@ -223,6 +235,6 @@ export default function AboutHow() {
           </Carousel>
         </div>
       </div>
-    </motion.div>
+    </div>
   )
 }

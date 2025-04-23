@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ExternalLink, Github } from 'lucide-react'
 import cv1Img from '../media/cv1.jpg'
 import agroImg from '../media/agro.png'
@@ -8,27 +8,36 @@ import bigDataImg from '../media/bigdata.jpg'
 import predictionImg from '../media/prediction.jpg'
 import Image, { StaticImageData } from 'next/image'
 import { useTranslations } from 'next-intl'
-import { motion } from 'framer-motion'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
-// Definimos los tipos para la estructura de los proyectos
 interface Project {
   title: string
   description: string
-  tech: string[] // Aquí especificamos que tech es un array de strings
+  tech: string[]
   github: string
   live: string
-  image: StaticImageData // Tipo para las imágenes importadas
+  image: StaticImageData
 }
 
 const ProjectsShowcase = () => {
   const t = useTranslations('pages.home.projects')
 
-  // Especificamos el tipo Project[] para el array de proyectos
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+      mirror: true,
+      offset: 100,
+      easing: 'ease-out',
+    })
+  }, [])
+
   const projects: Project[] = [
     {
       title: t('projects.0.title'),
       description: t('projects.0.description'),
-      tech: t.raw('projects.0.tech') as string[], // Aseguramos el tipo aquí
+      tech: t.raw('projects.0.tech') as string[],
       github: 'https://github.com/ronitjadhav/digipin-openlayers',
       live: 'https://digipin.maplabs.tech',
       image: cv1Img,
@@ -69,35 +78,31 @@ const ProjectsShowcase = () => {
 
   return (
     <div className="w-full p-8 bg-bg dark:bg-darkBg py-[50px] lg:py-[50px]" id="projects">
-      <motion.div
+      <div
         className="w-full bg-bg border-4 border-black dark:bg-darkBg
-                    shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]
-                    transform hover:-translate-y-1 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]
-                    transition-all duration-300 p-6 mb-10"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+                   shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]
+                   transform hover:-translate-y-1 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]
+                   transition-all duration-300 p-6 mb-10"
+        data-aos="fade"
       >
         <h1 className="text-4xl md:text-5xl font-black text-black text-center dark:text-darkText">
           {t('title')}
         </h1>
-      </motion.div>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => (
-          <motion.div
+          <div
             key={project.title}
             className="group bg-bg p-6 rounded-lg transform transition-transform hover:scale-105 dark:bg-darkBg flex flex-col"
             style={{
               border: '3px solid black',
               boxShadow: '8px 8px 0px 0px #000000',
             }}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: true }}
+            data-aos="fade-up"
+            data-aos-delay={index * 150}
           >
-            {/* Imagen con altura fija más grande */}
+            {/* Imagen */}
             <div className="relative mb-4 overflow-hidden rounded-lg h-56">
               <Image
                 src={project.image}
@@ -105,7 +110,7 @@ const ProjectsShowcase = () => {
                 className="w-full h-full object-cover transition-transform group-hover:scale-110"
                 width={600}
                 height={400}
-                priority={index < 3} // Prioriza la carga de las primeras imágenes
+                priority={index < 3}
               />
             </div>
 
@@ -115,25 +120,24 @@ const ProjectsShowcase = () => {
               <p className="text-text dark:text-darkText mb-4">{project.description}</p>
             </div>
 
-            {/* Tags alineados al fondo */}
+            {/* Tags */}
             <div className="flex flex-wrap gap-2 mb-4">
               {project.tech.map((tech: string, techIndex: number) => (
-                <motion.span
+                <span
                   key={techIndex}
                   className="px-3 py-1 text-sm font-semibold bg-yellow-300 dark:text-black"
                   style={{
                     border: '2px solid black',
                   }}
-                  whileHover={{ scale: 1.05 }}
                 >
                   {tech}
-                </motion.span>
+                </span>
               ))}
             </div>
 
-            {/* Botones alineados al fondo */}
+            {/* Botones */}
             <div className="flex gap-4 mt-auto">
-              <motion.a
+              <a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -142,13 +146,11 @@ const ProjectsShowcase = () => {
                   border: '2px solid black',
                   boxShadow: '4px 4px 0px 0px #000000',
                 }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
               >
                 <Github size={20} />
                 {t('codeButton')}
-              </motion.a>
-              <motion.a
+              </a>
+              <a
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -157,14 +159,12 @@ const ProjectsShowcase = () => {
                   border: '2px solid black',
                   boxShadow: '4px 4px 0px 0px #000000',
                 }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
               >
                 <ExternalLink size={20} />
                 {t('demoButton')}
-              </motion.a>
+              </a>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>
