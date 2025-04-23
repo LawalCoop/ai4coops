@@ -49,25 +49,21 @@ export default function Services() {
       <div className="mx-auto max-w-7xl px-5">
         {/* ENCABEZADO CON ANCHO COMPLETO */}
         <div className="w-full mb-16 text-center">
-          <motion.div
+          <div
             className="dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
                       shadow-[8px_8px_0px_0px] shadow-shadow dark:shadow-darkShadow
                       transform hover:-translate-y-1 hover:shadow-[12px_12px_0px_0px] hover:shadow-shadow dark:hover:shadow-darkShadow
                       transition-all duration-300 p-6 mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl md:text-5xl font-black text-black dark:text-darkText">
               {t('title')}
             </h1>
-          </motion.div>
+          </div>
 
           <motion.p
-            className="text-lg text-text dark:text-darkText max-w-4xl mx-auto"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
           >
             {t('subtitle')}
           </motion.p>
