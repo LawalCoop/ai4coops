@@ -7,6 +7,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from '@/components/ui/carousel'
 import Image, { StaticImageData } from 'next/image'
 import { useTranslations, useLocale } from 'next-intl'
@@ -36,6 +37,12 @@ interface ContentSlideProps {
 export default function AboutHow() {
   const t = useTranslations('pages.home.aboutHow')
   const locale = useLocale()
+  const [api, setApi] = React.useState<CarouselApi>()
+  const [current, setCurrent] = React.useState(0)
+  const [count, setCount] = React.useState(0)
+  const [isInView, setIsInView] = React.useState(false)
+  const sectionRef = React.useRef<HTMLDivElement>(null)
+  const autoplayRef = React.useRef(Autoplay({ delay: 5000, stopOnMouseEnter: true, stopOnInteraction: false }))
 
   React.useEffect(() => {
     AOS.init({
@@ -46,6 +53,46 @@ export default function AboutHow() {
       easing: 'ease-out',
     })
   }, [])
+
+  // Intersection Observer to control autoplay
+  React.useEffect(() => {
+    const currentSection = sectionRef.current
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting)
+        if (entry.isIntersecting) {
+          autoplayRef.current.play()
+        } else {
+          autoplayRef.current.stop()
+        }
+      },
+      { threshold: 0.3 }
+    )
+
+    if (currentSection) {
+      observer.observe(currentSection)
+    }
+
+    return () => {
+      if (currentSection) {
+        observer.unobserve(currentSection)
+      }
+    }
+  }, [])
+
+  // Track current slide
+  React.useEffect(() => {
+    if (!api) {
+      return
+    }
+
+    setCount(api.scrollSnapList().length)
+    setCurrent(api.selectedScrollSnap() + 1)
+
+    api.on('select', () => {
+      setCurrent(api.selectedScrollSnap() + 1)
+    })
+  }, [api])
 
   const featureCards = [
     {
@@ -143,7 +190,7 @@ export default function AboutHow() {
   }
 
   return (
-    <div className="w-full bg-bg dark:bg-darkBg py-[50px] lg:py-[50px]" id="how">
+    <div className="w-full bg-bg dark:bg-darkBg py-[50px] lg:py-[50px]" id="how" ref={sectionRef}>
       <div className="mx-auto w-container max-w-full px-5">
         <div className="w-full bg-bg dark:bg-darkBg py-[30px] md:py-[50px]">
           <div className="mx-auto w-container max-w-full px-4 md:px-5">
@@ -184,7 +231,8 @@ export default function AboutHow() {
               align: 'start',
               loop: true,
             }}
-            plugins={[Autoplay({ delay: 5000, stopOnMouseEnter: true, stopOnInteraction: false })]}
+            plugins={[autoplayRef.current]}
+            setApi={setApi}
           >
             <CarouselContent>
               {/* 1. Fase de Exploración */}
@@ -233,6 +281,24 @@ export default function AboutHow() {
             <CarouselPrevious className="dark:text-darkText" />
             <CarouselNext className="dark:text-darkText" />
           </Carousel>
+
+          {/* Slide Indicators */}
+          <div className="flex justify-center mt-6 md:mt-8 space-x-2 md:space-x-3">
+            {Array.from({ length: count }).map((_, index) => (
+              <button
+                key={index}
+                className={`w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 rounded-full transition-all duration-300 border-2 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
+                  index === current - 1
+                    ? 'bg-primary dark:bg-darkPrimary border-primary dark:border-darkPrimary shadow-lg transform scale-110'
+                    : 'bg-transparent border-gray-400 dark:border-gray-600 hover:border-primary dark:hover:border-darkPrimary hover:bg-gray-200 dark:hover:bg-gray-700'
+                }`}
+                onClick={() => api?.scrollTo(index)}
+                aria-label={`Go to slide ${index + 1} of ${count}`}
+                role="tab"
+                aria-selected={index === current - 1}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

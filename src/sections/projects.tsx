@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect } from 'react'
-import { ExternalLink, Github } from 'lucide-react'
+// import { ExternalLink, Github } from 'lucide-react' // Commented out while buttons are hidden
 import cv1Img from '../media/cv1.jpg'
 import agroImg from '../media/agro.png'
 import llmImg from '../media/llm.jpg'
@@ -136,6 +136,7 @@ const ProjectsShowcase = () => {
             </div>
 
             {/* Botones */}
+            {/* 
             <div className="flex gap-4 mt-auto">
               <a
                 href={project.github}
@@ -164,6 +165,7 @@ const ProjectsShowcase = () => {
                 {t('demoButton')}
               </a>
             </div>
+            */}
           </div>
         ))}
       </div>

@@ -70,8 +70,9 @@ export function DialogComponent({
     const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
 
-    if (!serviceID || !templateID || !publicKey) {
-      toast.error('Email service configuration is missing')
+    if (!serviceID || serviceID.trim() === '' || !templateID || templateID.trim() === '' || !publicKey || publicKey.trim() === '') {
+      toast.error('Email service configuration is missing. Please check environment variables.')
+      console.error('EmailJS configuration missing:', { serviceID: !!serviceID, templateID: !!templateID, publicKey: !!publicKey })
       return
     }
 
@@ -94,13 +95,16 @@ export function DialogComponent({
         toast.success('Message sent successfully!')
         resetForm()
         setIsOpen(false)
+      } else {
+        toast.error(`Failed to send message. Status: ${emailRes.status}`)
       }
     } catch (err: unknown) {
+      console.error('EmailJS error:', err)
       const errorMessage =
         (err as { text?: string; message?: string })?.text ||
         (err as Error).message ||
         'Failed to send message'
-      toast.error(errorMessage)
+      toast.error(`Error: ${errorMessage}`)
     } finally {
       setIsLoading(false)
     }
@@ -118,11 +122,11 @@ export function DialogComponent({
           <div className="fixed inset-0 bg-black/50 dialog-overlay" aria-hidden="true" />
           <div className="fixed inset-0 overflow-y-auto">
             <div className="flex min-h-full items-center justify-center p-4">
-              <DialogContent className="animate-in fade-in-0 slide-in-from-bottom-0 sm:zoom-in-0 sm:slide-in-from-bottom-0 w-full max-w-lg rounded-lg bg-white">
+              <DialogContent className="animate-in fade-in-0 slide-in-from-bottom-0 sm:zoom-in-0 sm:slide-in-from-bottom-0 w-full max-w-lg rounded-lg bg-white dark:bg-darkBg">
                 <div className="px-6 py-4">
                   <DialogHeader>
-                    <DialogTitle className="text-xl font-semibold">{dialogTitle}</DialogTitle>
-                    <DialogDescription className="text-sm text-gray-500">
+                    <DialogTitle className="text-xl font-semibold text-text dark:text-darkText">{dialogTitle}</DialogTitle>
+                    <DialogDescription className="text-sm text-gray-500 dark:text-gray-400">
                       {dialogDescription}
                     </DialogDescription>
                   </DialogHeader>
@@ -138,7 +142,7 @@ export function DialogComponent({
                           name="name"
                           value={input.name}
                           onChange={handleInputChange}
-                          className={`mt-1 block w-full text-text ${inputClassName}`}
+                          className={`mt-1 block w-full ${inputClassName}`}
                           disabled={isLoading}
                           required
                         />
@@ -154,7 +158,7 @@ export function DialogComponent({
                           type="email"
                           value={input.email}
                           onChange={handleInputChange}
-                          className={`mt-1 block w-full text-text ${inputClassName}`}
+                          className={`mt-1 block w-full ${inputClassName}`}
                           disabled={isLoading}
                           required
                         />
@@ -169,7 +173,7 @@ export function DialogComponent({
                           name="message"
                           value={input.message}
                           onChange={handleInputChange}
-                          className={`mt-1 block w-full min-h-[100px] text-text ${inputClassName}`}
+                          className={`mt-1 block w-full min-h-[100px] ${inputClassName}`}
                           disabled={isLoading}
                           required
                         />

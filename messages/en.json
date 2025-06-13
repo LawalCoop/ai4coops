@@ -37,7 +37,7 @@
         "animationTexts": ["Innovation", "development", "other worlds are possible together"]
       },
       "projects": {
-        "title": "Case Studies",
+        "title": "Experiences",
         "subtitle": "Real-world applications of our AI solutions",
         "codeButton": "Code",
         "demoButton": "Live Demo",
@@ -90,7 +90,7 @@
       },
       "aboutHow": {
         "title": "From vision to collective impact",
-        "subtitle": "A collaborative approach to AI implementation. Below, we outline our step-by-step process, from identifying opportunities to delivering real-world solutions.",
+        "subtitle": "A collaborative approach to implementing AI. We don’t impose solutions — we work alongside each cooperative to understand its challenges and identify concrete opportunities where AI can add real value. From diagnosis to development and implementation, we design tailored tools with an ethical, open, and sustainable approach. For us, AI is a process of collective creation.",
         "seeMore": "Go deep",
         "phases": [
           {
@@ -122,8 +122,12 @@
       },
       "whoWeAre": {
         "title": "Who we are",
-        "subtitle": "After more than 10 years of working in technology and cooperativism, we decided to come together to combine our strengths, knowledge, and experience. We’ve seen how cooperatives, despite their potential, often fall behind in adopting new technologies. That’s why we’ve come together as a network of tech cooperatives—to bridge that gap. As cooperatives ourselves, we understand the challenges cooperatives face because, in many ways, we speak the same language. We believe in the power of teamwork and interdisciplinary collaboration, and we’re committed to making a difference by developing technology that truly serves cooperatives. Our focus is on democratizing artificial intelligence, making it accessible and a driver of sustainable growth for cooperatives. If you’re a tech cooperative working with AI and would like to join us, we’d love to hear from you!",
+        "subtitle": "As technology cooperatives organized through FACTTIC (Argentina’s federation of tech co-ops), we’ve spent over a decade building digital solutions with a social purpose. We’ve seen how cooperatives, despite their potential, often fall behind in adopting new technologies. That’s why we’ve come together as a network of tech cooperatives—to bridge that gap. As cooperatives ourselves, we understand the challenges cooperatives face because, in many ways, we speak the same language. We believe in the power of teamwork and interdisciplinary collaboration, and we’re committed to making a difference by developing technology that truly serves cooperatives. Our focus is on democratizing artificial intelligence, making it accessible and a driver of sustainable growth for cooperatives. If you’re a tech cooperative working with AI and would like to join us, we’d love to hear from you!",
         "coops": {
+          "facttic": {
+            "name": "FACTTIC",
+            "description": "Argentina's network of tech cooperatives"
+          },
           "lawal": {
             "name": "Lawal",
             "description": "Tech cooperative specializing in AI solutions"
@@ -164,6 +168,10 @@
         "service4": {
           "title": "Unlocking data potential with Big Data",
           "description": "Big data tools help manage and analyze large datasets that are too complex for traditional methods. For cooperatives, this means identifying trends (e.g., understanding customer behavior), optimizing operations (e.g., finding inefficiencies in workflows), and making strategic decisions (e.g., based on real-time data). It’s essential for cooperatives that generate or rely on large amounts of data."
+        },
+        "service5": {
+          "title": "AI Tools Capacitation for Your Team",
+          "description": "We can teach your team (IT or other departments) how to use existing AI tools in a performatic way and avoid spending more time asking chat agents to do something that could be done more efficiently. Our training focuses on practical skills and best practices for AI tool integration in your cooperative's workflow."
         }
       },
       "contact": {

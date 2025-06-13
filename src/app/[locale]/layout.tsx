@@ -2,6 +2,7 @@
 
 import { Space_Grotesk } from 'next/font/google'
 import './globals.css'
+import 'react-toastify/dist/ReactToastify.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
@@ -56,7 +57,12 @@ export default async function RootLayout({
     <html lang={locale}>
       <body className={spaceGrotesk.className}>
         <NextIntlClientProvider messages={messages}>
-          <ThemeProvider attribute="class" disableTransitionOnChange>
+          <ThemeProvider 
+            attribute="class" 
+            defaultTheme="system" 
+            enableSystem 
+            disableTransitionOnChange
+          >
             <LoadingProvider>
               <CustomCursor />
               <Navbar />

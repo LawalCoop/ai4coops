@@ -1,5 +1,6 @@
 'use client'
 import Marquee from 'react-fast-marquee'
+import FactticImg from '@/media/logos/facttic.png'
 import LawalImg from '@/media/logos/lawal.png'
 import EryxImg from '@/media/logos/eryx.png'
 import AnimusImg from '@/media/logos/animus.png'
@@ -26,6 +27,12 @@ export default function WhoWeAre() {
   }, [])
 
   const coops = [
+    {
+      name: 'FACTTIC',
+      logo: FactticImg,
+      link: 'https://www.facttic.org.ar',
+      translationKey: 'facttic',
+    },
     {
       name: 'Lawal',
       logo: LawalImg,

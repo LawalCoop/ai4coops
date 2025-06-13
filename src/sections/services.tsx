@@ -8,7 +8,7 @@ import LLMs from '@/media/llms.png'
 import BigData from '@/media/bigdata.png'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { faEye, faChartLine, faLanguage, faDatabase } from '@fortawesome/free-solid-svg-icons'
+import { faEye, faChartLine, faLanguage, faDatabase, faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Services() {
@@ -73,7 +73,7 @@ export default function Services() {
         </div>
 
         {/* SERVICIOS - GRID RESPONSIVE */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -119,6 +119,44 @@ export default function Services() {
             </motion.div>
           ))}
         </div>
+
+        {/* NEW FULL-WIDTH SERVICE - AI TOOLS CAPACITATION */}
+        <motion.div
+          className="group w-full"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          viewport={{ once: true, margin: '-50px' }}
+        >
+          <div
+            className="dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
+                      shadow-[6px_6px_0px_0px] md:shadow-[8px_8px_0px_0px] shadow-shadow dark:shadow-darkShadow
+                      transform group-hover:-translate-y-1 group-hover:shadow-[8px_8px_0px_0px] md:group-hover:shadow-[12px_12px_0px_0px] group-hover:shadow-shadow dark:group-hover:shadow-darkShadow
+                      transition-all duration-300 p-6 md:p-8 rounded-lg"
+          >
+            <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
+              {/* ICON & TITLE SECTION */}
+              <div className="flex flex-col items-center md:items-start text-center md:text-left md:flex-shrink-0">
+                <div className="flex items-center gap-3 mb-4">
+                  <FontAwesomeIcon
+                    icon={faChalkboardTeacher}
+                    className="text-primary dark:text-darkPrimary text-3xl md:text-4xl"
+                  />
+                  <h3 className="text-2xl md:text-3xl font-extrabold text-black dark:text-darkText">
+                    {t('service5.title')}
+                  </h3>
+                </div>
+              </div>
+
+              {/* DESCRIPTION */}
+              <div className="flex-grow text-center md:text-left">
+                <p className="text-base md:text-lg text-text dark:text-darkText leading-relaxed">
+                  {t('service5.description')}
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </div>
   )

@@ -37,7 +37,7 @@
         "animationTexts": ["Innovación", "Desarrollo", "Otros mundos son posibles, juntos"]
       },
       "projects": {
-        "title": "Case Studies",
+        "title": "Experiencias",
         "subtitle": "Real-world applications of our AI solutions",
         "codeButton": "Code",
         "demoButton": "Live Demo",
@@ -89,7 +89,7 @@
       },
       "aboutHow": {
         "title": "De la visión al impacto colectivo",
-        "subtitle": "Un enfoque colaborativo para implementar IA. Así es como lo hacemos, desde la detección de oportunidades hasta la puesta en marcha de soluciones concretas.",
+        "subtitle": "Un enfoque colaborativo para implementar IA. No imponemos soluciones: trabajamos junto a cada cooperativa para entender sus desafíos y detectar oportunidades concretas donde la inteligencia artificial pueda aportar valor. Desde el diagnóstico hasta el desarrollo e implementación, diseñamos herramientas a medida, con un enfoque ético, abierto y sostenible. La IA, para nosotros, es un proceso de construcción colectiva.",
         "seeMore": "Navegar en profundidad",
         "phases": [
           {
@@ -121,8 +121,12 @@
       },
       "whoWeAre": {
         "title": "Quiénes somos",
-        "subtitle": "Después de más de 10 años trabajando en tecnología y cooperativismo, decidimos unirnos para combinar nuestras fortalezas, conocimientos y experiencia...",
+        "subtitle": "Somos cooperativas tecnológicas organizadas a través de FACTTIC (la federación argentina de cooperativas de tecnología), y llevamos más de una década desarrollando soluciones digitales con propósito social. Hemos visto cómo muchas cooperativas, a pesar de su enorme potencial, suelen quedar atrás en la adopción de nuevas tecnologías. Por eso nos unimos como red: para cerrar esa brecha. Como cooperativas, entendemos los desafíos que enfrentan otras cooperativas, porque hablamos el mismo idioma. Creemos en el trabajo en equipo, en la colaboración interdisciplinaria y en hacer tecnología que realmente sirva a nuestras organizaciones. Nuestro foco está en democratizar la inteligencia artificial, haciéndola accesible y una palanca para el crecimiento sostenible del sector cooperativo. Si sos parte de una cooperativa tecnológica que trabaja con IA y querés sumarte, ¡nos encantaría conocerte!",
         "coops": {
+          "facttic": {
+            "name": "FACTTIC",
+            "description": "Federación Argentina de Cooperativas Tecnológicas"
+          },
           "lawal": {
             "name": "Lawal",
             "description": "Cooperativa tecnológica especializada en soluciones de IA"
@@ -163,6 +167,10 @@
         "service4": {
           "title": "Big Data para cooperativas",
           "description": "Analizamos grandes volúmenes de datos para identificar tendencias, mejorar operaciones y tomar decisiones estratégicas basadas en información en tiempo real."
+        },
+        "service5": {
+          "title": "Capacitación en herramientas de IA para tu equipo",
+          "description": "Podemos enseñar a tu equipo (IT u otros departamentos) cómo usar las herramientas de IA existentes de manera eficiente y evitar perder tiempo preguntando a agentes de chat para hacer algo que se puede hacer de forma más eficaz. Nuestro entrenamiento se enfoca en habilidades prácticas para la integración de herramientas de IA en el flujo de trabajo de tu cooperativa."
         }
       },
       "contact": {

@@ -162,17 +162,7 @@ export default function HeroSection() {
           </motion.p>
 
           <div className="flex flex-col items-center lg:items-start mb-8">
-            <motion.div className="flex space-x-6 mb-6" variants={itemVariants}>
-              <motion.a
-                href="https://github.com/LawalCoop/"
-                target="_blank"
-                rel="noopener noreferrer"
-                variants={socialIconVariants}
-                whileHover="hover"
-              >
-                <FaGithub className="text-4xl text-text dark:text-white hover:text-primary dark:hover:text-darkPurple transition-colors duration-300" />
-              </motion.a>
-            </motion.div>
+            <motion.div className="flex space-x-6 mb-6" variants={itemVariants}></motion.div>
 
             <motion.div variants={buttonVariants} initial="hidden" animate="visible" whileTap="tap">
               <DialogComponent

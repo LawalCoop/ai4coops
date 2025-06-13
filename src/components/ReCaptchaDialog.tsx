@@ -29,6 +29,15 @@ export function ReCaptchaDialog({
     setCaptchaError(null)
   }
 
+  const handleButtonClick = () => {
+    if (!googleReCaptchaKey || googleReCaptchaKey.trim() === '') {
+      console.warn('reCAPTCHA site key not configured, bypassing verification')
+      onVerified()
+      return
+    }
+    setIsCaptchaVisible(true)
+  }
+
   const handleCaptchaError = () => {
     setCaptchaError('Failed to load CAPTCHA. Please refresh the page.')
   }
@@ -58,7 +67,7 @@ export function ReCaptchaDialog({
       <Button
         variant="default"
         className={buttonClassName}
-        onClick={() => setIsCaptchaVisible(true)}
+        onClick={handleButtonClick}
       >
         {triggerButtonText}
       </Button>

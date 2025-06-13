@@ -1,6 +1,5 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { FaGithub } from 'react-icons/fa'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import { useTranslations } from 'next-intl'
@@ -8,6 +7,7 @@ import { motion } from 'framer-motion'
 import { usePathname, useRouter } from 'next/navigation'
 import { useLoading } from '@/contexts/LoadingContext'
 import { useNavigation } from '@/config/navigation'
+import { DialogComponent } from '@/components/getInTouchDialog'
 
 const footerVariants = {
   hidden: { y: '100%', opacity: 0 },
@@ -50,10 +50,6 @@ const FooterLinks = () => {
       isSection: true,
       onClick: () => handleClick(link.path, true),
     })),
-    {
-      href: 'https://github.com/LawalCoop/',
-      label: 'GitHub',
-    },
   ]
 
   return (
@@ -122,14 +118,19 @@ const Footer = () => {
               {t('footer.getInTouch')}
             </h3>
             <div className="flex space-x-6">
-              <a
-                href="https://github.com/LawalCoop/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-4xl text-gray-800 dark:text-white hover:text-yellow-400 transition-colors duration-300"
-              >
-                <FaGithub />
-              </a>
+              <DialogComponent
+                triggerButtonText={t('contactButton')}
+                dialogTitle={t('contactDialog.title')}
+                dialogDescription={t('contactDialog.description')}
+                inputLabels={{
+                  name: t('contactDialog.name'),
+                  email: t('contactDialog.email'),
+                  message: t('contactDialog.message'),
+                }}
+                buttonClassName="bg-primary text-black font-bold px-6 py-3 border-4 border-black 
+                                shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] 
+                                hover:-translate-y-1 transition-all duration-200 text-lg"
+              />
             </div>
           </div>
         </div>
