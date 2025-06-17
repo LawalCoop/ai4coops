@@ -212,7 +212,7 @@ export default function AboutHow() {
                 </p>
                 <div className="text-center">
                   <Link
-                    href="/documents/ai4coops_brochure.pdf"
+                    href={`/documents/aI4coops ${locale}.pdf`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary dark:text-darkPrimary hover:text-primary/80 dark:hover:text-darkPrimary/80
