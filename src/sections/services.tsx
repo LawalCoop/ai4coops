@@ -73,7 +73,7 @@ export default function Services() {
         </div>
 
         {/* SERVICIOS - GRID RESPONSIVE */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6 mb-4 sm:mb-6 md:mb-8">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -87,7 +87,7 @@ export default function Services() {
                 className="dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
                           shadow-[6px_6px_0px_0px] md:shadow-[8px_8px_0px_0px] shadow-shadow dark:shadow-darkShadow
                           transform group-hover:-translate-y-1 group-hover:shadow-[8px_8px_0px_0px] md:group-hover:shadow-[12px_12px_0px_0px] group-hover:shadow-shadow dark:group-hover:shadow-darkShadow
-                          transition-all duration-300 p-4 md:p-5 rounded-lg h-full flex flex-col sm:flex-row gap-3 md:gap-4"
+                          transition-all duration-300 p-3 sm:p-4 md:p-5 rounded-lg h-full flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4"
               >
                 {/* IMAGEN - CENTRADA EN MÓVIL */}
                 <div className="flex justify-center sm:justify-start flex-shrink-0">

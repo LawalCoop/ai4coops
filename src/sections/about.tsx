@@ -50,8 +50,8 @@ export default function About() {
       className="w-full pt-16 min-h-screen bg-bg dark:bg-darkBg relative overflow-hidden"
       id="about"
     >
-      <div className="mx-auto w-container max-w-full px-5 relative z-10">
-        <div className="mb-10">
+      <div className="mx-auto w-container max-w-full px-4 sm:px-5 relative z-10">
+        <div className="mb-8 sm:mb-10">
           <div className="flex flex-col md:flex-row lg:flex-row items-center gap-6 md:gap-8 lg:gap-10">
             {/* Imagen */}
             <div
@@ -100,7 +100,7 @@ export default function About() {
           </div>
 
           {/* Key Points */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6 mt-12 md:mt-14 lg:mt-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6 mt-8 sm:mt-10 md:mt-12 lg:mt-16">
             {keyPoints.map((point, index) => (
               <div
                 key={index}
@@ -117,7 +117,7 @@ export default function About() {
                     className="w-12 h-12 text-primary dark:text-darkPrimary group-hover:scale-110 transition-transform"
                   />
                   <h3 className="text-xl font-extrabold text-black dark:text-darkText text-center uppercase">
-                    <span className="border-b-4 border-primary dark:border-darkPrimary pb-2">
+                    <span className="border-b-2 sm:border-b-3 md:border-b-4 border-primary dark:border-darkPrimary pb-1 sm:pb-2">
                       {point.title}
                     </span>
                   </h3>

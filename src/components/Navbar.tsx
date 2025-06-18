@@ -137,7 +137,7 @@ const NavBar = () => {
                 width={250}
                 height={63}
                 priority
-                className="w-auto h-8 sm:h-10 lg:h-12 max-w-full"
+                className="w-auto h-8 sm:h-10 md:h-11 lg:h-12 max-w-full"
               />
             </button>
           </h1>
