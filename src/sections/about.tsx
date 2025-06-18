@@ -52,7 +52,7 @@ export default function About() {
     >
       <div className="mx-auto w-container max-w-full px-5 relative z-10">
         <div className="mb-10">
-          <div className="flex flex-col lg:flex-row items-center gap-10">
+          <div className="flex flex-col md:flex-row lg:flex-row items-center gap-6 md:gap-8 lg:gap-10">
             {/* Imagen */}
             <div
               data-aos="fade-up"
@@ -100,7 +100,7 @@ export default function About() {
           </div>
 
           {/* Key Points */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6 mt-12 md:mt-14 lg:mt-16">
             {keyPoints.map((point, index) => (
               <div
                 key={index}

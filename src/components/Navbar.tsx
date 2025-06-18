@@ -118,8 +118,8 @@ const NavBar = () => {
       >
         <div
           className={twMerge(
-            `mx-auto mt-4 flex h-[80px] w-full max-w-screen-xl
-            items-center justify-between px-6 transition-transform
+            `mx-auto mt-4 flex h-[60px] sm:h-[70px] lg:h-[80px] w-full max-w-screen-xl
+            items-center justify-between px-4 sm:px-6 transition-transform
             duration-300 ease-in-out bg-yellow-300 dark:bg-darkBg transform`,
             showNav ? 'translate-y-0' : '-translate-y-[calc(100%+40px)]'
           )}
@@ -137,11 +137,7 @@ const NavBar = () => {
                 width={250}
                 height={63}
                 priority
-                style={{
-                  width: 'auto',
-                  height: 'auto',
-                  maxWidth: '100%',
-                }}
+                className="w-auto h-8 sm:h-10 lg:h-12 max-w-full"
               />
             </button>
           </h1>
@@ -186,7 +182,7 @@ const NavBar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="fixed top-[100px] z-50 w-full px-4" ref={menuRef}>
+        <div className="fixed top-[80px] sm:top-[90px] lg:top-[100px] z-50 w-full px-4" ref={menuRef}>
           <MobileNavLinks
             handleNavigation={handleNavigation}
             setIsOpen={setIsOpen}
