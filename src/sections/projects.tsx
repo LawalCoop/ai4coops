@@ -90,7 +90,7 @@ const ProjectsShowcase = () => {
         </h1>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
         {projects.map((project, index) => (
           <div
             key={project.title}
@@ -103,7 +103,7 @@ const ProjectsShowcase = () => {
             data-aos-delay={index * 150}
           >
             {/* Imagen */}
-            <div className="relative mb-4 overflow-hidden rounded-lg h-56">
+            <div className="relative mb-4 overflow-hidden rounded-lg h-40 sm:h-48 md:h-56">
               <Image
                 src={project.image}
                 alt={project.title}
@@ -125,7 +125,7 @@ const ProjectsShowcase = () => {
               {project.tech.map((tech: string, techIndex: number) => (
                 <span
                   key={techIndex}
-                  className="px-3 py-1 text-sm font-semibold bg-yellow-300 dark:text-black"
+                  className="px-2 sm:px-3 py-1 text-xs sm:text-sm font-semibold bg-yellow-300 dark:text-black"
                   style={{
                     border: '2px solid black',
                   }}

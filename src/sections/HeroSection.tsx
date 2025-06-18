@@ -125,7 +125,7 @@ export default function HeroSection() {
   }
 
   return (
-    <header className="relative flex min-h-[100vh] w-full flex-col items-center justify-center bg-bg dark:bg-darkBg bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-[size:70px_70px] pt-16 lg:pt-0">
+    <header className="relative flex min-h-screen w-full flex-col items-center justify-center bg-bg dark:bg-darkBg bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-[size:70px_70px] pt-16 lg:pt-0">
       <motion.div
         className="mx-auto w-container max-w-full px-5 py-[110px] text-left lg:py-[120px] flex flex-col lg:flex-row"
         variants={containerVariants}
@@ -135,7 +135,7 @@ export default function HeroSection() {
         <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start lg:ml-8">
           <motion.div variants={itemVariants}>
             <TypeAnimation
-              className="text-3xl lg:text-3xl font-bold text-info dark:text-darkPurple relative z-10"
+              className="text-2xl sm:text-3xl lg:text-3xl font-bold text-info dark:text-darkPurple relative z-10"
               sequence={[
                 t('animationTexts.0'),
                 1000,
@@ -149,7 +149,7 @@ export default function HeroSection() {
 
           <motion.h1
             variants={itemVariants}
-            className="text-text dark:text-darkText text-3xl font-heading md:text-4xl lg:text-5xl mt-5"
+            className="text-text dark:text-darkText text-2xl sm:text-3xl font-heading md:text-4xl lg:text-5xl mt-5"
           >
             {t('title')}
           </motion.h1>
@@ -188,7 +188,7 @@ export default function HeroSection() {
             src={HomeImage}
             alt="cooperativism flag"
             loading="lazy"
-            className="mt-[-40px] lg:ml-28"
+            className="w-full h-auto lg:ml-28"
           />
         </motion.div>
       </motion.div>
@@ -211,8 +211,8 @@ export default function HeroSection() {
               key={id}
               whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
             >
-              <skill.Icon className="text-primary dark:text-darkPrimary text-5xl mr-4" />
-              <span className="text-xl font-heading sm:text-2xl lg:text-4xl">{skill.text}</span>
+              <skill.Icon className="text-primary dark:text-darkPrimary text-3xl sm:text-4xl lg:text-5xl mr-4" />
+              <span className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-heading">{skill.text}</span>
             </motion.div>
           ))}
         </Marquee>

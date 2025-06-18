@@ -73,7 +73,7 @@ export default function Services() {
         </div>
 
         {/* SERVICIOS - GRID RESPONSIVE */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -90,13 +90,13 @@ export default function Services() {
                           transition-all duration-300 p-4 md:p-5 rounded-lg h-full flex flex-col sm:flex-row gap-3 md:gap-4"
               >
                 {/* IMAGEN - CENTRADA EN MÓVIL */}
-                <div className="flex justify-center sm:justify-start flex-shrink-0 mx-auto sm:mx-0">
+                <div className="flex justify-center sm:justify-start flex-shrink-0">
                   <Image
                     src={service.image}
                     alt={service.imageAlt}
                     width={100}
                     height={100}
-                    className="w-20 h-20 md:w-24 md:h-24 object-contain"
+                    className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
                   />
                 </div>
 

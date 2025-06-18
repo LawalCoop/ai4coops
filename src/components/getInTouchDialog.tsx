@@ -122,7 +122,7 @@ export function DialogComponent({
           <div className="fixed inset-0 bg-black/50 dialog-overlay" aria-hidden="true" />
           <div className="fixed inset-0 overflow-y-auto">
             <div className="flex min-h-full items-center justify-center p-4">
-              <DialogContent className="animate-in fade-in-0 slide-in-from-bottom-0 sm:zoom-in-0 sm:slide-in-from-bottom-0 w-full max-w-lg rounded-lg bg-white dark:bg-darkBg">
+              <DialogContent className="animate-in fade-in-0 slide-in-from-bottom-0 sm:zoom-in-0 sm:slide-in-from-bottom-0 w-full max-w-sm sm:max-w-md lg:max-w-lg rounded-lg bg-white dark:bg-darkBg">
                 <div className="px-6 py-4">
                   <DialogHeader>
                     <DialogTitle className="text-xl font-semibold text-text dark:text-darkText">{dialogTitle}</DialogTitle>
@@ -184,7 +184,7 @@ export function DialogComponent({
                       <Button
                         type="submit"
                         disabled={isLoading || !input.name || !input.email || !input.message}
-                        className="w-full bg-primary text-text disabled:opacity-50 h-12 text-base font-heading md:text-lg lg:h-14 lg:text-xl"
+                        className="w-full bg-primary text-text disabled:opacity-50 h-10 sm:h-11 md:h-12 lg:h-14 text-sm sm:text-base lg:text-xl font-heading"
                       >
                         {isLoading ? (
                           <>
