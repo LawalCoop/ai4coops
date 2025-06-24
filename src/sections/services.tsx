@@ -46,17 +46,17 @@ export default function Services() {
   ]
 
   return (
-    <div className="w-full bg-bg dark:bg-darkBg py-12 lg:py-24 px-4 sm:px-6" id="services">
+    <div className="w-full bg-bg dark:bg-darkBg py-[30px] lg:py-[40px] px-4 sm:px-6" id="services">
       <div className="mx-auto max-w-7xl">
         {/* ENCABEZADO */}
         <div className="w-full mb-12 md:mb-16 text-center">
           <div
             className="dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
-                      shadow-[6px_6px_0px_0px] md:shadow-[8px_8px_0px_0px] shadow-shadow dark:shadow-darkShadow
-                      transform hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px] md:hover:shadow-[12px_12px_0px_0px] hover:shadow-shadow dark:hover:shadow-darkShadow
-                      transition-all duration-300 p-4 md:p-6 mb-4 md:mb-6 mx-2"
+                      shadow-[8px_8px_0px_0px] dark:shadow-darkShadow shadow-shadow
+                      transform hover:-translate-y-1 hover:shadow-[12px_12px_0px_0px] hover:shadow-shadow dark:hover:shadow-darkShadow
+                      transition-all duration-300 p-6 mb-8"
           >
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-black dark:text-darkText">
+            <h1 className="text-4xl md:text-5xl font-black text-black dark:text-darkText text-center uppercase">
               {t('title')}
             </h1>
           </div>
@@ -87,31 +87,31 @@ export default function Services() {
                 className="dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
                           shadow-[6px_6px_0px_0px] md:shadow-[8px_8px_0px_0px] shadow-shadow dark:shadow-darkShadow
                           transform group-hover:-translate-y-1 group-hover:shadow-[8px_8px_0px_0px] md:group-hover:shadow-[12px_12px_0px_0px] group-hover:shadow-shadow dark:group-hover:shadow-darkShadow
-                          transition-all duration-300 p-3 sm:p-4 md:p-5 rounded-lg h-full flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4"
+                          transition-all duration-300 p-4 sm:p-5 md:p-6 rounded-lg h-full flex flex-col"
               >
-                {/* IMAGEN - CENTRADA EN MÓVIL */}
-                <div className="flex justify-center sm:justify-start flex-shrink-0">
+                {/* IMAGEN - CENTRADA */}
+                <div className="flex justify-center mb-4">
                   <Image
                     src={service.image}
                     alt={service.imageAlt}
-                    width={100}
-                    height={100}
-                    className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
+                    width={120}
+                    height={120}
+                    className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain"
                   />
                 </div>
 
                 {/* CONTENIDO */}
-                <div className="flex-grow text-center sm:text-left">
-                  <div className="flex flex-col sm:flex-row items-center gap-2 mb-2">
+                <div className="flex-grow text-center">
+                  <div className="flex items-center justify-center gap-3 mb-3">
                     <FontAwesomeIcon
                       icon={service.icon}
-                      className="text-primary dark:text-darkPrimary text-xl md:text-2xl mb-2 sm:mb-0"
+                      className="text-primary dark:text-darkPrimary text-xl md:text-2xl"
                     />
-                    <h3 className="text-lg md:text-xl font-extrabold text-black dark:text-darkText">
+                    <h3 className="text-lg md:text-xl lg:text-2xl font-extrabold text-black dark:text-darkText">
                       {service.title}
                     </h3>
                   </div>
-                  <p className="text-sm md:text-base text-text dark:text-darkText leading-relaxed">
+                  <p className="text-sm md:text-base text-text dark:text-darkText leading-relaxed pb-4">
                     {service.description}
                   </p>
                 </div>

@@ -188,42 +188,39 @@ export default function AboutHow() {
   }
 
   return (
-    <div className="w-full bg-bg dark:bg-darkBg py-[50px] lg:py-[50px]" id="how" ref={sectionRef}>
-      <div className="mx-auto w-container max-w-full px-5">
-        <div className="w-full bg-bg dark:bg-darkBg py-[30px] md:py-[50px]">
-          <div className="mx-auto w-container max-w-full px-4 md:px-5">
-            <div className="w-full mb-12 md:mb-16">
-              <div
-                className="dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
-                        shadow-[8px_8px_0px_0px] shadow-shadow dark:shadow-darkShadow
-                        transform hover:-translate-y-1 hover:shadow-shadow hover:shadow-[12px_12px_0px_0px] dark:hover:shadow-darkShadow
-                        transition-all duration-300 p-4 md:p-6 mb-8 md:mb-10 rounded-lg"
+    <div className="w-full bg-bg dark:bg-darkBg py-[30px] lg:py-[40px]" id="how" ref={sectionRef}>
+      <div className="mx-auto w-container max-w-full px-4 sm:px-6">
+        <div className="w-full mb-12 md:mb-16">
+          <div
+            className="dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
+                    shadow-[8px_8px_0px_0px] shadow-shadow dark:shadow-darkShadow
+                    transform hover:-translate-y-1 hover:shadow-[12px_12px_0px_0px] hover:shadow-shadow dark:hover:shadow-darkShadow
+                    transition-all duration-300 p-6 mb-8"
+          >
+            <h1 className="text-4xl md:text-5xl font-black text-black text-center dark:text-darkText uppercase">
+              {t('title')}
+            </h1>
+          </div>
+          <div>
+            <p className="text-base md:text-lg text-center text-text dark:text-darkText mb-4">
+              {t('subtitle')}
+            </p>
+            <div className="text-center">
+              <Link
+                href={`/documents/aI4coops ${locale}.pdf`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary dark:text-darkPrimary hover:text-primary/80 dark:hover:text-darkPrimary/80
+                          transition-colors duration-300 text-sm md:text-base underline"
               >
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-black text-center dark:text-darkText">
-                  <span className="pb-2 inline-block">{t('title')}</span>
-                </h1>
-              </div>
-              <div>
-                <p className="text-base md:text-lg text-center text-text dark:text-darkText mb-4">
-                  {t('subtitle')}
-                </p>
-                <div className="text-center">
-                  <Link
-                    href={`/documents/aI4coops ${locale}.pdf`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary dark:text-darkPrimary hover:text-primary/80 dark:hover:text-darkPrimary/80
-                              transition-colors duration-300 text-sm md:text-base underline"
-                  >
-                    {t('seeMore')}
-                  </Link>
-                </div>
-              </div>
+                {t('seeMore')}
+              </Link>
             </div>
           </div>
+        </div>
 
-          <Carousel
-            className="w-full px-2 md:px-8"
+        <Carousel
+          className="w-full px-2 md:px-8"
             opts={{
               align: 'start',
               loop: true,
@@ -275,10 +272,10 @@ export default function AboutHow() {
             </CarouselContent>
             <CarouselPrevious className="dark:text-darkText" />
             <CarouselNext className="dark:text-darkText" />
-          </Carousel>
+        </Carousel>
 
-          {/* Slide Indicators */}
-          <div className="flex justify-center mt-6 md:mt-8 space-x-2 md:space-x-3">
+        {/* Slide Indicators */}
+        <div className="flex justify-center mt-6 md:mt-8 space-x-2 md:space-x-3">
             {Array.from({ length: count }).map((_, index) => (
               <button
                 key={index}
@@ -293,7 +290,6 @@ export default function AboutHow() {
                 aria-selected={index === current - 1}
               />
             ))}
-          </div>
         </div>
       </div>
     </div>

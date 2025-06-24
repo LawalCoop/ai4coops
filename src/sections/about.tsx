@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useRef } from 'react'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import AboutImageEs from '@/media/about_es.svg'
@@ -50,7 +51,7 @@ export default function About() {
       className="w-full pt-16 min-h-screen bg-bg dark:bg-darkBg relative overflow-hidden"
       id="about"
     >
-      <div className="mx-auto w-container max-w-full px-4 sm:px-5 relative z-10">
+      <div className="mx-auto w-container max-w-full px-4 sm:px-6 relative z-10">
         <div className="mb-8 sm:mb-10">
           <div className="flex flex-col md:flex-row lg:flex-row items-center gap-6 md:gap-8 lg:gap-10">
             {/* Imagen */}
@@ -59,13 +60,25 @@ export default function About() {
               data-aos-offset="100"
               className="lg:w-1/2"
             >
-              <Image
-                src={AboutImage}
-                alt="Illustration"
-                width={800}
-                className="w-full h-auto rounded-lg"
-                priority
-              />
+              <motion.div
+                initial={{ clipPath: "inset(0 100% 0 0)" }}
+                whileInView={{ clipPath: "inset(0 0 0 0)" }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ 
+                  duration: 2.5, 
+                  ease: "easeOut",
+                  delay: 0.3
+                }}
+                className="relative"
+              >
+                <Image
+                  src={AboutImage}
+                  alt="Illustration"
+                  width={800}
+                  className="w-full h-auto rounded-lg"
+                  priority
+                />
+              </motion.div>
             </div>
 
             {/* Contenido principal */}
@@ -79,7 +92,7 @@ export default function About() {
                           transform hover:-translate-y-1 hover:shadow-[12px_12px_0px_0px] hover:shadow-shadow dark:hover:shadow-darkShadow
                           transition-all duration-300 p-6 mb-8"
               >
-                <h1 className="text-4xl md:text-5xl font-black text-black dark:text-darkText text-center">
+                <h1 className="text-4xl md:text-5xl font-black text-black dark:text-darkText text-center uppercase">
                   {t('title')}
                 </h1>
               </div>

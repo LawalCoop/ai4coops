@@ -32,7 +32,12 @@ const SkillsShowcase = () => {
 
   return (
     <div className="max-w-5xl mx-auto my-12 px-4">
-      <h2 className="text-4xl font-bold text-center mb-10">Skills</h2>
+      <div className="dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
+                      shadow-[8px_8px_0px_0px] dark:shadow-darkShadow shadow-shadow
+                      transform hover:-translate-y-1 hover:shadow-[12px_12px_0px_0px] hover:shadow-shadow dark:hover:shadow-darkShadow
+                      transition-all duration-300 p-6 mb-8">
+        <h2 className="text-4xl md:text-5xl font-black text-black dark:text-darkText text-center uppercase">Skills</h2>
+      </div>
       <div className="grid grid-cols-3 md:grid-cols-4 gap-6">
         {skills.map((skill, index) => (
           <div

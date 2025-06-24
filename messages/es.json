@@ -33,7 +33,7 @@
     "home": {
       "heroSection": {
         "title": "IA para cooperativas, hecha por cooperativas",
-        "subtitle": "Exploramos cómo la inteligencia artificial puede potenciar el cooperativismo. Desarrollamos herramientas adaptadas a las necesidades reales de las cooperativas, respetando siempre los valores del movimiento.",
+        "subtitle": "Exploramos cómo la inteligencia artificial puede potenciar el cooperativismo y las organizaciones solidarias. Desarrollamos herramientas adaptadas a las necesidades reales de las cooperativas y organizaciones, respetando siempre los valores del movimiento.",
         "animationTexts": ["Innovación", "Desarrollo", "Otros mundos son posibles, juntos"]
       },
       "projects": {
@@ -151,10 +151,10 @@
       },
       "services": {
         "title": "Desbloqueando el poder de la IA para cooperativas",
-        "subtitle": "Herramientas de IA para un futuro cooperativo más fuerte",
+        "subtitle": "Ponemos a disposición soluciones de inteligencia artificial pensadas para fortalecer la autogestión, optimizar tareas y apoyar la toma de decisiones en cooperativas y organizaciones solidarias. La IA, usada de forma ética y colaborativa, puede ayudar a liberar tiempo y recursos para que la comunidad crezca y se conecte mejor.",
         "service1": {
           "title": "Visión por Computadora",
-          "description": "Hacemos que las máquinas interpreten imágenes y videos. Esto nos permite automatizar tareas como control de calidad, clasificación de productos y monitoreo de seguridad en tiempo real. Ideal para cooperativas que manejan datos visuales y quieren optimizar procesos."
+          "description": "Hacemos que las máquinas interpreten imágenes y videos. Esto nos permite automatizar tareas como control de calidad, clasificación de productos y monitoreo de seguridad en tiempo real. Ideal para cooperativas y organizaciones que manejan datos visuales y quieren optimizar procesos."
         },
         "service2": {
           "title": "Predicciones estratégicas",
@@ -166,11 +166,11 @@
         },
         "service4": {
           "title": "Big Data para cooperativas",
-          "description": "Analizamos grandes volúmenes de datos para identificar tendencias, mejorar operaciones y tomar decisiones estratégicas basadas en información en tiempo real."
+          "description": "Analizamos grandes volúmenes de datos para identificar tendencias, mejorar operaciones y tomar decisiones estratégicas basadas en información en tiempo real. Ideal para cooperativas y organizaciones que manejan grandes cantidades de información."
         },
         "service5": {
-          "title": "Capacitación en herramientas de IA para tu equipo",
-          "description": "Podemos enseñar a tu equipo (IT u otros departamentos) cómo usar las herramientas de IA existentes de manera eficiente y evitar perder tiempo preguntando a agentes de chat para hacer algo que se puede hacer de forma más eficaz. Nuestro entrenamiento se enfoca en habilidades prácticas para la integración de herramientas de IA en el flujo de trabajo de tu cooperativa."
+          "title": "Capacitación en herramientas de IA",
+          "description": "Podemos enseñar a tu equipo (IT u otros departamentos) cómo usar las herramientas de IA existentes de manera eficiente y evitar perder tiempo preguntando a agentes de chat para hacer algo que se puede hacer de forma más eficaz. Nuestro entrenamiento se enfoca en habilidades prácticas para la integración de herramientas de IA en el flujo de trabajo de tu cooperativa u organización."
         }
       },
       "contact": {

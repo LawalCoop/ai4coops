@@ -31,12 +31,19 @@ export default function Features() {
 
   return (
     <div>
-      <section className="border-t-border dark:border-t-darkBorder dark:bg-darkBg border-t-2 bg-bg py-20 font-base lg:py-[100px]">
-        <h2 className="mb-14 px-5 text-center text-2xl font-heading md:text-3xl lg:mb-20 lg:text-4xl">
-          Skills and Technologies
-        </h2>
+      <section className="border-t-border dark:border-t-darkBorder dark:bg-darkBg border-t-2 bg-bg py-[30px] font-base lg:py-[40px]">
+        <div className="mx-auto w-container max-w-full px-4 sm:px-6">
+          <div className="dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
+                          shadow-[8px_8px_0px_0px] dark:shadow-darkShadow shadow-shadow
+                          transform hover:-translate-y-1 hover:shadow-[12px_12px_0px_0px] hover:shadow-shadow dark:hover:shadow-darkShadow
+                          transition-all duration-300 p-6 mb-8">
+            <h2 className="text-4xl md:text-5xl font-black text-black dark:text-darkText text-center uppercase">
+              Skills and Technologies
+            </h2>
+          </div>
+        </div>
 
-        <div className="mx-auto grid w-container max-w-full grid-cols-1 gap-5 px-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto grid w-container max-w-full grid-cols-1 gap-5 px-4 sm:px-6 sm:grid-cols-2 lg:grid-cols-3">
           {skills.map((skill, i) => {
             return (
               <div

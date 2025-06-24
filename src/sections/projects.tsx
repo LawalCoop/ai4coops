@@ -77,15 +77,16 @@ const ProjectsShowcase = () => {
   ]
 
   return (
-    <div className="w-full p-8 bg-bg dark:bg-darkBg py-[50px] lg:py-[50px]" id="projects">
+    <div className="w-full bg-bg dark:bg-darkBg py-[30px] lg:py-[40px]" id="projects">
+      <div className="mx-auto w-container max-w-full px-4 sm:px-6">
       <div
-        className="w-full bg-bg border-4 border-black dark:bg-darkBg
-                   shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]
-                   transform hover:-translate-y-1 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]
-                   transition-all duration-300 p-6 mb-10"
+        className="dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
+                   shadow-[8px_8px_0px_0px] dark:shadow-darkShadow shadow-shadow
+                   transform hover:-translate-y-1 hover:shadow-[12px_12px_0px_0px] hover:shadow-shadow dark:hover:shadow-darkShadow
+                   transition-all duration-300 p-6 mb-8"
         data-aos="fade"
       >
-        <h1 className="text-4xl md:text-5xl font-black text-black text-center dark:text-darkText">
+        <h1 className="text-4xl md:text-5xl font-black text-black text-center dark:text-darkText uppercase">
           {t('title')}
         </h1>
       </div>
@@ -168,6 +169,7 @@ const ProjectsShowcase = () => {
             */}
           </div>
         ))}
+      </div>
       </div>
     </div>
   )

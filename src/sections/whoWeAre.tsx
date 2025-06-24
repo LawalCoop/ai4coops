@@ -67,20 +67,20 @@ export default function WhoWeAre() {
 
   return (
     <div
-      className="relative min-h-[80vh] flex py-[20px] lg:py-[30px] w-full flex-col items-center justify-center bg-bg dark:bg-darkBg lg:pt-0"
+      className="relative min-h-[80vh] flex py-[30px] lg:py-[40px] w-full flex-col items-center justify-center bg-bg dark:bg-darkBg lg:pt-0"
       id="who"
     >
-      <div className="mx-auto w-container max-w-full px-5">
+      <div className="mx-auto w-container max-w-full px-4 sm:px-6">
         {/* Header section */}
         <div className="w-full mb-16" ref={titleRef}>
           <div
             className="dark:border-darkBorder bg-bg border-4 border-border dark:bg-darkBg
                   shadow-[8px_8px_0px_0px] shadow-shadow dark:shadow-darkShadow
-                  transform hover:-translate-y-1 hover:shadow-shadow hover:shadow-[12px_12px_0px_0px] dark:hover:shadow-darkShadow
-                  transition-all duration-300 p-6 mb-10 overflow-hidden"
+                  transform hover:-translate-y-1 hover:shadow-[12px_12px_0px_0px] hover:shadow-shadow dark:hover:shadow-darkShadow
+                  transition-all duration-300 p-6 mb-8"
             data-aos="fade"
           >
-            <h1 className="text-4xl md:text-5xl font-black text-black text-center dark:text-darkText">
+            <h1 className="text-4xl md:text-5xl font-black text-black text-center dark:text-darkText uppercase">
               {t('title')}
             </h1>
           </div>

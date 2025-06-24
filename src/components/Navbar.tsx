@@ -118,18 +118,18 @@ const NavBar = () => {
       >
         <div
           className={twMerge(
-            `mx-auto mt-4 flex h-[60px] sm:h-[70px] lg:h-[80px] w-full max-w-screen-xl
-            items-center justify-between px-4 sm:px-6 transition-transform
-            duration-300 ease-in-out bg-yellow-300 dark:bg-darkBg transform`,
+            `mx-auto mt-4 mb-2 flex h-[60px] sm:h-[70px] lg:h-[80px] w-auto w-container max-w-full
+            items-center justify-between px-6 sm:px-8 md:px-10 transition-transform
+            duration-300 ease-in-out bg-yellow-300 dark:bg-darkBg transform
+            shadow-[8px_8px_0px_0px] shadow-shadow dark:shadow-darkShadow`,
             showNav ? 'translate-y-0' : '-translate-y-[calc(100%+40px)]'
           )}
           style={{
             border: '3px solid var(--border-color)',
-            boxShadow: '8px 8px 0px 0px var(--shadow-color)',
           }}
         >
           {/* Logo */}
-          <h1 className="text-3xl font-black tracking-tight text-black dark:text-white transform -rotate-2 hover:rotate-0 transition-transform duration-300">
+          <h1 className="text-3xl font-black tracking-tight text-black dark:text-white transform rotate-0 md:-rotate-2 md:hover:rotate-0 transition-transform duration-300 pt-1 sm:pt-0">
             <button onClick={handleLogoClick}>
               <Image
                 src={logo}
@@ -137,7 +137,7 @@ const NavBar = () => {
                 width={250}
                 height={63}
                 priority
-                className="w-auto h-8 sm:h-10 md:h-11 lg:h-12 max-w-full"
+                className="w-auto h-10 sm:h-11 md:h-11 lg:h-12 max-w-full"
               />
             </button>
           </h1>

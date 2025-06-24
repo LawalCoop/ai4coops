@@ -127,12 +127,12 @@ export default function HeroSection() {
   return (
     <header className="relative flex min-h-screen w-full flex-col items-center justify-center bg-bg dark:bg-darkBg bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-[size:70px_70px] pt-16 lg:pt-0">
       <motion.div
-        className="mx-auto w-container max-w-full px-4 sm:px-5 py-[80px] sm:py-[100px] md:py-[110px] text-left lg:py-[120px] flex flex-col lg:flex-row"
+        className="mx-auto w-container max-w-full px-4 sm:px-6 py-[80px] sm:py-[100px] md:py-[110px] text-left lg:py-[120px] flex flex-col lg:flex-row"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start lg:ml-8">
+        <div className="w-full lg:w-1/2 flex flex-col items-start lg:ml-8">
           <motion.div variants={itemVariants}>
             <TypeAnimation
               className="text-2xl sm:text-3xl lg:text-3xl font-bold text-info dark:text-darkPurple relative z-10"
@@ -149,7 +149,7 @@ export default function HeroSection() {
 
           <motion.h1
             variants={itemVariants}
-            className="text-text dark:text-darkText text-2xl sm:text-3xl font-heading md:text-4xl lg:text-5xl mt-5"
+            className="text-text dark:text-darkText text-2xl sm:text-3xl font-heading md:text-4xl lg:text-5xl mt-5 uppercase"
           >
             {t('title')}
           </motion.h1>
@@ -181,15 +181,27 @@ export default function HeroSection() {
         </div>
 
         <motion.div
-          className="w-full lg:w-1/2 mt-6 sm:mt-8 lg:mt-0 flex justify-center"
+          className="w-full lg:w-1/2 mt-6 sm:mt-8 lg:mt-0 flex justify-center lg:justify-start lg:pl-8"
           variants={itemVariants}
         >
-          <Image
-            src={HomeImage}
-            alt="cooperativism flag"
-            loading="lazy"
-            className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-none h-auto lg:ml-28"
-          />
+          <motion.div
+            initial={{ clipPath: "inset(0 100% 0 0)" }}
+            whileInView={{ clipPath: "inset(0 0 0 0)" }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ 
+              duration: 2.5, 
+              ease: "easeOut",
+              delay: 0.3
+            }}
+            className="relative w-full max-w-lg"
+          >
+            <Image
+              src={HomeImage}
+              alt="cooperativism flag"
+              loading="lazy"
+              className="w-full h-auto"
+            />
+          </motion.div>
         </motion.div>
       </motion.div>
 
