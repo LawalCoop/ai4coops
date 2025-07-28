@@ -1,6 +1,6 @@
 'use client'
+import { useState } from 'react'
 import { TypeAnimation } from 'react-type-animation'
-import { FaGithub } from 'react-icons/fa'
 import { BiLogoPostgresql } from 'react-icons/bi'
 import Marquee from 'react-fast-marquee'
 import { motion } from 'framer-motion'
@@ -24,15 +24,34 @@ import {
 import { FaRobot } from 'react-icons/fa'
 import Image from 'next/image'
 import { DialogComponent } from '@/components/getInTouchDialog'
+import MousePulse from '@/components/TextureTransition'
 import { useLocale, useTranslations } from 'next-intl'
 
 export default function HeroSection() {
   const t = useTranslations('pages.home.heroSection')
   const locale = useLocale()
+  const [mousePosition, setMousePosition] = useState({ x: 0.5, y: 0.5 })
+  const [isMouseActive, setIsMouseActive] = useState(false)
 
   const HomeImage = locale === 'es' ? homeImageEs : homeImageEn
-
   const commonT = useTranslations('common')
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLElement>) => {
+    const rect = event.currentTarget.getBoundingClientRect()
+    const x = (event.clientX - rect.left) / rect.width
+    const y = 1 - (event.clientY - rect.top) / rect.height // Invertir Y
+    
+    setMousePosition({ x, y })
+  }
+
+  const handleMouseEnter = () => {
+    setIsMouseActive(true)
+  }
+
+  const handleMouseLeave = () => {
+    setIsMouseActive(false)
+    setMousePosition({ x: 0.5, y: 0.5 })
+  }
 
   const skills = [
     { text: 'Python', Icon: SiPython },
@@ -75,24 +94,6 @@ export default function HeroSection() {
     },
   }
 
-  const socialIconVariants = {
-    hidden: { scale: 0 },
-    visible: {
-      scale: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 260,
-        damping: 20,
-      },
-    },
-    hover: {
-      scale: 1.1,
-      rotate: [0, -10, 10, -10, 0],
-      transition: {
-        duration: 0.4,
-      },
-    },
-  }
 
   const buttonVariants = {
     hidden: { scale: 0 },
@@ -125,9 +126,27 @@ export default function HeroSection() {
   }
 
   return (
-    <header className="relative flex min-h-screen w-full flex-col items-center justify-center bg-bg dark:bg-darkBg bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-[size:70px_70px] pt-16 lg:pt-0">
+    <header 
+      className="relative flex min-h-screen w-full flex-col items-center justify-center bg-bg dark:bg-darkBg bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-[size:70px_70px] pt-16 lg:pt-0 overflow-hidden"
+      onMouseEnter={handleMouseEnter}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Fondo interactivo con efecto de pulso */}
+      <div className="absolute inset-0 z-10">
+        <MousePulse
+          width={typeof window !== 'undefined' ? window.innerWidth : 1920}
+          height={typeof window !== 'undefined' ? window.innerHeight : 1080}
+          mouseX={mousePosition.x}
+          mouseY={mousePosition.y}
+          isActive={isMouseActive}
+          color="#7C4DFF"
+          className="w-full h-full"
+        />
+      </div>
+      
       <motion.div
-        className="mx-auto w-container max-w-full px-4 sm:px-6 py-[80px] sm:py-[100px] md:py-[110px] text-left lg:py-[120px] flex flex-col lg:flex-row"
+        className="relative z-30 mx-auto w-container max-w-full px-4 sm:px-6 py-[80px] sm:py-[100px] md:py-[110px] text-left lg:py-[120px] flex flex-col lg:flex-row pointer-events-none"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -164,7 +183,7 @@ export default function HeroSection() {
           <div className="flex flex-col items-center lg:items-start mb-8">
             <motion.div className="flex space-x-6 mb-6" variants={itemVariants}></motion.div>
 
-            <motion.div variants={buttonVariants} initial="hidden" animate="visible" whileTap="tap">
+            <motion.div variants={buttonVariants} initial="hidden" animate="visible" whileTap="tap" className="pointer-events-auto">
               <DialogComponent
                 triggerButtonText={commonT('contactButton')}
                 dialogTitle={commonT('contactDialog.title')}
@@ -206,7 +225,7 @@ export default function HeroSection() {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-0 left-0 w-full"
+        className="absolute bottom-0 left-0 w-full z-40 pointer-events-auto"
         variants={marqueeContainerVariants}
         initial="hidden"
         animate="visible"
