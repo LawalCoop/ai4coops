@@ -217,6 +217,9 @@ export default function HeroSection() {
               alt="cooperativism flag"
               loading="lazy"
               className="w-full h-auto"
+              width={500}
+              height={400}
+              style={{ maxWidth: '100%', height: 'auto' }}
             />
           </motion.div>
         </motion.div>

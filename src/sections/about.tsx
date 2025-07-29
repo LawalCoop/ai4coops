@@ -75,7 +75,9 @@ export default function About() {
                   src={AboutImage}
                   alt="Illustration"
                   width={800}
+                  height={600}
                   className="w-full h-auto rounded-lg"
+                  style={{ maxWidth: '100%', height: 'auto' }}
                   priority
                 />
               </motion.div>

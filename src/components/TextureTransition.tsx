@@ -277,7 +277,12 @@ const fragmentShaderSource = `
     // CONSTELACIÓN DE IA - Puntos brillantes conectados con patrones geométricos
     float constellationIntensity = 0.0;
     
-    // Red neuronal distribuida por toda la sección incluyendo márgenes y centro (6 nodos)
+    // Detectar si es una pantalla móvil basándose en la resolución
+    float isMobile = step(u_resolution.x, 768.0); // Si ancho < 768px es mobile
+    
+    // Solo mostrar la red neuronal en desktop
+    if (isMobile < 0.5) {
+      // Red neuronal distribuida por toda la sección incluyendo márgenes y centro (6 nodos)
     
     // Posiciones distribuidas cubriendo toda el área incluyendo márgenes
     vec2 node1Base = vec2(0.05, 0.75);  // Margen izquierdo superior
@@ -336,6 +341,8 @@ const fragmentShaderSource = `
     
     // Conexión diagonal adicional para mayor conectividad
     constellationIntensity += createTechSynapse(uv, node1, node4, 10.0, 0.0025, u_time, 0.5); // Diagonal larga
+    
+    } // Fin del if para desktop
     
     // Combinar constelación con las nubes
     cloudIntensity = max(cloudIntensity, constellationIntensity * 0.8);
