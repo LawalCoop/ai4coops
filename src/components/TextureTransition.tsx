@@ -86,33 +86,107 @@ const fragmentShaderSource = `
     return step(0.5, n);
   }
   
-  // Función para crear cometas
-  float comet(vec2 uv, vec2 start, vec2 end, float time, float speed, float size) {
-    // Calcular la posición actual del cometa
-    float t = mod(time * speed, 1.0);
-    vec2 cometPos = mix(start, end, t);
+  // Función para crear patrón de rombos
+  float diamondPattern(vec2 uv, float size, float time) {
+    // Transformar coordenadas para crear patrón de rombos
+    vec2 grid = uv * size;
+    vec2 gridId = floor(grid);
+    vec2 gridUv = fract(grid) - 0.5;
     
-    // Dirección del movimiento
-    vec2 direction = normalize(end - start);
+    // Crear forma de rombo usando distancia manhattan
+    float diamond = abs(gridUv.x) + abs(gridUv.y);
     
-    // Distancia del pixel actual al cometa
-    float distToComet = distance(uv, cometPos);
+    // Animar los rombos con diferentes fases
+    float phase = gridId.x * 0.5 + gridId.y * 0.3 + time * 0.2;
+    float animation = sin(phase) * 0.5 + 0.5;
     
-    // Crear la cabeza del cometa (punto brillante)
-    float head = 1.0 - smoothstep(0.0, size * 0.3, distToComet);
+    // Crear bordes del rombo con animación sutil
+    float edge = 1.0 - smoothstep(0.3, 0.35, diamond);
+    float innerGlow = (1.0 - smoothstep(0.2, 0.3, diamond)) * 0.3 * animation;
     
-    // Crear la cola del cometa
-    vec2 toPixel = uv - cometPos;
-    float tailProjection = dot(toPixel, -direction);
-    float tailDistance = length(toPixel - (-direction) * max(0.0, tailProjection));
+    return edge * 0.15 + innerGlow;
+  }
+  
+  // Función para crear neuronas con iluminación del mouse
+  float createTechNeuron(vec2 uv, vec2 pos, float phase, float intensity, float time, float activation, float mouseBoost) {
+    vec2 centered = uv - pos;
+    float dist = length(centered);
     
-    float tail = 0.0;
-    if (tailProjection > 0.0 && tailProjection < size * 2.0) {
-      tail = (1.0 - smoothstep(0.0, size * 0.5, tailDistance)) * 
-             (1.0 - smoothstep(0.0, size * 2.0, tailProjection)) * 0.6;
+    // Pulso suave con ocasional parpadeo digital
+    float basePulse = sin(time * 0.8 + phase) * 0.05 + 0.95;
+    float digitalFlash = step(0.95, sin(time * 4.0 + phase)) * 0.3;
+    float totalIntensity = intensity * (0.6 + activation * 0.4) * (basePulse + digitalFlash) * (1.0 + mouseBoost);
+    
+    // Núcleo principal más visible
+    float coreSize = 0.018 + mouseBoost * 0.008;
+    float core = (1.0 - smoothstep(0.0, coreSize, dist)) * totalIntensity;
+    
+    // Anillo intermedio con pequeño patrón hexagonal
+    float angle = atan(centered.y, centered.x);
+    float hexDetail = cos(angle * 6.0) * 0.05 + 0.95;
+    float ringSize = 0.032 + mouseBoost * 0.015;
+    float ring = (1.0 - smoothstep(coreSize, ringSize, dist)) * 0.7 * totalIntensity * hexDetail;
+    
+    // Halo exterior
+    float haloSize = 0.05 + mouseBoost * 0.025;
+    float halo = (1.0 - smoothstep(ringSize, haloSize, dist)) * 0.4 * totalIntensity;
+    
+    // Detalles tecnológicos muy sutiles
+    float techDetail = abs(sin(angle * 8.0)) * (1.0 - smoothstep(0.0, coreSize * 1.5, dist)) * 0.1 * totalIntensity;
+    
+    // Resplandor de activación
+    float activationGlow = (1.0 - smoothstep(0.0, 0.06, dist)) * activation * 0.3;
+    
+    // Resplandor extra del mouse
+    float mouseGlow = (1.0 - smoothstep(0.0, haloSize * 1.5, dist)) * mouseBoost * 0.3;
+    
+    return core + ring + halo + techDetail + activationGlow + mouseGlow;
+  }
+  
+  // Función para calcular iluminación del mouse
+  float calculateMouseIllumination(vec2 neuronPos, vec2 mousePos, float mouseInfluence) {
+    if (mouseInfluence > 0.0) {
+      float d = distance(mousePos, neuronPos);
+      float illuminationRadius = 0.25;
+      
+      if (d < illuminationRadius) {
+        float illuminationStrength = 1.0 - (d / illuminationRadius);
+        return smoothstep(0.0, 1.0, illuminationStrength) * 0.8; // Reducido de 2.0 a 0.8
+      }
     }
+    return 0.0;
+  }
+  
+  // Función para crear sinapsis con toque tecnológico sutil
+  float createTechSynapse(vec2 uv, vec2 start, vec2 end, float phase, float thickness, float time, float weight) {
+    vec2 pa = uv - start;
+    vec2 ba = end - start;
+    float h = clamp(dot(pa, ba) / dot(ba, ba), 0.0, 1.0);
+    float dist = length(pa - ba * h);
     
-    return head + tail;
+    // Línea base más visible
+    float baseLine = (1.0 - smoothstep(0.0, thickness, dist)) * 0.6 * weight;
+    
+    // Señal principal viajando
+    float signalPos = mod(time * 0.4 + phase, 1.0);
+    vec2 signalPosition = mix(start, end, signalPos);
+    float signalDist = distance(uv, signalPosition);
+    float signal = (1.0 - smoothstep(0.0, 0.02, signalDist)) * weight * 1.4;
+    
+    // Paquete de datos adicional (más tecnológico)
+    float dataPacketPos = mod(time * 0.6 + phase + 0.5, 1.0);
+    vec2 dataPosition = mix(start, end, dataPacketPos);
+    float dataDist = distance(uv, dataPosition);
+    float dataPacket = (1.0 - smoothstep(0.0, 0.015, dataDist)) * weight * 1.0;
+    
+    // Pulso sutil en la línea
+    float transmission = sin(h * 12.0 - time * 1.5 + phase) * 0.2 + 0.8;
+    float transmissionEffect = baseLine * transmission;
+    
+    // Resplandor tecnológico
+    float techGlow = (1.0 - smoothstep(0.0, thickness * 2.5, dist)) * 0.3 * weight;
+    
+    return transmissionEffect + signal + dataPacket + techGlow;
   }
   
   void main() {
@@ -199,37 +273,72 @@ const fragmentShaderSource = `
     backgroundNoise = mix(backgroundNoise, subtleGrid, 0.15);
     
     cloudIntensity += backgroundNoise * 0.2;
+
+    // CONSTELACIÓN DE IA - Puntos brillantes conectados con patrones geométricos
+    float constellationIntensity = 0.0;
     
-    // AGREGAR COMETAS OCASIONALES
-    float cometIntensity = 0.0;
+    // Red neuronal distribuida por toda la sección incluyendo márgenes y centro (6 nodos)
     
-    // Cometa 1 - Diagonal de arriba-izquierda a abajo-derecha
-    float comet1Time = u_time * 0.8 + 1.5; // Desfase para que no aparezcan todos juntos
-    cometIntensity += comet(uv, vec2(-0.2, 1.2), vec2(1.2, -0.2), comet1Time, 0.15, 0.08);
+    // Posiciones distribuidas cubriendo toda el área incluyendo márgenes
+    vec2 node1Base = vec2(0.05, 0.75);  // Margen izquierdo superior
+    vec2 node2Base = vec2(0.5, 0.9);    // Centro superior (margen top)
+    vec2 node3Base = vec2(0.95, 0.6);   // Margen derecho medio
+    vec2 node4Base = vec2(0.65, 0.3);   // Centro-derecha inferior
+    vec2 node5Base = vec2(0.25, 0.05);  // Centro-izquierda (margen bottom)
+    vec2 node6Base = vec2(0.45, 0.45);  // Centro absoluto
     
-    // Cometa 2 - Horizontal de izquierda a derecha
-    float comet2Time = u_time * 0.6 + 3.7;
-    cometIntensity += comet(uv, vec2(-0.3, 0.7), vec2(1.3, 0.6), comet2Time, 0.12, 0.06);
+    // Aplicar movimiento más notorio pero suave
+    vec2 node1 = node1Base + vec2(sin(u_time * 0.25) * 0.045, cos(u_time * 0.2) * 0.035);
+    vec2 node2 = node2Base + vec2(sin(u_time * 0.28 + 1.0) * 0.035, cos(u_time * 0.24 + 1.0) * 0.045);
+    vec2 node3 = node3Base + vec2(sin(u_time * 0.26 + 2.0) * 0.04, cos(u_time * 0.23 + 2.0) * 0.032);
+    vec2 node4 = node4Base + vec2(sin(u_time * 0.24 + 3.0) * 0.033, cos(u_time * 0.27 + 3.0) * 0.042);
+    vec2 node5 = node5Base + vec2(sin(u_time * 0.29 + 4.0) * 0.043, cos(u_time * 0.25 + 4.0) * 0.034);
+    vec2 node6 = node6Base + vec2(sin(u_time * 0.27 + 5.0) * 0.038, cos(u_time * 0.26 + 5.0) * 0.04);
     
-    // Cometa 3 - Diagonal de arriba-derecha a abajo-izquierda
-    float comet3Time = u_time * 0.7 + 7.2;
-    cometIntensity += comet(uv, vec2(1.2, 1.1), vec2(-0.2, 0.1), comet3Time, 0.18, 0.07);
+    // Activaciones neuronales dinámicas más lentas
+    float act1 = sin(u_time * 0.6 + 0.0) * 0.3 + 0.7;
+    float act2 = sin(u_time * 0.6 + 1.0) * 0.3 + 0.7;
+    float act3 = sin(u_time * 0.6 + 2.0) * 0.3 + 0.7;
+    float act4 = sin(u_time * 0.6 + 3.0) * 0.3 + 0.7;
+    float act5 = sin(u_time * 0.6 + 4.0) * 0.3 + 0.7;
+    float act6 = sin(u_time * 0.6 + 5.0) * 0.3 + 0.7;
     
-    // Cometa 4 - Vertical de arriba a abajo
-    float comet4Time = u_time * 0.5 + 12.1;
-    cometIntensity += comet(uv, vec2(0.3, 1.2), vec2(0.4, -0.2), comet4Time, 0.1, 0.05);
+    // Crear todas las neuronas con iluminación del mouse
+    float mouseBoost1 = calculateMouseIllumination(node1, mousePos, u_mouse_influence);
+    float mouseBoost2 = calculateMouseIllumination(node2, mousePos, u_mouse_influence);
+    float mouseBoost3 = calculateMouseIllumination(node3, mousePos, u_mouse_influence);
+    float mouseBoost4 = calculateMouseIllumination(node4, mousePos, u_mouse_influence);
+    float mouseBoost5 = calculateMouseIllumination(node5, mousePos, u_mouse_influence);
+    float mouseBoost6 = calculateMouseIllumination(node6, mousePos, u_mouse_influence);
     
-    // Los cometas también esquivan el mouse (opcional)
-    if (u_mouse_influence > 0.0) {
-      float distToMouse = distance(uv, mousePos);
-      if (distToMouse < 0.2) {
-        float mouseAvoidance = 1.0 - (distToMouse / 0.2);
-        cometIntensity *= (1.0 - mouseAvoidance * 0.7);
-      }
-    }
+    constellationIntensity += createTechNeuron(uv, node1, 0.0, 0.9, u_time, act1, mouseBoost1);
+    constellationIntensity += createTechNeuron(uv, node2, 1.0, 0.9, u_time, act2, mouseBoost2);
+    constellationIntensity += createTechNeuron(uv, node3, 2.0, 0.9, u_time, act3, mouseBoost3);
+    constellationIntensity += createTechNeuron(uv, node4, 3.0, 0.9, u_time, act4, mouseBoost4);
+    constellationIntensity += createTechNeuron(uv, node5, 4.0, 0.9, u_time, act5, mouseBoost5);
+    constellationIntensity += createTechNeuron(uv, node6, 5.0, 0.9, u_time, act6, mouseBoost6);
     
-    // Combinar cometas con las nubes
-    cloudIntensity = max(cloudIntensity, cometIntensity);
+    // Crear conexiones formando una red distribuida natural
+    
+    // Conexiones radiales desde el centro hacia los márgenes
+    constellationIntensity += createTechSynapse(uv, node6, node1, 0.0, 0.0018, u_time, 0.9);  // Centro a margen izq-sup
+    constellationIntensity += createTechSynapse(uv, node6, node2, 1.0, 0.0018, u_time, 0.8);  // Centro a margen sup
+    constellationIntensity += createTechSynapse(uv, node6, node3, 2.0, 0.0018, u_time, 0.9);  // Centro a margen derecho
+    constellationIntensity += createTechSynapse(uv, node6, node4, 3.0, 0.0018, u_time, 0.7);  // Centro a centro-der-inf
+    constellationIntensity += createTechSynapse(uv, node6, node5, 4.0, 0.0018, u_time, 0.8);  // Centro a margen inf
+    
+    // Conexiones perimetrales conectando los márgenes
+    constellationIntensity += createTechSynapse(uv, node1, node2, 5.0, 0.0018, u_time, 0.6);  // Margen izq-sup a sup
+    constellationIntensity += createTechSynapse(uv, node2, node3, 6.0, 0.0018, u_time, 0.7);  // Margen sup a derecho
+    constellationIntensity += createTechSynapse(uv, node3, node4, 7.0, 0.0018, u_time, 0.6);  // Margen der a centro-der-inf
+    constellationIntensity += createTechSynapse(uv, node4, node5, 8.0, 0.0018, u_time, 0.7);  // Centro-der-inf a margen inf
+    constellationIntensity += createTechSynapse(uv, node5, node1, 9.0, 0.0018, u_time, 0.5);  // Margen inf a izq-sup (cierra el círculo)
+    
+    // Conexión diagonal adicional para mayor conectividad
+    constellationIntensity += createTechSynapse(uv, node1, node4, 10.0, 0.0018, u_time, 0.5); // Diagonal larga
+    
+    // Combinar constelación con las nubes
+    cloudIntensity = max(cloudIntensity, constellationIntensity * 0.8);
     
     // Efecto adicional: reducir ligeramente la densidad cerca del mouse
     if (u_mouse_influence > 0.0) {
@@ -317,8 +426,17 @@ export default function MousePulse({
     console.log('✅ WebGL inicializado')
     glRef.current = gl
 
-    const containerWidth = canvas.parentElement?.clientWidth || width
-    const containerHeight = canvas.parentElement?.clientHeight || height
+    // Función para obtener dimensiones de forma segura
+    const getDimensions = () => {
+      if (typeof window === 'undefined') return { width: 1920, height: 1080 }
+      const parent = canvas.parentElement
+      return {
+        width: parent?.clientWidth || window.innerWidth || 1920,
+        height: parent?.clientHeight || window.innerHeight || 1080
+      }
+    }
+
+    const { width: containerWidth, height: containerHeight } = getDimensions()
     
     canvas.width = containerWidth
     canvas.height = containerHeight
@@ -459,7 +577,7 @@ export default function MousePulse({
         cancelAnimationFrame(animationRef.current)
       }
     }
-  }, [width, height])
+  }, [])
 
   // Ya no necesitamos este useEffect porque ahora usamos refs
 
@@ -474,7 +592,6 @@ export default function MousePulse({
       <canvas 
         ref={canvasRef}
         className="w-full h-full"
-        style={{ width, height }}
       />
     </motion.div>
   )
