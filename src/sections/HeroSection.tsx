@@ -135,8 +135,6 @@ export default function HeroSection() {
       {/* Fondo interactivo con efecto de pulso */}
       <div className="absolute inset-0 z-10">
         <MousePulse
-          width={typeof window !== 'undefined' ? window.innerWidth : 1920}
-          height={typeof window !== 'undefined' ? window.innerHeight : 1080}
           mouseX={mousePosition.x}
           mouseY={mousePosition.y}
           isActive={isMouseActive}
