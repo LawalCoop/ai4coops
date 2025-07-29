@@ -117,18 +117,18 @@ const fragmentShaderSource = `
     float digitalFlash = step(0.95, sin(time * 4.0 + phase)) * 0.3;
     float totalIntensity = intensity * (0.6 + activation * 0.4) * (basePulse + digitalFlash) * (1.0 + mouseBoost);
     
-    // Núcleo principal más visible
-    float coreSize = 0.018 + mouseBoost * 0.008;
+    // Núcleo principal más visible - tamaños aumentados para mobile
+    float coreSize = 0.028 + mouseBoost * 0.012; // Aumentado de 0.018
     float core = (1.0 - smoothstep(0.0, coreSize, dist)) * totalIntensity;
     
     // Anillo intermedio con pequeño patrón hexagonal
     float angle = atan(centered.y, centered.x);
     float hexDetail = cos(angle * 6.0) * 0.05 + 0.95;
-    float ringSize = 0.032 + mouseBoost * 0.015;
+    float ringSize = 0.045 + mouseBoost * 0.02; // Aumentado de 0.032
     float ring = (1.0 - smoothstep(coreSize, ringSize, dist)) * 0.7 * totalIntensity * hexDetail;
     
     // Halo exterior
-    float haloSize = 0.05 + mouseBoost * 0.025;
+    float haloSize = 0.07 + mouseBoost * 0.03; // Aumentado de 0.05
     float halo = (1.0 - smoothstep(ringSize, haloSize, dist)) * 0.4 * totalIntensity;
     
     // Detalles tecnológicos muy sutiles
@@ -164,20 +164,20 @@ const fragmentShaderSource = `
     float h = clamp(dot(pa, ba) / dot(ba, ba), 0.0, 1.0);
     float dist = length(pa - ba * h);
     
-    // Línea base más visible
-    float baseLine = (1.0 - smoothstep(0.0, thickness, dist)) * 0.6 * weight;
+    // Línea base más visible - grosor aumentado para mobile
+    float baseLine = (1.0 - smoothstep(0.0, thickness * 1.5, dist)) * 0.7 * weight; // Grosor x1.5 e intensidad aumentada
     
     // Señal principal viajando
     float signalPos = mod(time * 0.4 + phase, 1.0);
     vec2 signalPosition = mix(start, end, signalPos);
     float signalDist = distance(uv, signalPosition);
-    float signal = (1.0 - smoothstep(0.0, 0.02, signalDist)) * weight * 1.4;
+    float signal = (1.0 - smoothstep(0.0, 0.03, signalDist)) * weight * 1.5; // Aumentado de 0.02
     
     // Paquete de datos adicional (más tecnológico)
     float dataPacketPos = mod(time * 0.6 + phase + 0.5, 1.0);
     vec2 dataPosition = mix(start, end, dataPacketPos);
     float dataDist = distance(uv, dataPosition);
-    float dataPacket = (1.0 - smoothstep(0.0, 0.015, dataDist)) * weight * 1.0;
+    float dataPacket = (1.0 - smoothstep(0.0, 0.025, dataDist)) * weight * 1.2; // Aumentado de 0.015
     
     // Pulso sutil en la línea
     float transmission = sin(h * 12.0 - time * 1.5 + phase) * 0.2 + 0.8;
@@ -321,21 +321,21 @@ const fragmentShaderSource = `
     // Crear conexiones formando una red distribuida natural
     
     // Conexiones radiales desde el centro hacia los márgenes
-    constellationIntensity += createTechSynapse(uv, node6, node1, 0.0, 0.0018, u_time, 0.9);  // Centro a margen izq-sup
-    constellationIntensity += createTechSynapse(uv, node6, node2, 1.0, 0.0018, u_time, 0.8);  // Centro a margen sup
-    constellationIntensity += createTechSynapse(uv, node6, node3, 2.0, 0.0018, u_time, 0.9);  // Centro a margen derecho
-    constellationIntensity += createTechSynapse(uv, node6, node4, 3.0, 0.0018, u_time, 0.7);  // Centro a centro-der-inf
-    constellationIntensity += createTechSynapse(uv, node6, node5, 4.0, 0.0018, u_time, 0.8);  // Centro a margen inf
+    constellationIntensity += createTechSynapse(uv, node6, node1, 0.0, 0.0025, u_time, 0.9);  // Centro a margen izq-sup
+    constellationIntensity += createTechSynapse(uv, node6, node2, 1.0, 0.0025, u_time, 0.8);  // Centro a margen sup
+    constellationIntensity += createTechSynapse(uv, node6, node3, 2.0, 0.0025, u_time, 0.9);  // Centro a margen derecho
+    constellationIntensity += createTechSynapse(uv, node6, node4, 3.0, 0.0025, u_time, 0.7);  // Centro a centro-der-inf
+    constellationIntensity += createTechSynapse(uv, node6, node5, 4.0, 0.0025, u_time, 0.8);  // Centro a margen inf
     
     // Conexiones perimetrales conectando los márgenes
-    constellationIntensity += createTechSynapse(uv, node1, node2, 5.0, 0.0018, u_time, 0.6);  // Margen izq-sup a sup
-    constellationIntensity += createTechSynapse(uv, node2, node3, 6.0, 0.0018, u_time, 0.7);  // Margen sup a derecho
-    constellationIntensity += createTechSynapse(uv, node3, node4, 7.0, 0.0018, u_time, 0.6);  // Margen der a centro-der-inf
-    constellationIntensity += createTechSynapse(uv, node4, node5, 8.0, 0.0018, u_time, 0.7);  // Centro-der-inf a margen inf
-    constellationIntensity += createTechSynapse(uv, node5, node1, 9.0, 0.0018, u_time, 0.5);  // Margen inf a izq-sup (cierra el círculo)
+    constellationIntensity += createTechSynapse(uv, node1, node2, 5.0, 0.0025, u_time, 0.6);  // Margen izq-sup a sup
+    constellationIntensity += createTechSynapse(uv, node2, node3, 6.0, 0.0025, u_time, 0.7);  // Margen sup a derecho
+    constellationIntensity += createTechSynapse(uv, node3, node4, 7.0, 0.0025, u_time, 0.6);  // Margen der a centro-der-inf
+    constellationIntensity += createTechSynapse(uv, node4, node5, 8.0, 0.0025, u_time, 0.7);  // Centro-der-inf a margen inf
+    constellationIntensity += createTechSynapse(uv, node5, node1, 9.0, 0.0025, u_time, 0.5);  // Margen inf a izq-sup (cierra el círculo)
     
     // Conexión diagonal adicional para mayor conectividad
-    constellationIntensity += createTechSynapse(uv, node1, node4, 10.0, 0.0018, u_time, 0.5); // Diagonal larga
+    constellationIntensity += createTechSynapse(uv, node1, node4, 10.0, 0.0025, u_time, 0.5); // Diagonal larga
     
     // Combinar constelación con las nubes
     cloudIntensity = max(cloudIntensity, constellationIntensity * 0.8);
