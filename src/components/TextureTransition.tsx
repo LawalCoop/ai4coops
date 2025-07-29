@@ -273,7 +273,7 @@ const fragmentShaderSource = `
     backgroundNoise = mix(backgroundNoise, subtleGrid, 0.15);
     
     cloudIntensity += backgroundNoise * 0.2;
-    
+
     // CONSTELACIÓN DE IA - Puntos brillantes conectados con patrones geométricos
     float constellationIntensity = 0.0;
     
