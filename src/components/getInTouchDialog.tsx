@@ -15,7 +15,6 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { ReCaptchaDialog } from './ReCaptchaDialog'
-import emailjs from '@emailjs/browser'
 import { toast } from 'react-toastify'
 import { Loader2 } from 'lucide-react'
 
@@ -39,6 +38,7 @@ export function DialogComponent({
   const [input, setInput] = useState({ name: '', email: '', message: '' })
   const [isOpen, setIsOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [captchaToken, setCaptchaToken] = useState('')
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -66,44 +66,32 @@ export function DialogComponent({
       return
     }
 
-    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
-    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-
-    if (!serviceID || serviceID.trim() === '' || !templateID || templateID.trim() === '' || !publicKey || publicKey.trim() === '') {
-      toast.error('Email service configuration is missing. Please check environment variables.')
-      console.error('EmailJS configuration missing:', { serviceID: !!serviceID, templateID: !!templateID, publicKey: !!publicKey })
-      return
-    }
-
     setIsLoading(true)
 
     try {
-      const emailRes = await emailjs.send(
-        serviceID,
-        templateID,
-        {
-          to_name: 'LAWAL Coop',
-          from_name: input.name,
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: input.name,
           email: input.email,
           message: input.message,
-        },
-        publicKey
-      )
+          captchaToken,
+        }),
+      })
 
-      if (emailRes.status === 200) {
+      if (res.ok) {
         toast.success('Message sent successfully!')
         resetForm()
+        setCaptchaToken('')
         setIsOpen(false)
       } else {
-        toast.error(`Failed to send message. Status: ${emailRes.status}`)
+        const data = await res.json().catch(() => ({}))
+        toast.error(`Error: ${data.error || `Failed to send message (${res.status})`}`)
       }
     } catch (err: unknown) {
-      console.error('EmailJS error:', err)
-      const errorMessage =
-        (err as { text?: string; message?: string })?.text ||
-        (err as Error).message ||
-        'Failed to send message'
+      console.error('Contact form error:', err)
+      const errorMessage = (err as Error).message || 'Failed to send message'
       toast.error(`Error: ${errorMessage}`)
     } finally {
       setIsLoading(false)
@@ -115,7 +103,10 @@ export function DialogComponent({
       <ReCaptchaDialog
         triggerButtonText={triggerButtonText}
         buttonClassName={buttonClassName}
-        onVerified={() => setIsOpen(true)}
+        onVerified={token => {
+          setCaptchaToken(token)
+          setIsOpen(true)
+        }}
       />
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogPortal>

@@ -15,9 +15,6 @@ jobs:
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - run: |
           flyctl deploy --remote-only \
-            --build-arg NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY=${{ secrets.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY }} \
-            --build-arg NEXT_PUBLIC_EMAILJS_SERVICE_ID=${{ secrets.NEXT_PUBLIC_EMAILJS_SERVICE_ID }} \
-            --build-arg NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID }} \
-            --build-arg NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=${{ secrets.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY }}
+            --build-arg NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY=${{ secrets.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY }}
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}

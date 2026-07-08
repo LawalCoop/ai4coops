@@ -1,7 +1,8 @@
 # Google reCAPTCHA keys
 NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY=your_recaptcha_site_key
+RECAPTCHA_SECRET_KEY=your_recaptcha_secret_key
 
-# EmailJS keys
-NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_emailjs_service_id
-NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_emailjs_template_id
-NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_emailjs_public_key
+# Resend (email)
+RESEND_API_KEY=your_resend_api_key
+CONTACT_TO_EMAIL=destination@example.com
+RESEND_FROM=AI4Coops <onboarding@resend.dev>

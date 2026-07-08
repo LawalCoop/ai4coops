@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import ReCAPTCHA from 'react-google-recaptcha'
 
 interface ReCaptchaDialogProps {
-  onVerified: () => void
+  onVerified: (token: string) => void
   triggerButtonText: string
   buttonClassName?: string
 }
@@ -23,7 +23,7 @@ export function ReCaptchaDialog({
 
   const handleCaptchaChange = (value: string | null) => {
     if (value) {
-      onVerified()
+      onVerified(value)
       setIsCaptchaVisible(false)
     }
     setCaptchaError(null)
@@ -32,7 +32,7 @@ export function ReCaptchaDialog({
   const handleButtonClick = () => {
     if (!googleReCaptchaKey || googleReCaptchaKey.trim() === '') {
       console.warn('reCAPTCHA site key not configured, bypassing verification')
-      onVerified()
+      onVerified('')
       return
     }
     setIsCaptchaVisible(true)
