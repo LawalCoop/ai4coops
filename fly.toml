@@ -4,7 +4,7 @@
 #
 
 app = 'ai4coops'
-primary_region = 'eze'
+primary_region = 'dfw'
 
 [build]
 
